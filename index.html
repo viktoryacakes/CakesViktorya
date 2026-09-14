@@ -3,313 +3,469 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Виктория | Авторские торты на заказ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Виктория — Авторские торты на заказ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@500;600&display=swap');
+
         :root {
-            --bg-color: #f2ece4;
-            --card-bg: #faf6f0;
-            --text-main: #2b2320;
-            --text-muted: #6b5e59;
-            --accent: #875538;
-            --accent-bg: #e8ded1;
-            --border: #d6cac0;
-            --radius: 14px;
+            --sky: #e8f5f8;
+            --sky-deep: #d8edf2;
+            --white: #fff;
+            --cream: #fffdfa;
+            --ink: #26363b;
+            --muted: #718188;
+            --blue: #77b9c9;
+            --blue-dark: #3e7f91;
+            --pink: #f5dfe0;
+            --line: #cfe4e9;
+            --shadow: 0 12px 35px rgba(70, 116, 128, .10);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 24px 16px;
+            font-family: 'Manrope', sans-serif;
+            color: var(--ink);
+            background: var(--sky);
+            line-height: 1.65;
+            padding: 0 18px 45px;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            z-index: -1;
+            width: 460px;
+            height: 460px;
+            border-radius: 50%;
+            background: var(--pink);
+            opacity: .28;
+            top: -250px;
+            right: -160px;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            z-index: -1;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: #ccebf0;
+            opacity: .55;
+            bottom: -190px;
+            left: -130px;
         }
 
         .container {
-            max-width: 880px;
+            max-width: 1080px;
             margin: 0 auto;
         }
 
         header {
-            text-align: center;
-            padding: 20px 0 35px;
-            border-bottom: 1px solid var(--border);
+            text-align: left;
+            padding: 54px 8px 42px;
             margin-bottom: 30px;
+            position: relative;
         }
 
         .studio-tag {
-            font-size: 12px;
+            display: inline-block;
+            background: var(--white);
+            color: var(--blue-dark);
+            padding: 7px 13px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.7px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent);
-            margin-bottom: 8px;
-            font-weight: 600;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 14px rgba(62,127,145,.08);
         }
+
+        .studio-tag::before { content: "♡ "; }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 6px;
+            font-size: clamp(58px, 10vw, 96px);
+            line-height: .88;
+            font-weight: 500;
+            letter-spacing: -3px;
+            color: #315963;
+            margin-bottom: 22px;
         }
 
         header p {
-            color: var(--text-muted);
-            font-size: 14px;
+            color: var(--muted);
+            font-size: 13px;
+            max-width: 510px;
+            line-height: 1.8;
+        }
+
+        header::after {
+            content: "домашние торты • на заказ";
+            position: absolute;
+            right: 8px;
+            bottom: 48px;
+            color: var(--blue-dark);
+            font-size: 10px;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            transform: rotate(-5deg);
+            opacity: .7;
         }
 
         .info-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 24px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(43, 35, 32, 0.02);
+            background: var(--white);
+            border: 0;
+            border-radius: 6px;
+            padding: 34px;
+            margin-bottom: 64px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .info-card::before {
+            content: "ПРАЙС";
+            position: absolute;
+            top: -11px;
+            left: 25px;
+            background: var(--pink);
+            color: #9b6265;
+            padding: 4px 11px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            transform: rotate(-2deg);
         }
 
         .info-card h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            margin-bottom: 16px;
-            color: var(--text-main);
+            font-size: 30px;
+            font-weight: 500;
+            color: #315963;
+            margin-bottom: 24px;
         }
 
         .info-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            font-size: 14px;
-        }
-
-        @media(min-width: 600px) {
-            .info-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 13px;
         }
 
         .info-item {
-            background: var(--accent-bg);
-            padding: 12px 16px;
-            border-radius: 10px;
-            color: var(--text-main);
+            background: var(--sky);
+            border-left: 3px solid var(--blue);
+            border-radius: 3px;
+            padding: 17px 18px;
         }
+
+        .info-item:nth-child(2) { border-left-color: #e1a9ad; background: #fff4f4; }
+        .info-item:nth-child(3) { border-left-color: #a7c9a8; background: #f1f8f1; }
+        .info-item:nth-child(4) { border-left-color: #d5b77b; background: #fff9ed; }
 
         .info-item b {
             display: block;
-            color: var(--accent);
-            margin-bottom: 2px;
-            font-size: 12px;
+            color: #416e79;
+            font-size: 10px;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            margin-bottom: 5px;
         }
 
-        section {
-            margin-bottom: 45px;
-        }
+        section { margin-bottom: 72px; }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            margin-bottom: 18px;
+            font-size: clamp(31px, 5vw, 43px);
+            line-height: 1.1;
+            font-weight: 500;
+            color: #315963;
+            margin-bottom: 25px;
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 10px;
+            align-items: center;
+            gap: 17px;
+        }
+
+        .section-title::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            flex: 0 0 10px;
+            background: var(--blue);
+            border-radius: 50%;
+            box-shadow: 5px -3px 0 var(--pink);
         }
 
         .section-title span {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--accent);
-            background: var(--accent-bg);
-            padding: 3px 10px;
-            border-radius: 20px;
+            margin-left: auto;
+            white-space: nowrap;
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 3px;
+            color: var(--blue-dark);
+            padding: 7px 11px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 17px;
         }
 
         .card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
+            background: var(--white);
+            border: 0;
+            border-radius: 5px;
             overflow: hidden;
-            border: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 5px 22px rgba(70,116,128,.075);
+            transition: transform .25s ease, box-shadow .25s ease;
         }
 
         .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(43, 35, 32, 0.05);
+            transform: translateY(-5px) rotate(-.2deg);
+            box-shadow: 0 15px 32px rgba(70,116,128,.15);
         }
+
+        .card:nth-child(3n+2):hover { transform: translateY(-5px) rotate(.25deg); }
 
         .card-img-wrap {
             width: 100%;
-            height: 200px;
+            height: 255px;
             overflow: hidden;
-            background: #e3d8cd;
-            cursor: pointer;
+            background: var(--sky-deep);
+            cursor: zoom-in;
             position: relative;
+        }
+
+        .card-img-wrap::after {
+            content: "♡";
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            width: 30px;
+            height: 30px;
+            display: grid;
+            place-items: center;
+            background: rgba(255,255,255,.86);
+            color: var(--blue-dark);
+            border-radius: 50%;
+            font-size: 14px;
+            opacity: .9;
         }
 
         .card-img-wrap img {
             width: 100%;
             height: 100%;
+            display: block;
             object-fit: cover;
-            filter: contrast(1.03) saturate(1.05);
-            transition: transform 0.4s ease, filter 0.4s ease;
+            transition: transform .6s ease;
         }
 
-        .card:hover .card-img-wrap img {
-            transform: scale(1.04);
-            filter: contrast(1.05) saturate(1.1);
-        }
+        .card:hover .card-img-wrap img { transform: scale(1.035); }
 
         .card-content {
-            padding: 16px;
+            padding: 19px 20px 22px;
+            min-height: 128px;
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
         }
 
         .card-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: var(--text-main);
+            font-family: 'Playfair Display', serif;
+            color: #315963;
+            font-size: 22px;
+            line-height: 1.15;
+            margin-bottom: 8px;
         }
 
         .card-desc {
-            font-size: 13px;
-            color: var(--text-muted);
-            flex-grow: 1;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.7;
         }
 
-        /* Специальная карточка для бенто с одной большой картинкой */
         .bento-single-card {
-            max-width: 500px;
+            max-width: 690px;
             margin: 0 auto;
         }
 
-        .bento-single-card .card-img-wrap {
-            height: 280px;
+        .bento-single-card .card-img-wrap { height: 360px; }
+
+        .bento-single-card .card-content {
+            padding: 25px 28px 28px;
         }
 
         .bento-list {
             list-style: none;
-            padding: 0;
-            margin-top: 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 11px 24px;
         }
 
         .bento-list li {
-            font-size: 13px;
-            color: var(--text-muted);
+            color: var(--muted);
+            font-size: 12px;
+            padding-left: 18px;
             position: relative;
-            padding-left: 16px;
         }
 
         .bento-list li::before {
-            content: "•";
-            color: var(--accent);
-            font-weight: bold;
+            content: "♥";
             position: absolute;
             left: 0;
+            top: 1px;
+            color: #d69b9f;
+            font-size: 9px;
         }
 
-        .bento-list li b {
-            color: var(--text-main);
-        }
+        .bento-list li b { color: var(--ink); }
 
         footer {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 30px 20px;
+            background: #c9e7ed;
+            border: 0;
+            border-radius: 7px;
+            padding: 52px 24px 43px;
             text-align: center;
-            margin-top: 50px;
+            margin-top: 78px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: "♡";
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+            font-size: 180px;
+            color: rgba(255,255,255,.42);
+            right: -25px;
+            top: -80px;
+            transform: rotate(15deg);
         }
 
         footer h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            margin-bottom: 8px;
-            color: var(--text-main);
+            font-size: clamp(29px, 5vw, 41px);
+            line-height: 1.15;
+            font-weight: 500;
+            color: #315963;
+            max-width: 650px;
+            margin: 0 auto 12px;
+            position: relative;
         }
 
         footer p {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 16px;
+            color: #58747b;
+            font-size: 12px;
+            margin-bottom: 25px;
+            position: relative;
         }
 
         .phone-btn {
             display: inline-block;
-            background: var(--accent);
-            color: #fff;
+            background: #315963;
+            color: white;
             text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 15px;
-            letter-spacing: 0.5px;
-            transition: background 0.2s;
-            margin-bottom: 15px;
+            padding: 14px 27px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            transition: transform .2s ease, background .2s ease;
+            position: relative;
         }
 
         .phone-btn:hover {
-            background: #6e442c;
+            transform: translateY(-2px);
+            background: #23464f;
         }
 
         .footer-note {
-            font-size: 12px;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border);
-            padding-top: 15px;
-            margin-top: 15px;
+            color: #6c8a91;
+            border-top: 1px solid rgba(49,89,99,.16);
+            padding-top: 17px;
+            margin-top: 25px;
+            font-size: 9px;
+            letter-spacing: .7px;
+            position: relative;
         }
 
         .modal {
             display: none;
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(30, 24, 21, 0.85);
+            inset: 0;
+            background: rgba(34,58,64,.92);
             z-index: 1000;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 25px;
+            backdrop-filter: blur(7px);
         }
 
         .modal img {
-            max-width: 100%;
-            max-height: 90vh;
-            border-radius: 12px;
+            max-width: 94vw;
+            max-height: 89vh;
             object-fit: contain;
+            border-radius: 5px;
         }
 
         .modal-close {
             position: absolute;
-            top: 20px; right: 25px;
-            color: #fff;
-            font-size: 32px;
+            top: 20px;
+            right: 25px;
+            color: white;
+            font-size: 31px;
             cursor: pointer;
-            font-weight: 300;
+            opacity: .8;
+        }
+
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: repeat(2, 1fr); }
+            .card-img-wrap { height: 275px; }
+        }
+
+        @media (max-width: 650px) {
+            body { padding: 0 11px 25px; }
+
+            header {
+                padding: 42px 7px 38px;
+                text-align: left;
+            }
+
+            header h1 { font-size: 64px; }
+            header::after { display: none; }
+
+            .info-card {
+                padding: 27px 20px;
+                margin-bottom: 52px;
+            }
+
+            .info-grid, .grid, .bento-list { grid-template-columns: 1fr; }
+
+            .section-title {
+                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+
+            .section-title span { margin-left: 0; }
+
+            .card-img-wrap { height: 300px; }
+            .bento-single-card .card-img-wrap { height: 320px; }
+
+            footer {
+                margin-top: 55px;
+                padding: 45px 18px 38px;
+            }
         }
     </style>
 </head>
@@ -319,7 +475,7 @@
         <header>
             <div class="studio-tag">Кондитерская мастерская</div>
             <h1>Виктория</h1>
-            <p>Натуральные ингредиенты • Ручная работа • Свежие продукты</p>
+            <p>Натуральные ингредиенты &nbsp;•&nbsp; Ручная работа &nbsp;•&nbsp; Свежие продукты</p>
         </header>
 
         <div class="info-card">
@@ -349,49 +505,49 @@
             <h2 class="section-title">Классические начинки <span>1500 ₽ / кг</span></h2>
             <div class="grid">
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake1.jpg" alt="Мак-Лимон" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake1.png" alt="Мак-Лимон" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Мак-Лимон</div>
                         <div class="card-desc">Маковый бисквит с нежным лимонным курдом.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake2.jpg" alt="Клубника-Сливки" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake2.png" alt="Клубника-Сливки" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Клубника-Сливки</div>
                         <div class="card-desc">Ванильный бисквит, клубничный мусс со сливками, конфи из клубники, крем-чиз на сливках.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake3.jpg" alt="Молочная девочка" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake3.png" alt="Молочная девочка" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Молочная девочка</div>
                         <div class="card-desc">Ванильные коржи на сгущенном молоке, клубничное конфи, сметанно-сливочный крем.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake4.jpg" alt="Банан-Карамель" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake4.png" alt="Банан-Карамель" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Банан-Карамель</div>
                         <div class="card-desc">Влажные карамельные коржи, сливочный крем, тягучая карамель и бананы.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake5.jpg" alt="Ваниль / вишня" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake5.png" alt="Ваниль / вишня" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Ваниль / Вишня</div>
                         <div class="card-desc">Классический ванильный бисквит, крем-чиз и пикантный вишневый соус.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake6.jpg" alt="Банан / нутелла" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake6.png" alt="Банан / нутелла" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Банан / Нутелла</div>
                         <div class="card-desc">Шоколадный бисквит, спелый банан, нутелла и крем-чиз.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake7.jpg" alt="Бабл Гам" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake7.png" alt="Бабл Гам" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Бабл Гам</div>
                         <div class="card-desc">Нежная и яркая начинка с любимым вкусом детства.</div>
@@ -405,42 +561,42 @@
             <h2 class="section-title">Премиум начинки <span>1700 ₽ / кг</span></h2>
             <div class="grid">
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake8.jpg" alt="Орео" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake8.png" alt="Орео" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Орео</div>
                         <div class="card-desc">Шоколадные коржи и крем с кусочками культового печенья.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake9.jpg" alt="Малиновый рафаэлло" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake9.png" alt="Малиновый рафаэлло" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Малиновый Рафаэлло</div>
                         <div class="card-desc">Кокосовый бисквит, рафаэлло-крем, хрустящий слой, малиновое конфи, мусс и кокосовая пропитка.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake10.jpg" alt="Киндер кантри" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake10.png" alt="Киндер кантри" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Киндер Кантри</div>
                         <div class="card-desc">Шоколадный бисквит, ганаш, начинка в стиле Киндер Кантри, молочно-шоколадные пропитки и ванильный крем.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake11.jpg" alt="Сникерс" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake11.png" alt="Сникерс" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Сникерс</div>
                         <div class="card-desc">Шоколадный бисквит, обилие арахиса с карамелью, мусс на молочном шоколаде и арахисовый крем.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake12.jpg" alt="Фисташка-малина" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake12.png" alt="Фисташка-малина" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Фисташка-Малина</div>
                         <div class="card-desc">Ароматный фисташковый бисквит, сливочный крем-чиз, хрустящий слой и малиновое конфи.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake13.jpg" alt="Морковный" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake13.png" alt="Морковный" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Морковный</div>
                         <div class="card-desc">Пряный морковный бисквит, карамель с грецкими орехами, ванильный крем-чиз и вишневое конфи.</div>
@@ -449,12 +605,12 @@
             </div>
         </section>
 
-        <!-- 3. Бенто (с одной общей картинкой и полным списком) -->
+        <!-- 3. Бенто -->
         <section>
             <h2 class="section-title">Бенто-торты <span>12 см (400–500г)</span></h2>
             <div class="card bento-single-card">
                 <div class="card-img-wrap">
-                    <img src="images/bento1.jpg" alt="Начинки бенто-тортов" onclick="openModal(this)">
+                    <img src="images/bento1.png" alt="Начинки бенто-тортов" onclick="openModal(this)">
                 </div>
                 <div class="card-content">
                     <div class="card-title">Доступные начинки:</div>
@@ -471,10 +627,10 @@
 
         <footer>
             <h3>Остались вопросы или хотите сделать заказ?</h3>
-            <p>Свяжитесь со мной напрямую в мессенджерах или по телефону:</p>
+            <p>Свяжитесь со мной напрямую в мессенджерах или по телефону</p>
             <a href="tel:+79057436210" class="phone-btn">+7 (905) 743-62-10</a>
             <div class="footer-note">
-                Кондитерская мастерская Виктории • Сделано с любовью для ваших праздников
+                Кондитерская мастерская Виктории &nbsp;•&nbsp; Создано для ваших праздников
             </div>
         </footer>
     </div>
