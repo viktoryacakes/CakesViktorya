@@ -60,6 +60,7 @@
             left: -130px;
         }
 
+        /* Editorial details: irregular paper-like rhythm instead of a generic template */
         .container {
             max-width: 1080px;
             margin: 0 auto;
@@ -429,6 +430,74 @@
             opacity: .8;
         }
 
+
+        .info-card h3::after {
+            content: "✿";
+            display: inline-block;
+            margin-left: 12px;
+            color: #d79a9d;
+            font-size: 17px;
+            transform: rotate(-12deg) translateY(-2px);
+        }
+
+        section:nth-of-type(2) .section-title::before {
+            background: #e2a7aa;
+            box-shadow: 5px -3px 0 #b8dce3;
+        }
+
+        section:nth-of-type(3) .section-title::before {
+            background: #9fcaa5;
+            box-shadow: 5px -3px 0 #f0d6a7;
+        }
+
+        section:nth-of-type(1) .grid .card:nth-child(2),
+        section:nth-of-type(2) .grid .card:nth-child(4) {
+            transform: translateY(10px);
+        }
+
+        section:nth-of-type(1) .grid .card:nth-child(2):hover,
+        section:nth-of-type(2) .grid .card:nth-child(4):hover {
+            transform: translateY(3px) rotate(.25deg);
+        }
+
+        .bento-single-card {
+            position: relative;
+        }
+
+        .bento-single-card::after {
+            content: "для маленького праздника";
+            position: absolute;
+            right: -16px;
+            top: 28px;
+            background: #f5dfe0;
+            color: #87585b;
+            padding: 8px 12px;
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transform: rotate(4deg);
+            box-shadow: 0 5px 15px rgba(100,70,60,.08);
+        }
+
+        footer h3::before {
+            content: "✿";
+            display: block;
+            font-family: serif;
+            font-size: 22px;
+            color: #fff7f0;
+            margin-bottom: 9px;
+            opacity: .75;
+        }
+
+        @media (max-width: 650px) {
+            section:nth-of-type(1) .grid .card:nth-child(2),
+            section:nth-of-type(2) .grid .card:nth-child(4) {
+                transform: none;
+            }
+
+            .bento-single-card::after { right: 10px; top: 12px; }
+        }
+
         @media (max-width: 900px) {
             .grid { grid-template-columns: repeat(2, 1fr); }
             .card-img-wrap { height: 275px; }
@@ -505,49 +574,49 @@
             <h2 class="section-title">Классические начинки <span>1500 ₽ / кг</span></h2>
             <div class="grid">
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake1.png" alt="Мак-Лимон" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake1.jpg" alt="Мак-Лимон" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Мак-Лимон</div>
                         <div class="card-desc">Маковый бисквит с нежным лимонным курдом.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake2.png" alt="Клубника-Сливки" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake2.jpg" alt="Клубника-Сливки" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Клубника-Сливки</div>
                         <div class="card-desc">Ванильный бисквит, клубничный мусс со сливками, конфи из клубники, крем-чиз на сливках.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake3.png" alt="Молочная девочка" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake3.jpg" alt="Молочная девочка" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Молочная девочка</div>
                         <div class="card-desc">Ванильные коржи на сгущенном молоке, клубничное конфи, сметанно-сливочный крем.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake4.png" alt="Банан-Карамель" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake4.jpg" alt="Банан-Карамель" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Банан-Карамель</div>
                         <div class="card-desc">Влажные карамельные коржи, сливочный крем, тягучая карамель и бананы.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake5.png" alt="Ваниль / вишня" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake5.jpg" alt="Ваниль / вишня" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Ваниль / Вишня</div>
                         <div class="card-desc">Классический ванильный бисквит, крем-чиз и пикантный вишневый соус.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake6.png" alt="Банан / нутелла" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake6.jpg" alt="Банан / нутелла" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Банан / Нутелла</div>
                         <div class="card-desc">Шоколадный бисквит, спелый банан, нутелла и крем-чиз.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake7.png" alt="Бабл Гам" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake7.jpg" alt="Бабл Гам" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Бабл Гам</div>
                         <div class="card-desc">Нежная и яркая начинка с любимым вкусом детства.</div>
@@ -561,42 +630,42 @@
             <h2 class="section-title">Премиум начинки <span>1700 ₽ / кг</span></h2>
             <div class="grid">
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake8.png" alt="Орео" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake8.jpg" alt="Орео" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Орео</div>
                         <div class="card-desc">Шоколадные коржи и крем с кусочками культового печенья.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake9.png" alt="Малиновый рафаэлло" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake9.jpg" alt="Малиновый рафаэлло" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Малиновый Рафаэлло</div>
                         <div class="card-desc">Кокосовый бисквит, рафаэлло-крем, хрустящий слой, малиновое конфи, мусс и кокосовая пропитка.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake10.png" alt="Киндер кантри" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake10.jpg" alt="Киндер кантри" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Киндер Кантри</div>
                         <div class="card-desc">Шоколадный бисквит, ганаш, начинка в стиле Киндер Кантри, молочно-шоколадные пропитки и ванильный крем.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake11.png" alt="Сникерс" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake11.jpg" alt="Сникерс" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Сникерс</div>
                         <div class="card-desc">Шоколадный бисквит, обилие арахиса с карамелью, мусс на молочном шоколаде и арахисовый крем.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake12.png" alt="Фисташка-малина" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake12.jpg" alt="Фисташка-малина" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Фисташка-Малина</div>
                         <div class="card-desc">Ароматный фисташковый бисквит, сливочный крем-чиз, хрустящий слой и малиновое конфи.</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap"><img src="images/cake13.png" alt="Морковный" onclick="openModal(this)"></div>
+                    <div class="card-img-wrap"><img src="images/cake13.jpg" alt="Морковный" onclick="openModal(this)"></div>
                     <div class="card-content">
                         <div class="card-title">Морковный</div>
                         <div class="card-desc">Пряный морковный бисквит, карамель с грецкими орехами, ванильный крем-чиз и вишневое конфи.</div>
@@ -610,7 +679,7 @@
             <h2 class="section-title">Бенто-торты <span>12 см (400–500г)</span></h2>
             <div class="card bento-single-card">
                 <div class="card-img-wrap">
-                    <img src="images/bento1.png" alt="Начинки бенто-тортов" onclick="openModal(this)">
+                    <img src="images/bento1.jpg" alt="Начинки бенто-тортов" onclick="openModal(this)">
                 </div>
                 <div class="card-content">
                     <div class="card-title">Доступные начинки:</div>
