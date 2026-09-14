@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Виктория | Авторские торты на заказ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f2ece4;
+            --card-bg: #faf6f0;
+            --text-main: #2b2320;
+            --text-muted: #6b5e59;
+            --accent: #875538;
+            --accent-bg: #e8ded1;
+            --border: #d6cac0;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0 35px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+
+        .studio-tag {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(43, 35, 32, 0.02);
+        }
+
+        .info-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            font-size: 14px;
+        }
+
+        @media(min-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .info-item {
+            background: var(--accent-bg);
+            padding: 12px 16px;
+            border-radius: 10px;
+            color: var(--text-main);
+        }
+
+        .info-item b {
+            display: block;
+            color: var(--accent);
+            margin-bottom: 2px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        section {
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+
+        .section-title span {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            background: var(--accent-bg);
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(43, 35, 32, 0.05);
+        }
+
+        .card-img-wrap {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: #e3d8cd;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(1.03) saturate(1.05);
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+
+        .card:hover .card-img-wrap img {
+            transform: scale(1.04);
+            filter: contrast(1.05) saturate(1.1);
+        }
+
+        .card-content {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            flex-grow: 1;
+        }
+
+        /* Специальная карточка для бенто с одной большой картинкой */
+        .bento-single-card {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .bento-single-card .card-img-wrap {
+            height: 280px;
+        }
+
+        .bento-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .bento-list li {
+            font-size: 13px;
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .bento-list li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .bento-list li b {
+            color: var(--text-main);
+        }
+
+        footer {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .phone-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            transition: background 0.2s;
+            margin-bottom: 15px;
+        }
+
+        .phone-btn:hover {
+            background: #6e442c;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(30, 24, 21, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px; right: 25px;
+            color: #fff;
+            font-size: 32px;
+            cursor: pointer;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="studio-tag">Кондитерская мастерская</div>
+            <h1>Виктория</h1>
+            <p>Натуральные ингредиенты • Ручная работа • Свежие продукты</p>
+        </header>
+
+        <div class="info-card">
+            <h3>Условия заказа и прайс</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <b>Классические начинки</b>
+                    1500 ₽ / кг (мин. заказ — от 2 кг)
+                </div>
+                <div class="info-item">
+                    <b>Премиум начинки</b>
+                    1700 ₽ / кг (мин. заказ — от 2 кг)
+                </div>
+                <div class="info-item">
+                    <b>Декор</b>
+                    Простой — от 500 ₽ | Сложный — индивидуально
+                </div>
+                <div class="info-item">
+                    <b>Бенто-торты</b>
+                    Диаметр 12 см (вес 400–500 г)
+                </div>
+            </div>
+        </div>
+
+        <!-- 1. Классика -->
+        <section>
+            <h2 class="section-title">Классические начинки <span>1500 ₽ / кг</span></h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img-wrap"><img src="images/cake1.jpg" alt="Мак-Лимон" onclick="openModal(this)"></div>
+                    <div class="card-content">
+                        <div class="card-title">Мак-Лимон</div>
+                        <div class="card-desc">Маковый бисквит с нежным лимонным курдом.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-wrap"><img src="images/cake2.jpg" alt="Клубника-Сливки" onclick="openModal(this)"></div>
+                    <div class="card-content">
+                        <div class="card-title">Клубника-Сливки</div>
+                        <div class="card-desc">Ванильный бисквит, клубничный мусс со сливками, конфи из клубники, крем-чиз на сливках.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-wrap"><img src="images/cake3.jpg" alt="Молочная девочка" onclick="openModal(this)"></div>
+                    <div class="card-content">
+                        <div class="card-title">Молочная девочка</div>
+                        <div class="card-desc">Ванильные коржи на сгущенном молоке, клубничное конфи, сметанно-сливочный крем.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-wrap"><img src="images/cake4.jpg" alt="Банан-Карамель" onclick="openModal(this)"></div>
+                    <div class="card-content">
+                        <div class="card-title">Банан-Карамель</div>
+                        <div class="card-desc">Влажные карамельные коржи, сливочный крем, тягучая карамель и бананы.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-wrap"><img src="images/cake5.jpg" alt="Ваниль / вишня" onclick="openModal(this)"></div>
+                    <div class="card-content">
+                        <div class="card-title">Ваниль / Вишня</div>
+                        <div class="card-desc">Классический ванильный бисквит, крем-чиз и пикантный вишневый соус.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-wrap"><img src="images/cake6.jpg" alt="Банан / нутелла" onclick="openModal(this)"></div>
+                    <div class="card-content">
+                        <div class="card-title">Банан / Нутелла</div>
+                        <div class="card-desc">Шоколадный бисквит, спелый банан, нутелла и крем-чиз.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-wrap"><img src="images/cake7.jpg" alt="Бабл Гам" onclick="openModal(this)"></div>
+                    <div class="card-content">
+                        <div class="card-title">Бабл Гам</div>
+                        <div class="card-desc">Нежная и яркая начинка с любимым вкусом детства.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Премиум -->
+        <section>
+            <h2 class="section-title">Премиум начинки <span>1700 ₽ / кг</span></h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img-wrap"><img src="images/cake8.jpg" alt="Орео" onclick="openModal(this)"></div>
+                    <div class="card-content">
+                        <div class="card-title">Орео</div>
+                        <div class="card-desc">Шоколадные коржи и крем с кусочками культового печенья.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-wrap"><img src="images/cake9.jpg" alt="Малиновый рафаэлло" onclick="openModal(this)"></div>
+                    <div class="card-content">
+                        <div class="card-title">Малиновый Рафаэлло</div>
+                        <div class="card-desc">Кокосовый бисквит, рафаэлло-крем, хрустящий слой, малиновое конфи, мусс и кокосовая пропитка.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-wrap"><img src="images/cake10.jpg" alt="Киндер кантри" onclick="openModal(this)"></div>
+                    <div class="card-content">
+                        <div class="card-title">Киндер Кантри</div>
+                        <div class="card-desc">Шоколадный бисквит, ганаш, начинка в стиле Киндер Кантри, молочно-шоколадные пропитки и ванильный крем.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-wrap"><img src="images/cake11.jpg" alt="Сникерс" onclick="openModal(this)"></div>
+                    <div class="card-content">
+                        <div class="card-title">Сникерс</div>
+                        <div class="card-desc">Шоколадный бисквит, обилие арахиса с карамелью, мусс на молочном шоколаде и арахисовый крем.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-wrap"><img src="images/cake12.jpg" alt="Фисташка-малина" onclick="openModal(this)"></div>
+                    <div class="card-content">
+                        <div class="card-title">Фисташка-Малина</div>
+                        <div class="card-desc">Ароматный фисташковый бисквит, сливочный крем-чиз, хрустящий слой и малиновое конфи.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-wrap"><img src="images/cake13.jpg" alt="Морковный" onclick="openModal(this)"></div>
+                    <div class="card-content">
+                        <div class="card-title">Морковный</div>
+                        <div class="card-desc">Пряный морковный бисквит, карамель с грецкими орехами, ванильный крем-чиз и вишневое конфи.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Бенто (с одной общей картинкой и полным списком) -->
+        <section>
+            <h2 class="section-title">Бенто-торты <span>12 см (400–500г)</span></h2>
+            <div class="card bento-single-card">
+                <div class="card-img-wrap">
+                    <img src="images/bento1.jpg" alt="Начинки бенто-тортов" onclick="openModal(this)">
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Доступные начинки:</div>
+                    <ul class="bento-list">
+                        <li><b>Красный бархат</b> с вишней или клубникой</li>
+                        <li><b>Сникерс</b> (шоколад, карамель, арахис, крем-чиз)</li>
+                        <li><b>Ваниль-Клубника</b> (воздушный бисквит и ягодное конфи)</li>
+                        <li><b>Банан-Карамель</b> (нежный бисквит, банановое пюре, карамель)</li>
+                        <li><b>Шоколад-Вишня / Банан-Карамель</b></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <h3>Остались вопросы или хотите сделать заказ?</h3>
+            <p>Свяжитесь со мной напрямую в мессенджерах или по телефону:</p>
+            <a href="tel:+79057436210" class="phone-btn">+7 (905) 743-62-10</a>
+            <div class="footer-note">
+                Кондитерская мастерская Виктории • Сделано с любовью для ваших праздников
+            </div>
+        </footer>
+    </div>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img id="modalImg" src="" alt="Увеличенное фото">
+    </div>
+
+    <script>
+        function openModal(img) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            modal.style.display = 'flex';
+            modalImg.src = img.src;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
