@@ -411,6 +411,22 @@
 
         .bento-list li b { color: var(--ink); font-weight: 600; }
 
+        /* --- Секция "Примеры моих работ" с фоном из синих роз --- */
+        #portfolio {
+            background-image: linear-gradient(
+                rgba(232, 245, 248, 0.88), 
+                rgba(232, 245, 248, 0.90)
+            ), url('images/portfolio-bg-roses.jpg');
+            background-size: cover;
+            background-position: center;
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 40px 30px;
+            margin-bottom: 72px;
+            box-shadow: var(--shadow);
+            scroll-margin-top: 100px;
+        }
+
         footer {
             background: #bce1e8;
             border: 1px solid var(--line);
@@ -595,6 +611,7 @@
             .section-title span { margin-left: 0; }
             .card-img-wrap { height: 300px; }
             .bento-single-card .card-img-wrap { height: 320px; }
+            #portfolio { padding: 25px 15px; }
             footer { margin-top: 55px; padding: 45px 18px 38px; }
             .scroll-top-btn { bottom: 20px; right: 20px; width: 42px; height: 42px; }
         }
@@ -806,7 +823,7 @@
             </div>
         </section>
 
-        <!-- 4. Примеры моих работ -->
+        <!-- 4. Примеры моих работ (с фоном из роз) -->
         <section id="portfolio">
             <h2 class="section-title">Примеры моих работ <span>Королевская коллекция</span></h2>
             <div class="grid">
