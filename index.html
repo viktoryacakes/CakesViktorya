@@ -6,7 +6,8 @@
     <title>Виктория — Авторские торты на заказ</title>
     <!-- Иконка для вкладки браузера -->
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Подключаем Cormorant Garamond для изящных заголовков -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --sky: #e8f5f8;
@@ -66,6 +67,45 @@
             bottom: -190px; left: -130px;
         }
 
+        /* --- Навигация с полупрозрачным фоном роз --- */
+        .top-nav {
+            background-image: linear-gradient(
+                rgba(255, 255, 255, 0.85), 
+                rgba(232, 245, 248, 0.88)
+            ), url('images/nav-bg-roses.jpg');
+            background-size: cover;
+            background-position: center;
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 16px 25px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin: 20px 0 25px;
+            position: sticky;
+            top: 15px;
+            z-index: 100;
+            box-shadow: 0 10px 25px rgba(38, 54, 59, 0.12);
+            backdrop-filter: blur(5px);
+        }
+
+        .top-nav a {
+            color: #264a52;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            transition: all 0.3s ease;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+        }
+
+        .top-nav a:hover {
+            color: #b05c64;
+            transform: translateY(-2px);
+        }
+
         header {
             text-align: left;
             padding: 54px 35px 42px;
@@ -99,11 +139,11 @@
         .studio-tag::before { content: "♡ "; }
 
         header h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(48px, 8vw, 82px);
-            line-height: 1.05;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(52px, 8vw, 86px);
+            line-height: 1;
             font-weight: 700;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
             color: #264a52;
             margin-bottom: 22px;
         }
@@ -130,6 +170,7 @@
             opacity: .85;
         }
 
+        /* --- Прайс-лист --- */
         .info-card {
             background: var(--white);
             border: 1px solid var(--line);
@@ -138,6 +179,7 @@
             margin-bottom: 64px;
             box-shadow: var(--shadow);
             position: relative;
+            scroll-margin-top: 100px;
         }
 
         .info-card::before {
@@ -157,11 +199,11 @@
         }
 
         .info-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 24px;
-            font-weight: 600;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 700;
             color: #315963;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .info-grid {
@@ -195,18 +237,24 @@
             margin-bottom: 5px;
         }
 
-        section { margin-bottom: 72px; }
+        section { 
+            margin-bottom: 72px; 
+            scroll-margin-top: 100px;
+        }
 
+        /* --- Изящные заголовки категорий --- */
         .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(26px, 4vw, 36px);
-            line-height: 1.2;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(34px, 5vw, 44px);
+            line-height: 1.1;
             font-weight: 600;
-            color: #315963;
+            font-style: italic;
+            color: #264a52;
             margin-bottom: 25px;
             display: flex;
             align-items: center;
             gap: 17px;
+            letter-spacing: 0.2px;
         }
 
         .section-title::before {
@@ -226,10 +274,11 @@
             border: 1px solid var(--line);
             border-radius: 3px;
             color: var(--blue-dark);
-            padding: 7px 11px;
+            padding: 6px 12px;
             font-family: 'Montserrat', sans-serif;
             font-size: 9px;
             font-weight: 700;
+            font-style: normal;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
@@ -314,12 +363,12 @@
         }
 
         .card-title {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             color: #264a52;
-            font-size: 18px;
-            line-height: 1.25;
-            margin-bottom: 8px;
-            font-weight: 600;
+            font-size: 22px;
+            line-height: 1.15;
+            margin-bottom: 6px;
+            font-weight: 700;
         }
 
         .card-desc {
@@ -372,6 +421,7 @@
             position: relative;
             overflow: hidden;
             box-shadow: var(--shadow);
+            scroll-margin-top: 100px;
         }
 
         footer::before {
@@ -386,10 +436,10 @@
         }
 
         footer h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(24px, 4vw, 34px);
-            line-height: 1.2;
-            font-weight: 600;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(30px, 4vw, 40px);
+            line-height: 1.15;
+            font-weight: 700;
             color: #264a52;
             max-width: 650px;
             margin: 0 auto 12px;
@@ -434,6 +484,51 @@
             letter-spacing: .7px;
             position: relative;
             font-weight: 600;
+        }
+
+        /* --- Кнопка "Наверх" --- */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            background: var(--blue-dark);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 999;
+            box-shadow: 0 6px 20px rgba(62, 127, 145, 0.3);
+        }
+
+        .scroll-top-btn svg {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.2s ease;
+        }
+
+        .scroll-top-btn.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-top-btn:hover {
+            background: #264a52;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(62, 127, 145, 0.4);
+        }
+        
+        .scroll-top-btn:hover svg {
+            transform: translateY(-2px);
         }
 
         .modal {
@@ -490,8 +585,9 @@
 
         @media (max-width: 650px) {
             body { padding: 0 11px 25px; }
-            header { padding: 42px 20px 38px; text-align: left; }
-            header h1 { font-size: 44px; }
+            .top-nav { gap: 12px; flex-wrap: wrap; padding: 14px; }
+            header { padding: 42px 20px 38px; text-align: left; margin-top: 15px; }
+            header h1 { font-size: 48px; }
             header::after { display: none; }
             .info-card { padding: 27px 20px; margin-bottom: 52px; }
             .info-grid, .grid, .bento-list { grid-template-columns: 1fr; }
@@ -500,19 +596,30 @@
             .card-img-wrap { height: 300px; }
             .bento-single-card .card-img-wrap { height: 320px; }
             footer { margin-top: 55px; padding: 45px 18px 38px; }
+            .scroll-top-btn { bottom: 20px; right: 20px; width: 42px; height: 42px; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- Навигация с рамкой и фоном розами -->
+        <nav class="top-nav">
+            <a href="#prices">Прайс</a>
+            <a href="#classic">Классика</a>
+            <a href="#premium">Премиум</a>
+            <a href="#bento">Бенто</a>
+            <a href="#portfolio">Работы</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+
         <header>
             <div class="studio-tag">Кондитерская мастерская</div>
             <h1>Виктория</h1>
             <p>Натуральные ингредиенты &nbsp;•&nbsp; Ручная работа &nbsp;•&nbsp; Свежие продукты</p>
         </header>
 
-        <div class="info-card">
+        <div class="info-card" id="prices">
             <h3>Условия заказа и прайс</h3>
             <div class="info-grid">
                 <div class="info-item">
@@ -535,7 +642,7 @@
         </div>
 
         <!-- 1. Классика -->
-        <section>
+        <section id="classic">
             <h2 class="section-title">Классические начинки <span>1500 ₽ / кг</span></h2>
             <div class="grid">
                 <div class="card">
@@ -612,7 +719,7 @@
         </section>
 
         <!-- 2. Премиум -->
-        <section>
+        <section id="premium">
             <h2 class="section-title">Премиум начинки <span>1700 ₽ / кг</span></h2>
             <div class="grid">
                 <div class="card">
@@ -679,7 +786,7 @@
         </section>
 
         <!-- 3. Бенто -->
-        <section>
+        <section id="bento">
             <h2 class="section-title">Бенто-торты <span>12 см (400–500г)</span></h2>
             <div class="card bento-single-card">
                 <div class="card-img-wrap">
@@ -700,7 +807,7 @@
         </section>
 
         <!-- 4. Примеры моих работ -->
-        <section>
+        <section id="portfolio">
             <h2 class="section-title">Примеры моих работ <span>Королевская коллекция</span></h2>
             <div class="grid">
                 <div class="card">
@@ -736,7 +843,7 @@
             </div>
         </section>
 
-        <footer>
+        <footer id="contacts">
             <h3>Остались вопросы или хотите сделать заказ?</h3>
             <p>Свяжитесь со мной напрямую в мессенджерах или по телефону</p>
             <a href="tel:+79057436210" class="phone-btn">+7 (905) 743-62-10</a>
@@ -751,6 +858,13 @@
         <span class="modal-close">&times;</span>
         <img id="modalImg" src="" alt="Увеличенное фото">
     </div>
+
+    <!-- Кнопка наверх -->
+    <button id="scrollTopBtn" class="scroll-top-btn" title="Наверх" onclick="scrollToTop()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
 
     <script>
         function openModal(img) {
@@ -770,6 +884,20 @@
         function toggleLike(button) {
             button.classList.toggle('active');
             button.textContent = button.classList.contains('active') ? '♥' : '♡';
+        }
+
+        // Кнопка "Наверх"
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.getElementById('scrollTopBtn');
+            if (window.scrollY > 400) {
+                scrollBtn.classList.add('show');
+            } else {
+                scrollBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
