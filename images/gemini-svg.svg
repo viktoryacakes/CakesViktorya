@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Мягкий фон -->
+  <rect width="64" height="64" rx="14" fill="#3e7f91"/>
+  
+  <!-- Свечка (центральная линия) -->
+  <line x1="32" y1="12" x2="32" y2="22" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  <!-- Огонек свечи -->
+  <path d="M32 6 C30 9 29 11 32 12 C35 11 34 9 32 6 Z" fill="#f5dfe0"/>
+
+  <!-- Верхний ярус торта -->
+  <path d="M22 26 H42 C44 26 45 28 44 30 H20 C19 28 20 26 22 26 Z" fill="#f5dfe0"/>
+  
+  <!-- Нижний ярус торта (основа) -->
+  <path d="M16 34 H48 C50 34 52 36 50 48 C50 50 48 52 46 52 H18 C16 52 14 50 14 48 C12 36 14 34 16 34 Z" fill="#ffffff"/>
+  
+  <!-- Декоративная глазурь / полоска -->
+  <path d="M15 40 Q 32 44 49 40" fill="none" stroke="#c98288" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
