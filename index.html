@@ -9,7 +9,7 @@
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
     <!-- Подключаем Cormorant Garamond для изящных заголовков -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&amp;family=Inter:wght@300;400;500;600&amp;family=Montserrat:wght@500;600;700&amp;display=swap" rel="stylesheet">
     <style>
         :root {
             --sky: #e8f5f8;
@@ -69,7 +69,21 @@
             bottom: -190px; left: -130px;
         }
 
-        /* --- Навигация с полупрозрачным фоном роз --- */
+        /* --- Скрытие плашки HIXO --- */
+        div[class*="hixo"], 
+        a[href*="hixo.ru"], 
+        a[href*="hixo.dev"],
+        iframe[src*="hixo"],
+        .hixo-badge,
+        [class*="badge"],
+        [class*="watermark"] {
+            display: none !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            visibility: hidden !important;
+        }
+
+        /* --- Навигация с рамкой и фоном розами --- */
         .top-nav {
             background-image: linear-gradient(
                 rgba(255, 255, 255, 0.85), 
@@ -82,7 +96,9 @@
             padding: 16px 25px;
             display: flex;
             justify-content: center;
-            gap: 32px;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
             margin: 20px 0 25px;
             position: sticky;
             top: 15px;
@@ -106,6 +122,19 @@
         .top-nav a:hover {
             color: #b05c64;
             transform: translateY(-2px);
+        }
+
+        .nav-order-btn {
+            background: #315963;
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: 1px solid #23464f;
+            text-shadow: none !important;
+        }
+        .nav-order-btn:hover {
+            background: #23464f !important;
+            color: white !important;
         }
 
         header {
@@ -178,7 +207,7 @@
             border: 1px solid var(--line);
             border-radius: 6px;
             padding: 34px;
-            margin-bottom: 64px;
+            margin-bottom: 50px;
             box-shadow: var(--shadow);
             position: relative;
             scroll-margin-top: 100px;
@@ -237,6 +266,105 @@
             letter-spacing: 1.2px;
             text-transform: uppercase;
             margin-bottom: 5px;
+        }
+
+        /* --- Кастомный стильный видео-плеер 16:9 --- */
+        .video-section {
+            margin: 0 0 60px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+            background: #000;
+            cursor: pointer;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+        }
+
+        /* Центральная кнопка пуска/паузы/повтора (единый полупрозрачный стиль) */
+        .video-center-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(38, 54, 59, 0.65);
+            backdrop-filter: blur(5px);
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            z-index: 3;
+        }
+
+        .video-wrapper:hover .video-center-btn,
+        .video-wrapper.paused .video-center-btn {
+            opacity: 1;
+        }
+
+        .video-center-btn:hover {
+            background: rgba(62, 127, 145, 0.85);
+            transform: translate(-50%, -50%) scale(1.08);
+        }
+
+        .video-center-btn svg {
+            width: 30px;
+            height: 30px;
+            fill: currentColor;
+            stroke: currentColor;
+            stroke-width: 0;
+        }
+
+        /* Кнопка звука в правом нижнем углу */
+        .video-mute-btn {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(38, 54, 59, 0.65);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+            z-index: 3;
+        }
+
+        .video-mute-btn:hover {
+            background: rgba(62, 127, 145, 0.85);
+            transform: scale(1.05);
+        }
+
+        .video-mute-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
         }
 
         section { 
@@ -472,7 +600,15 @@
             font-weight: 500;
         }
 
-        .phone-btn {
+        .footer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .phone-btn, .order-main-btn {
             display: inline-block;
             background: #315963;
             color: white;
@@ -484,13 +620,21 @@
             font-weight: 700;
             letter-spacing: .8px;
             transition: transform 0.2s ease, background 0.2s ease;
-            position: relative;
             border: 1px solid #23464f;
+            cursor: pointer;
         }
 
-        .phone-btn:hover {
+        .phone-btn:hover, .order-main-btn:hover {
             transform: translateY(-2px);
             background: #23464f;
+        }
+
+        .order-main-btn {
+            background: #b05c64;
+            border-color: #934951;
+        }
+        .order-main-btn:hover {
+            background: #934951;
         }
 
         .footer-note {
@@ -549,6 +693,7 @@
             transform: translateY(-2px);
         }
 
+        /* --- Модальные окна (картинка и форма) --- */
         .modal {
             display: flex;
             position: fixed;
@@ -596,6 +741,91 @@
 
         .modal-close:hover { opacity: 1; }
 
+        /* Окно формы заказа */
+        .order-modal-content {
+            background: var(--white);
+            width: 100%;
+            max-width: 500px;
+            padding: 35px;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        .order-modal-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            color: #264a52;
+            margin-bottom: 8px;
+        }
+
+        .order-modal-content p {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #315963;
+            margin-bottom: 6px;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            padding: 12px;
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            color: var(--ink);
+            background: var(--sky);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: var(--blue-dark);
+            background: var(--white);
+        }
+
+        .submit-order-btn {
+            width: 100%;
+            background: #315963;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s ease;
+        }
+
+        .submit-order-btn:hover {
+            background: #23464f;
+        }
+
         @media (max-width: 900px) {
             .grid { grid-template-columns: repeat(2, 1fr); }
             .card-img-wrap { height: 275px; }
@@ -603,11 +833,11 @@
 
         @media (max-width: 650px) {
             body { padding: 0 11px 25px; }
-            .top-nav { gap: 12px; flex-wrap: wrap; padding: 14px; }
+            .top-nav { gap: 10px; flex-wrap: wrap; padding: 14px; justify-content: center; }
             header { padding: 42px 20px 38px; text-align: left; margin-top: 15px; }
             header h1 { font-size: 48px; }
             header::after { display: none; }
-            .info-card { padding: 27px 20px; margin-bottom: 52px; }
+            .info-card { padding: 27px 20px; margin-bottom: 40px; }
             .info-grid, .grid, .bento-list { grid-template-columns: 1fr; }
             .section-title { align-items: flex-start; flex-wrap: wrap; }
             .section-title span { margin-left: 0; }
@@ -630,6 +860,7 @@
             <a href="#bento">Бенто</a>
             <a href="#portfolio">Работы</a>
             <a href="#contacts">Контакты</a>
+            <a href="#" class="nav-order-btn" onclick="openOrderModal(event)">Оставить заявку</a>
         </nav>
 
         <header>
@@ -659,6 +890,24 @@
                 </div>
             </div>
         </div>
+
+        <!-- Кастомный видео-плеер 16:9 без заставки (1-й кадр видео) -->
+        <section class="video-section">
+            <div class="video-wrapper paused" id="videoWrapper" onclick="toggleVideoPlay(event)">
+                <video id="promoVideo" preload="metadata" playsinline muted>
+                    <source src="images/promo.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+                <!-- Центральная кнопка пуска/паузы/повтора -->
+                <button class="video-center-btn" id="centerPlayBtn" aria-label="Воспроизвести / Повторить">
+                    <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <!-- Кнопка звука (заглушить/включить) -->
+                <button class="video-mute-btn" id="muteBtn" onclick="toggleMute(event)" aria-label="Звук">
+                    <svg id="soundIcon" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                </button>
+            </div>
+        </section>
 
         <!-- 1. Классика -->
         <section id="classic">
@@ -864,18 +1113,81 @@
 
         <footer id="contacts">
             <h3>Остались вопросы или хотите сделать заказ?</h3>
-            <p>Свяжитесь со мной напрямую в мессенджерах или по телефону</p>
-            <a href="tel:+79057436210" class="phone-btn">+7 (905) 743-62-10</a>
+            <p>Свяжитесь со мной напрямую или оформите заявку на сайте</p>
+            <div class="footer-buttons">
+                <a href="tel:+79057436210" class="phone-btn">+7 (905) 743-62-10</a>
+                <button class="order-main-btn" onclick="openOrderModal(event)">Оставить заявку</button>
+            </div>
             <div class="footer-note">
                 Кондитерская мастерская Виктории &nbsp;•&nbsp; Создано для ваших праздников
             </div>
         </footer>
     </div>
 
-    <!-- Модальное окно -->
+    <!-- Модальное окно для увеличения фото -->
     <div id="imageModal" class="modal" onclick="closeModal()">
         <span class="modal-close">&times;</span>
         <img id="modalImg" src="" alt="Увеличенное фото">
+    </div>
+
+    <!-- Модальное окно для формы заявки -->
+    <div id="orderModal" class="modal" onclick="closeOrderModalOutside(event)">
+        <div class="order-modal-content">
+            <span class="modal-close" style="color: #264a52;" onclick="closeOrderModal()">&times;</span>
+            <h3>Оформление заказа</h3>
+            <p>Заполните форму, и заявка придет в Telegram.</p>
+            
+            <form id="cakeOrderForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="userName">Ваше имя *</label>
+                    <input type="text" id="userName" name="Имя заказчика" required placeholder="Как к вам обращаться?">
+                </div>
+
+                <div class="form-group">
+                    <label for="userContact">Телефон / Telegram *</label>
+                    <input type="text" id="userContact" name="Контакты" required placeholder="+7 (999) 000-00-00">
+                </div>
+
+                <div class="form-group">
+                    <label for="cakeFilling">Начинка</label>
+                    <select id="cakeFilling" name="Выбранная начинка">
+                        <option value="Не выбрана">Выберите начинку...</option>
+                        <optgroup label="Классика (1500 ₽/кг)">
+                            <option value="Мак-Лимон">Мак-Лимон</option>
+                            <option value="Клубника-Сливки">Клубника-Сливки</option>
+                            <option value="Молочная девочка">Молочная девочка</option>
+                            <option value="Банан-Карамель">Банан-Карамель</option>
+                            <option value="Ваниль / Вишня">Ваниль / Вишня</option>
+                            <option value="Банан / Нутелла">Банан / Нутелла</option>
+                            <option value="Бабл Гам">Бабл Гам</option>
+                        </optgroup>
+                        <optgroup label="Премиум (1700 ₽/кг)">
+                            <option value="Орео">Орео</option>
+                            <option value="Малиновый Рафаэлло">Малиновый Рафаэлло</option>
+                            <option value="Киндер Кантри">Киндер Кантри</option>
+                            <option value="Сникерс">Сникерс</option>
+                            <option value="Фисташка-Малина">Фисташка-Малина</option>
+                            <option value="Морковный">Морковный</option>
+                        </optgroup>
+                        <optgroup label="Бенто-торты">
+                            <option value="Бенто-торт">Бенто-торт (выбрать начинку)</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="cakeWeight">Примерный вес (кг)</label>
+                    <input type="text" id="cakeWeight" name="Вес торта" placeholder="Например: 2 кг или бенто">
+                </div>
+
+                <div class="form-group">
+                    <label for="cakeComment">Пожелания к дизайну / дата</label>
+                    <textarea id="cakeComment" name="Пожелания и дата" rows="3" placeholder="Надпись, декор, дата праздника..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-order-btn">Отправить заказ</button>
+            </form>
+        </div>
     </div>
 
     <!-- Кнопка наверх -->
@@ -886,6 +1198,46 @@
     </button>
 
     <script>
+        // Управление кастомным видео-плеером
+        const video = document.getElementById('promoVideo');
+        const wrapper = document.getElementById('videoWrapper');
+        const playIcon = document.getElementById('playIcon');
+        const soundIcon = document.getElementById('soundIcon');
+
+        function toggleVideoPlay(event) {
+            if (event.target.closest('#muteBtn')) return;
+
+            if (video.paused || video.ended) {
+                if (video.ended) {
+                    video.currentTime = 0;
+                }
+                video.play();
+                wrapper.classList.remove('paused');
+                playIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'; // Иконка паузы
+            } else {
+                video.pause();
+                wrapper.classList.add('paused');
+                playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>'; // Иконка play
+            }
+        }
+
+        // Событие окончания видео: показываем полупрозрачную круговую стрелку (повтор)
+        video.addEventListener('ended', function() {
+            wrapper.classList.add('paused');
+            playIcon.innerHTML = '<path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.23-5.23" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';
+        });
+
+        function toggleMute(event) {
+            event.stopPropagation();
+            video.muted = !video.muted;
+            if (video.muted) {
+                soundIcon.innerHTML = '<path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+            } else {
+                soundIcon.innerHTML = '<path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>';
+            }
+        }
+
+        // Работа с модальным окном картинок
         function openModal(img) {
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImg');
@@ -900,9 +1252,36 @@
             document.body.style.overflow = '';
         }
 
+        // Работа с модальным окном формы заявки
+        function openOrderModal(event) {
+            event.preventDefault();
+            document.getElementById('orderModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function closeOrderModalOutside(event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target === modal) {
+                closeOrderModal();
+            }
+        }
+
         function toggleLike(button) {
             button.classList.toggle('active');
             button.textContent = button.classList.contains('active') ? '♥' : '♡';
+        }
+
+        // Обработка отправки формы
+        function handleFormSubmit(event) {
+            setTimeout(function() {
+                closeOrderModal();
+                document.getElementById('cakeOrderForm').reset();
+            }, 400);
         }
 
         // Кнопка "Наверх"
