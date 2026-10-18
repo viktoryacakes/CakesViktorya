@@ -296,7 +296,7 @@
             pointer-events: none;
         }
 
-        /* Центральная кнопка пуска/паузы/повтора (единый полупрозрачный стиль) */
+        /* Центральная кнопка пуска/паузы/повтора */
         .video-center-btn {
             position: absolute;
             top: 50%;
@@ -891,7 +891,7 @@
             </div>
         </div>
 
-        <!-- Кастомный видео-плеер 16:9 без заставки (1-й кадр видео) -->
+        <!-- Кастомный видео-плеер 16:9 без заставок (1-й кадр видео) -->
         <section class="video-section">
             <div class="video-wrapper paused" id="videoWrapper" onclick="toggleVideoPlay(event)">
                 <video id="promoVideo" preload="metadata" playsinline muted>
@@ -1276,12 +1276,51 @@
             button.textContent = button.classList.contains('active') ? '♥' : '♡';
         }
 
-        // Обработка отправки формы
+        // Обработка отправки формы через Telegram-бота (для GitHub Pages)
         function handleFormSubmit(event) {
-            setTimeout(function() {
-                closeOrderModal();
-                document.getElementById('cakeOrderForm').reset();
-            }, 400);
+            event.preventDefault();
+
+            const name = document.getElementById('userName').value;
+            const contact = document.getElementById('userContact').value;
+            const filling = document.getElementById('cakeFilling').value;
+            const weight = document.getElementById('cakeWeight').value;
+            const comment = document.getElementById('cakeComment').value;
+
+            // Вставьте сюда токен вашего бота и ваш Chat ID
+            const BOT_TOKEN = 'ВСТАВЬ_ТОКЕН_БОТА_СЮДА';
+            const CHAT_ID = 'ВСТАВЬ_СВОЙ_CHAT_ID_СЮДА';
+
+            const message = `✨ *Новая заявка с сайта!*\n\n` +
+                            `👤 *Имя:* ${name}\n` +
+                            `📞 *Контакт:* ${contact}\n` +
+                            `🎂 *Начинка:* ${filling}\n` +
+                            `⚖️ *Вес:* ${weight || 'Не указан'}\n` +
+                            `💬 *Пожелания:* ${comment || 'Нет'}`;
+
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: message,
+                    parse_mode: 'Markdown'
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Спасибо! Ваша заявка успешно отправлена, скоро я с вами свяжусь.');
+                    closeOrderModal();
+                    document.getElementById('cakeOrderForm').reset();
+                } else {
+                    alert('Ошибка отправки. Пожалуйста, свяжитесь со мной по телефону из контактов.');
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                alert('Не удалось отправить заявку из-за ошибки сети.');
+            });
         }
 
         // Кнопка "Наверх"
