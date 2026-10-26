@@ -30,7 +30,7 @@
         body {
             font-family: 'Inter', sans-serif;
             color: var(--ink);
-            /* Мягкий и комфортный для глаз градиент */
+            /* Очень мягкий, приглушенный и комфортный для глаз градиент */
             background: linear-gradient(
                 180deg, 
                 #f8f7f2 0%, 
@@ -779,7 +779,6 @@
         }
 
         @media (max-width: 768px) {
-            /* Перенос шапки в аккуратную компактную вертикальную компоновку для телефонов */
             .top-nav {
                 flex-direction: column;
                 align-items: stretch;
@@ -1132,6 +1131,36 @@
                         <div class="card-desc">Элегантное оформление и фирменная упаковка, создающие атмосферу роскоши и незабываемого праздника.</div>
                     </div>
                 </div>
+                <div class="card">
+                    <div class="card-img-wrap">
+                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
+                        <img src="images/work4.gif" alt="Авторский декор" onclick="openModal(this)">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title">Авторский декор</div>
+                        <div class="card-desc">Уникальное оформление под стиль вашего праздника, гармонично дополняющее общую атмосферу.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-wrap">
+                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
+                        <img src="images/work5.gif" alt="Праздничное настроение" onclick="openModal(this)">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title">Праздничное настроение</div>
+                        <div class="card-desc">Яркие акценты и утонченные детали, которые делают каждое торжество поистине незабываемым.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-wrap">
+                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
+                        <img src="images/work6.gif" alt="Изысканная классика" onclick="openModal(this)">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title">Изысканная классика</div>
+                        <div class="card-desc">Строгие линии, безупречное исполнение и внимание к каждому нюансу вашего заказа.</div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1322,7 +1351,7 @@
             const weight = document.getElementById('cakeWeight').value;
             const comment = document.getElementById('cakeComment').value;
 
-            const BOT_TOKEN = '8877774740:AAHKVLOcKtS1J1mlKt04zObwusq1Tbnc2H8';
+            const BOT_TOKEN = 'ВСТАВЬТЕ_НОВЫЙ_ТОКЕН_БОТА';
             const CHAT_ID = '1193749282';
 
             const message = `✨ *Новая заявка с сайта!*\n\n` +
