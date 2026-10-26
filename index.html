@@ -30,13 +30,13 @@
         body {
             font-family: 'Inter', sans-serif;
             color: var(--ink);
-            /* Мягкий градиент: от светлого в начале -> к небесно-голубому в центре -> снова к светлому внизу */
+            /* Очень мягкий, приглушенный и комфортный для глаз градиент */
             background: linear-gradient(
                 180deg, 
                 #f8f7f2 0%, 
-                #f8f7f2 18%, 
-                #d5e6ed 48%, 
-                #d5e6ed 75%, 
+                #f8f7f2 15%, 
+                #eef2f4 50%, 
+                #eef2f4 75%, 
                 #f8f7f2 100%
             );
             background-attachment: fixed;
@@ -1141,3 +1141,218 @@
     <!-- Модальное окно для увеличения фото -->
     <div id="imageModal" class="modal" onclick="closeModal()">
         <span class="modal-close">&times;</span>
+        <img id="modalImg" src="" alt="Увеличенное фото">
+    </div>
+
+    <!-- Модальное окно для формы заявки -->
+    <div id="orderModal" class="modal" onclick="closeOrderModalOutside(event)">
+        <div class="order-modal-content">
+            <span class="modal-close" style="color: #264a52;" onclick="closeOrderModal()">&times;</span>
+            <h3>Оформление заказа</h3>
+            <p>Заполните форму, и заявка придет в Telegram.</p>
+            
+            <form id="cakeOrderForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="userName">Ваше имя *</label>
+                    <input type="text" id="userName" name="Имя заказчика" required placeholder="Как к вам обращаться?">
+                </div>
+
+                <div class="form-group">
+                    <label for="userContact">Телефон / Telegram *</label>
+                    <input type="text" id="userContact" name="Контакты" required placeholder="+7 (999) 000-00-00">
+                </div>
+
+                <div class="form-group">
+                    <label for="cakeFilling">Начинка</label>
+                    <select id="cakeFilling" name="Выбранная начинка">
+                        <option value="Не выбрана">Выберите начинку...</option>
+                        <optgroup label="Классика (1500 ₽/кг)">
+                            <option value="Мак-Лимон">Мак-Лимон</option>
+                            <option value="Клубника-Сливки">Клубника-Сливки</option>
+                            <option value="Молочная девочка">Молочная девочка</option>
+                            <option value="Банан-Карамель">Банан-Карамель</option>
+                            <option value="Ваниль / Вишня">Ваниль / Вишня</option>
+                            <option value="Банан / Нутелла">Банан / Нутелла</option>
+                            <option value="Бабл Гам">Бабл Гам</option>
+                        </optgroup>
+                        <optgroup label="Премиум (1700 ₽/кг)">
+                            <option value="Орео">Орео</option>
+                            <option value="Малиновый Рафаэлло">Малиновый Рафаэлло</option>
+                            <option value="Киндер Кантри">Киндер Кантри</option>
+                            <option value="Сникерс">Сникерс</option>
+                            <option value="Фисташка-Малина">Фисташка-Малина</option>
+                            <option value="Морковный">Морковный</option>
+                        </optgroup>
+                        <optgroup label="Бенто-торты (1100 ₽)">
+                            <option value="Бенто-торт">Бенто-торт (выбрать начинку)</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="cakeWeight">Примерный вес (кг)</label>
+                    <input type="text" id="cakeWeight" name="Вес торта" placeholder="Например: 2 кг или бенто">
+                </div>
+
+                <div class="form-group">
+                    <label for="cakeComment">Пожелания к дизайну / дата</label>
+                    <textarea id="cakeComment" name="Пожелания и дата" rows="3" placeholder="Надпись, декор, дата праздника..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-order-btn">Отправить заказ</button>
+                <div class="form-privacy-note">
+                    Нажимая кнопку, вы соглашаетесь с <a href="#" onclick="openPrivacyModal(event)">политикой конфиденциальности</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно политики конфиденциальности -->
+    <div id="privacyModal" class="modal" onclick="closePrivacyModalOutside(event)">
+        <div class="order-modal-content">
+            <span class="modal-close" style="color: #264a52;" onclick="closePrivacyModal()">&times;</span>
+            <h3>Политика конфиденциальности</h3>
+            <div class="privacy-policy-text">
+                <h4>1. Общие положения</h4>
+                <p>Настоящая политика конфиденциальности определяет, как кондитерская мастерская собирает, использует и защищает информацию, которую вы предоставляете при использовании этого сайта.</p>
+                
+                <h4>2. Собираемая информация</h4>
+                <p>Мы собираем только те данные, которые вы добровольно указываете в форме заказа: ваше имя и контактные данные (телефон или аккаунт в Telegram), а также детали заказа.</p>
+                
+                <h4>3. Использование данных</h4>
+                <p>Указанные данные используются исключительно для связи с вами по поводу оформления, изготовления и доставки вашего заказа. Мы не передаем ваши личные данные третьим лицам.</p>
+                
+                <h4>4. Согласие</h4>
+                <p>Оставляя заявку на сайте, вы даете согласие на обработку своих персональных данных для целей выполнения вашего заказа.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Кнопка наверх -->
+    <button id="scrollTopBtn" class="scroll-top-btn" title="Наверх" onclick="scrollToTop()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script>
+        // Работа с модальным окном картинок
+        function openModal(img) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            modalImg.src = img.src;
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // Работа с модальным окном формы заявки
+        function openOrderModal(event) {
+            event.preventDefault();
+            document.getElementById('orderModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function closeOrderModalOutside(event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target === modal) {
+                closeOrderModal();
+            }
+        }
+
+        // Работа с модальным окном политики конфиденциальности
+        function openPrivacyModal(event) {
+            event.preventDefault();
+            document.getElementById('privacyModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePrivacyModal() {
+            document.getElementById('privacyModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function closePrivacyModalOutside(event) {
+            const modal = document.getElementById('privacyModal');
+            if (event.target === modal) {
+                closePrivacyModal();
+            }
+        }
+
+        function toggleLike(button) {
+            button.classList.toggle('active');
+            button.textContent = button.classList.contains('active') ? '♥' : '♡';
+        }
+
+        // Обработка отправки формы через Telegram-бота
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('userName').value;
+            const contact = document.getElementById('userContact').value;
+            const filling = document.getElementById('cakeFilling').value;
+            const weight = document.getElementById('cakeWeight').value;
+            const comment = document.getElementById('cakeComment').value;
+
+            const BOT_TOKEN = 'ВСТАВЬТЕ_НОВЫЙ_ТОКЕН_БОТА';
+            const CHAT_ID = '1193749282';
+
+            const message = `✨ *Новая заявка с сайта!*\n\n` +
+                            `👤 *Имя:* ${name}\n` +
+                            `📞 *Контакт:* ${contact}\n` +
+                            `🎂 *Начинка:* ${filling}\n` +
+                            `⚖️ *Вес:* ${weight || 'Не указан'}\n` +
+                            `💬 *Пожелания:* ${comment || 'Нет'}`;
+
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: message,
+                    parse_mode: 'Markdown'
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Спасибо! Ваша заявка успешно отправлена, скоро я с вами свяжусь.');
+                    closeOrderModal();
+                    document.getElementById('cakeOrderForm').reset();
+                } else {
+                    alert('Ошибка отправки. Пожалуйста, свяжитесь со мной по телефону из контактов.');
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                alert('Не удалось отправить заявку из-за ошибки сети.');
+            });
+        }
+
+        // Кнопка "Наверх"
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.getElementById('scrollTopBtn');
+            if (window.scrollY > 400) {
+                scrollBtn.classList.add('show');
+            } else {
+                scrollBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
