@@ -847,27 +847,483 @@
             footer { margin-top: 55px; padding: 45px 18px 38px; }
             .scroll-top-btn { bottom: 20px; right: 20px; width: 42px; height: 42px; }
         }
-    </style>
+
+        /* --- Обновлённый редакционный стиль --- */
+        :root {
+            --sky: #f8f7f2;
+            --sky-deep: #e9eff0;
+            --white: #fffefa;
+            --ink: #303a3d;
+            --muted: #707b7d;
+            --blue-dark: #496b78;
+            --pink: #e8d8d5;
+            --line: #dce2df;
+            --shadow: 0 12px 35px rgba(47, 65, 68, .07);
+        }
+
+        body {
+            background: #f8f7f2;
+            color: var(--ink);
+            padding: 0 30px 40px;
+            line-height: 1.65;
+        }
+        body::before, body::after { display: none; }
+        .container { max-width: 1240px; }
+        .top-nav {
+            position: sticky;
+            top: 0;
+            margin: 0 0 28px;
+            padding: 19px 0;
+            background: rgba(248,247,242,.94);
+            background-image: none;
+            border: 0;
+            border-bottom: 1px solid #e2e4df;
+            border-radius: 0;
+            box-shadow: none;
+            backdrop-filter: blur(12px);
+            justify-content: space-between;
+            gap: 28px;
+        }
+        .brand-mark {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            flex-shrink: 0;
+            text-decoration: none;
+            text-shadow: none !important;
+            text-transform: none !important;
+            letter-spacing: 0 !important;
+            color: var(--ink) !important;
+        }
+        .brand-name {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 29px;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -.5px;
+        }
+        .brand-caption {
+            margin-top: 5px;
+            color: #788589;
+            font-family: 'Inter', sans-serif;
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+        .nav-links { display: flex; align-items: center; justify-content: flex-end; gap: clamp(13px, 2vw, 27px); flex-wrap: wrap; }
+        .top-nav .nav-links a {
+            color: #4e5b5e;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: none;
+            letter-spacing: .2px;
+            text-shadow: none;
+        }
+        .top-nav .nav-links a:hover { color: #496b78; transform: none; }
+        .top-nav .nav-links .nav-order-btn {
+            padding: 11px 17px;
+            color: white !important;
+            background: #496b78;
+            border: 1px solid #496b78;
+            border-radius: 2px;
+        }
+        .top-nav .nav-links .nav-order-btn:hover { background: #354f59 !important; }
+
+        header.hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.04fr) minmax(320px, .96fr);
+            gap: clamp(35px, 7vw, 100px);
+            align-items: center;
+            min-height: 490px;
+            padding: 36px 0 66px;
+            margin-bottom: 54px;
+            background: none;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            overflow: visible;
+            text-align: left;
+        }
+        .hero-copy { max-width: 590px; }
+        .hero-eyebrow, .section-kicker {
+            margin: 0 0 16px;
+            color: #66838d;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.7px;
+            text-transform: uppercase;
+        }
+        header.hero h1 {
+            max-width: 680px;
+            margin: 0 0 22px;
+            color: #2e4147;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(48px, 6.2vw, 79px);
+            font-weight: 600;
+            line-height: .99;
+            letter-spacing: -1.2px;
+        }
+        header.hero h1 em { color: #66838d; font-weight: 600; }
+        header.hero .hero-description {
+            max-width: 440px;
+            margin: 0;
+            color: #667174;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.9;
+        }
+        .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 29px; }
+        .hero-primary {
+            display: inline-block;
+            padding: 14px 21px;
+            background: #496b78;
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            transition: background .2s ease;
+        }
+        .hero-primary:hover { background: #354f59; }
+        .hero-secondary { color: #43575d; font-size: 12px; text-decoration: none; border-bottom: 1px solid #bdc9c8; padding: 7px 0; }
+        .hero-secondary span { margin-left: 8px; }
+        .hero-note { margin-top: 29px; color: #8a9494; font-size: 10px; letter-spacing: .3px; }
+        .hero-image { position: relative; min-width: 0; }
+        .hero-image img {
+            display: block;
+            width: 100%;
+            height: clamp(350px, 43vw, 510px);
+            object-fit: cover;
+            border-radius: 2px;
+            border: 0;
+        }
+        .hero-image-note {
+            position: absolute;
+            right: -18px;
+            bottom: 22px;
+            padding: 15px 19px;
+            background: #fffefa;
+            color: #617176;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 17px;
+            font-style: italic;
+            line-height: 1.2;
+            box-shadow: 0 7px 25px rgba(47,65,68,.08);
+        }
+        header.hero::after { display: none; }
+        .info-card {
+            margin: 0 0 60px;
+            padding: 28px 0 31px;
+            background: transparent;
+            border: 0;
+            border-top: 1px solid #dce2df;
+            border-bottom: 1px solid #dce2df;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .info-card::before { display: none; }
+        .info-card h3 {
+            margin-bottom: 21px;
+            color: #354a50;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 31px;
+            font-weight: 600;
+        }
+        .info-grid { gap: 0 30px; }
+        .info-item, .info-item:nth-child(n) {
+            padding: 14px 0;
+            background: transparent;
+            border: 0;
+            border-bottom: 1px solid #e6e8e3;
+            border-radius: 0;
+            color: #657174;
+            font-size: 12px;
+        }
+        .info-item b {
+            color: #3f5b64;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            letter-spacing: .7px;
+        }
+        .info-item:hover { transform: none; }
+        .video-section { margin-bottom: 78px; }
+        .video-wrapper {
+            border: 0;
+            border-radius: 2px;
+            box-shadow: none;
+        }
+        section { margin-bottom: 92px; }
+        .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 25px; margin-bottom: 8px; }
+        .section-kicker { margin-bottom: 8px; font-size: 9px; letter-spacing: 1.5px; }
+        .section-title {
+            display: block;
+            margin: 0;
+            color: #30454b;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(35px, 4vw, 48px);
+            font-style: normal;
+            font-weight: 600;
+            line-height: 1.05;
+            letter-spacing: -.3px;
+        }
+        .section-title::before { display: none; }
+        .section-title span { display: none; }
+        .section-price {
+            flex-shrink: 0;
+            padding-bottom: 5px;
+            color: #496b78;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 26px;
+            line-height: 1;
+        }
+        .section-price span { color: #8a9494; font-family: 'Inter', sans-serif; font-size: 11px; }
+        .section-price-small { font-size: 21px; }
+        .portfolio-side-note { padding-bottom: 6px; color: #7c8889; font-size: 11px; }
+        .section-intro { max-width: 570px; margin: 12px 0 27px; color: #7a8586; font-size: 12px; line-height: 1.8; }
+        .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 22px; }
+        .card {
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            overflow: visible;
+            transition: transform .25s ease;
+        }
+        .card:hover { transform: translateY(-3px); box-shadow: none; }
+        .card-img-wrap {
+            height: clamp(220px, 25vw, 320px);
+            border: 0;
+            border-radius: 2px;
+            background: #ecefeb;
+            overflow: hidden;
+        }
+        .card-img-wrap img { transition: transform .5s ease; }
+        .card:hover .card-img-wrap img { transform: scale(1.025); }
+        .like-btn {
+            top: 10px;
+            right: 10px;
+            width: 32px;
+            height: 32px;
+            border: 0;
+            color: #405c64;
+            box-shadow: 0 2px 8px rgba(0,0,0,.06);
+        }
+        .card-content { min-height: 0; padding: 15px 0 0; }
+        .card-title {
+            margin-bottom: 7px;
+            color: #35484d;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 25px;
+            font-weight: 600;
+            line-height: 1.1;
+        }
+        .card-desc { color: #7b8585; font-size: 11px; line-height: 1.75; }
+        .bento-single-card { max-width: 800px; margin: 0; display: grid; grid-template-columns: .95fr 1.05fr; gap: 32px; align-items: center; }
+        .bento-single-card .card-img-wrap { height: 360px; }
+        .bento-single-card .card-content { padding: 10px 0; }
+        .bento-list { gap: 13px 22px; }
+        .bento-list li { padding-left: 14px; font-size: 12px; }
+        .bento-list li::before { content: "—"; top: 0; color: #6b8b94; font-size: 11px; }
+        #portfolio {
+            padding: 45px 0 0;
+            margin-bottom: 90px;
+            background: none;
+            border: 0;
+            border-top: 1px solid #dce2df;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        #portfolio .card-img-wrap { height: clamp(230px, 27vw, 340px); }
+        footer {
+            margin-top: 0;
+            padding: 55px 20px 35px;
+            background: #e8eff0;
+            border: 0;
+            border-radius: 2px;
+            box-shadow: none;
+            text-align: center;
+        }
+        footer::before { display: none; }
+        footer h3 { color: #30454b; font-weight: 600; }
+        footer p { color: #6f7b7e; font-size: 13px; }
+        .phone-btn, .order-main-btn {
+            padding: 13px 22px;
+            border: 0;
+            border-radius: 2px;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .2px;
+            text-transform: none;
+        }
+        .phone-btn { background: #496b78; }
+        .order-main-btn { background: #b77e7b; }
+        .footer-note { color: #748387; border-top-color: rgba(73,107,120,.2); font-size: 10px; font-weight: 400; }
+        .scroll-top-btn { background: #496b78; border-radius: 2px; box-shadow: none; }
+        .scroll-top-btn:hover { background: #354f59; box-shadow: none; }
+        .order-modal-content { border-radius: 3px; }
+        .form-group input, .form-group select, .form-group textarea { border-radius: 2px; }
+        .submit-order-btn { border-radius: 2px; }
+
+        @media (max-width: 900px) {
+            body { padding: 0 22px 30px; }
+            .top-nav { align-items: flex-start; }
+            .nav-links { gap: 12px 18px; }
+            header.hero { gap: 30px; min-height: 0; }
+            .hero-image img { height: 400px; }
+            .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .card-img-wrap { height: 300px; }
+        }
+        @media (max-width: 650px) {
+            body { padding: 0 16px 22px; }
+            .top-nav { position: relative; top: auto; flex-direction: column; gap: 16px; padding: 17px 0; margin-bottom: 14px; }
+            .brand-name { font-size: 27px; }
+            .nav-links { width: 100%; justify-content: flex-start; gap: 12px 16px; }
+            .top-nav .nav-links a { font-size: 11px; }
+            .top-nav .nav-links .nav-order-btn { padding: 9px 12px; }
+            header.hero { grid-template-columns: 1fr; gap: 27px; padding: 35px 0 45px; margin-bottom: 35px; }
+            header.hero h1 { font-size: clamp(44px, 12vw, 62px); }
+            header.hero .hero-description { font-size: 13px; }
+            .hero-image img { height: min(105vw, 440px); }
+            .hero-image-note { right: 8px; bottom: 12px; font-size: 15px; }
+            .info-card { padding: 24px 0; margin-bottom: 42px; }
+            .info-grid { grid-template-columns: 1fr; }
+            .video-section { margin-bottom: 55px; }
+            section { margin-bottom: 65px; }
+            .section-heading { align-items: flex-start; flex-direction: column; gap: 10px; }
+            .section-title { font-size: 39px; }
+            .section-price { font-size: 23px; }
+            .section-intro { margin-bottom: 22px; }
+            .grid { grid-template-columns: 1fr 1fr; gap: 24px 13px; }
+            .card-img-wrap { height: clamp(170px, 52vw, 260px); }
+            .card-content { padding-top: 11px; }
+            .card-title { font-size: 22px; }
+            .card-desc { font-size: 10px; }
+            .bento-single-card { grid-template-columns: 1fr; gap: 10px; }
+            .bento-single-card .card-img-wrap { height: 300px; }
+            .bento-single-card .card-content { padding: 12px 0 0; }
+            .bento-list { grid-template-columns: 1fr; }
+            #portfolio { padding-top: 35px; }
+            #portfolio .card-img-wrap { height: clamp(170px, 52vw, 260px); }
+            footer { padding: 40px 14px 28px; }
+            .footer-buttons { gap: 10px; }
+            .phone-btn, .order-main-btn { padding: 12px 15px; font-size: 10px; }
+            .scroll-top-btn { bottom: 17px; right: 16px; }
+        }
+        @media (max-width: 380px) {
+            .grid { grid-template-columns: 1fr; }
+            .card-img-wrap, #portfolio .card-img-wrap { height: 300px; }
+        }
+
+    
+        /* Полноширинный баннер: отступ от шапки до блока прайса */
+        .studio-banner {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 100vw;
+            min-height: clamp(470px, 68vw, 650px);
+            margin: 26px 0 30px calc(50% - 50vw);
+            padding: clamp(24px, 6vw, 84px);
+            overflow: hidden;
+            border-radius: 0;
+            background-color: #dce5e6;
+            background-image: linear-gradient(90deg, rgba(248, 247, 242, 0) 0%, rgba(248, 247, 242, .06) 38%, rgba(248, 247, 242, .42) 58%, rgba(248, 247, 242, .82) 100%), url('images/banner.jpg');
+            background-size: cover;
+            background-position: center 48%;
+            background-repeat: no-repeat;
+        }
+        .studio-banner-copy {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            width: min(42%, 470px);
+            padding: clamp(24px, 3.5vw, 48px);
+            background: transparent;
+            backdrop-filter: none;
+        }
+        .studio-banner-copy h2 {
+            max-width: 420px;
+            margin: 10px 0 13px;
+            color: #304650;
+            font: 600 clamp(30px, 3.5vw, 45px)/1.03 var(--serif);
+            letter-spacing: -.025em;
+        }
+        .studio-banner-copy > p:not(.section-kicker) {
+            max-width: 390px;
+            margin-bottom: 19px;
+            color: #4e6067;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+        .studio-banner-copy .section-kicker { color: #587581; }
+        /* Мягкая органическая подложка: текст читается, но блок не выглядит жёсткой карточкой */
+        .studio-banner-copy {
+            width: min(44%, 490px);
+            padding: clamp(28px, 3.8vw, 48px);
+            background: rgba(250, 248, 243, 0.78);
+            -webkit-backdrop-filter: blur(18px) saturate(112%);
+            backdrop-filter: blur(18px) saturate(112%);
+            border: 1px solid rgba(255, 255, 255, 0.42);
+            border-radius: 38% 24% 34% 22% / 13% 18% 12% 17%;
+            box-shadow: 0 12px 42px rgba(40, 48, 48, 0.07), inset 0 0 28px rgba(255,255,255,0.18);
+        }
+        .studio-banner-copy h2 { color: #2f4147; text-shadow: 0 1px 1px rgba(250,248,243,.18); }
+        .studio-banner-copy > p:not(.section-kicker) { color: #40545b; }
+        .studio-banner-copy .section-kicker { color: #4d707d; }
+        .studio-banner-copy .hero-secondary { color: #365b68; border-color: rgba(63, 98, 110, 0.38); }
+        .info-card { margin-top: 0; }
+        @media (max-width: 700px) {
+            .studio-banner {
+                min-height: 560px;
+                margin-top: 18px;
+                margin-bottom: 25px;
+                padding: 22px 16px;
+                align-items: flex-end;
+                justify-content: center;
+                background-image: linear-gradient(0deg, rgba(248,247,242,.94) 0%, rgba(248,247,242,.76) 24%, rgba(248,247,242,.28) 49%, rgba(248,247,242,0) 76%), url('images/banner.jpg');
+                background-position: center center;
+            }
+            .studio-banner-copy { width: 100%; padding: 25px 24px; background: rgba(250, 248, 243, 0.86); border: 1px solid rgba(255,255,255,.48); border-radius: 30px 22px 34px 20px; -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); box-shadow: 0 8px 30px rgba(40,48,48,.07); }
+            .studio-banner-copy h2 { font-size: 34px; }
+        }
+</style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Навигация с рамкой и фоном розами -->
-        <nav class="top-nav">
-            <a href="#prices">Прайс</a>
-            <a href="#classic">Классика</a>
-            <a href="#premium">Премиум</a>
-            <a href="#bento">Бенто</a>
-            <a href="#portfolio">Работы</a>
-            <a href="#contacts">Контакты</a>
-            <a href="#" class="nav-order-btn" onclick="openOrderModal(event)">Оставить заявку</a>
+        <!-- Основная навигация и текстовый логотип -->
+        <nav class="top-nav" aria-label="Основная навигация">
+            <a class="brand-mark" href="#" aria-label="Виктория — на главную">
+                <span class="brand-name">Виктория</span>
+                <span class="brand-caption">кондитерская мастерская</span>
+            </a>
+            <div class="nav-links">
+                <a href="#prices">Условия</a>
+                <a href="#classic">Начинки</a>
+                <a href="#bento">Бенто</a>
+                <a href="#portfolio">Работы</a>
+                <a href="#contacts">Контакты</a>
+                <a href="#" class="nav-order-btn" onclick="openOrderModal(event)">Заказать торт</a>
+            </div>
         </nav>
 
-        <header>
-            <div class="studio-tag">Кондитерская мастерская</div>
-            <h1>Виктория</h1>
-            <p>Натуральные ингредиенты &nbsp;•&nbsp; Ручная работа &nbsp;•&nbsp; Свежие продукты</p>
-        </header>
+
+
+        <section class="studio-banner" aria-label="Индивидуальный заказ торта">
+            <div class="studio-banner-copy">
+                <p class="section-kicker">ВАШ ПОВОД — НАШ ДЕКОР</p>
+                <h2>Торт, который создаётся под вас</h2>
+                <p>Обсудим начинку, оформление и размер — чтобы торт подходил именно вашему празднику.</p>
+                <a class="hero-secondary" href="#contacts">Обсудить заказ <span aria-hidden="true">↗</span></a>
+            </div>
+        </section>
 
         <div class="info-card" id="prices">
             <h3>Условия заказа и прайс</h3>
@@ -910,8 +1366,12 @@
         </section>
 
         <!-- 1. Классика -->
-        <section id="classic">
-            <h2 class="section-title">Классические начинки <span>1500 ₽ / кг</span></h2>
+        <section id="classic" class="cake-section">
+            <div class="section-heading">
+                <div><p class="section-kicker">Знакомые вкусы</p><h2 class="section-title">Классические начинки</h2></div>
+                <p class="section-price">1 500 ₽ <span>/ кг</span></p>
+            </div>
+            <p class="section-intro">Проверенные сочетания — от ягод и сливок до карамели и шоколада.</p>
             <div class="grid">
                 <div class="card">
                     <div class="card-img-wrap">
@@ -987,8 +1447,12 @@
         </section>
 
         <!-- 2. Премиум -->
-        <section id="premium">
-            <h2 class="section-title">Премиум начинки <span>1700 ₽ / кг</span></h2>
+        <section id="premium" class="cake-section premium-section">
+            <div class="section-heading">
+                <div><p class="section-kicker">Более насыщенные сочетания</p><h2 class="section-title">Премиум начинки</h2></div>
+                <p class="section-price">1 700 ₽ <span>/ кг</span></p>
+            </div>
+            <p class="section-intro">Слои вкуса, ореховые акценты, шоколад и ягодные конфи.</p>
             <div class="grid">
                 <div class="card">
                     <div class="card-img-wrap">
@@ -1054,8 +1518,12 @@
         </section>
 
         <!-- 3. Бенто -->
-        <section id="bento">
-            <h2 class="section-title">Бенто-торты <span>12 см (400–500г)</span></h2>
+        <section id="bento" class="cake-section bento-section">
+            <div class="section-heading">
+                <div><p class="section-kicker">Небольшой торт — большой повод</p><h2 class="section-title">Бенто-торты</h2></div>
+                <p class="section-price section-price-small">12 см <span>· 400–500 г</span></p>
+            </div>
+            <p class="section-intro">Компактный формат для личного поздравления, свидания или маленького праздника.</p>
             <div class="card bento-single-card">
                 <div class="card-img-wrap">
                     <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
@@ -1075,8 +1543,12 @@
         </section>
 
         <!-- 4. Примеры моих работ (с фоном из роз) -->
-        <section id="portfolio">
-            <h2 class="section-title">Примеры моих работ <span>Королевская коллекция</span></h2>
+        <section id="portfolio" class="portfolio-section">
+            <div class="section-heading">
+                <div><p class="section-kicker">Каждый торт — отдельная история</p><h2 class="section-title">Работы мастерской</h2></div>
+                <p class="portfolio-side-note">Идеи для вашего праздника</p>
+            </div>
+            <p class="section-intro">Примеры оформления, которые можно взять за основу или адаптировать под ваши пожелания.</p>
             <div class="grid">
                 <div class="card">
                     <div class="card-img-wrap">
@@ -1112,14 +1584,14 @@
         </section>
 
         <footer id="contacts">
-            <h3>Остались вопросы или хотите сделать заказ?</h3>
-            <p>Свяжитесь со мной напрямую или оформите заявку на сайте</p>
+            <h3>Расскажите, каким вы представляете свой торт</h3>
+            <p>Обсудим начинку, оформление и дату — вместе подберём подходящий вариант.</p>
             <div class="footer-buttons">
                 <a href="tel:+79057436210" class="phone-btn">+7 (905) 743-62-10</a>
                 <button class="order-main-btn" onclick="openOrderModal(event)">Оставить заявку</button>
             </div>
             <div class="footer-note">
-                Кондитерская мастерская Виктории &nbsp;•&nbsp; Создано для ваших праздников
+                Виктория · торты на заказ
             </div>
         </footer>
     </div>
@@ -1287,7 +1759,7 @@
             const comment = document.getElementById('cakeComment').value;
 
             // Вставьте сюда токен вашего бота и ваш Chat ID
-            const BOT_TOKEN = '8877774740:AAHKVLOcKtS1J1mlKt04zObwusq1Tbnc2H8';
+            const BOT_TOKEN = 'ВСТАВЬТЕ_НОВЫЙ_ТОКЕН_БОТА';
             const CHAT_ID = '1193749282';
 
             const message = `✨ *Новая заявка с сайта!*\n\n` +
