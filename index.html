@@ -12,15 +12,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&amp;family=Inter:wght@300;400;500;600&amp;family=Montserrat:wght@500;600;700&amp;display=swap" rel="stylesheet">
     <style>
         :root {
-            --sky: #e8f5f8;
-            --sky-deep: #d8edf2;
-            --white: #fff;
-            --ink: #26363b;
-            --muted: #718188;
-            --blue-dark: #3e7f91;
-            --pink: #f5dfe0;
-            --line: #9ac2d1;
-            --shadow: 0 12px 35px rgba(70, 116, 128, .12);
+            --sky: #f8f7f2;
+            --sky-deep: #e9eff0;
+            --white: #fffefa;
+            --ink: #303a3d;
+            --muted: #707b7d;
+            --blue-dark: #496b78;
+            --pink: #e8d8d5;
+            --line: #dce2df;
+            --shadow: 0 12px 35px rgba(47, 65, 68, .07);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,9 +30,18 @@
         body {
             font-family: 'Inter', sans-serif;
             color: var(--ink);
-            background: var(--sky);
+            /* Мягкий градиент: от светлого в начале -> к небесно-голубому в центре -> снова к светлому внизу */
+            background: linear-gradient(
+                180deg, 
+                #f8f7f2 0%, 
+                #f8f7f2 18%, 
+                #d5e6ed 48%, 
+                #d5e6ed 75%, 
+                #f8f7f2 100%
+            );
+            background-attachment: fixed;
             line-height: 1.65;
-            padding: 0 18px 45px;
+            padding: 0 30px 40px;
             overflow-x: hidden;
         }
 
@@ -42,31 +51,9 @@
         }
 
         .container {
-            max-width: 1080px;
+            max-width: 1240px;
             margin: 0 auto;
             animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        body::before, body::after {
-            content: "";
-            position: fixed;
-            z-index: -1;
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        body::before {
-            width: 460px; height: 460px;
-            background: var(--pink);
-            opacity: .28;
-            top: -250px; right: -160px;
-        }
-
-        body::after {
-            width: 360px; height: 360px;
-            background: #ccebf0;
-            opacity: .55;
-            bottom: -190px; left: -130px;
         }
 
         /* --- Скрытие плашки HIXO --- */
@@ -83,363 +70,273 @@
             visibility: hidden !important;
         }
 
-        /* --- Навигация с рамкой и фоном розами --- */
+        /* --- Навигация --- */
         .top-nav {
-            background-image: linear-gradient(
-                rgba(255, 255, 255, 0.85), 
-                rgba(232, 245, 248, 0.88)
-            ), url('images/nav-bg-roses.jpg');
-            background-size: cover;
-            background-position: center;
-            border: 1.5px solid var(--line);
-            border-radius: 12px;
-            padding: 16px 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 24px;
-            margin: 20px 0 25px;
             position: sticky;
-            top: 15px;
+            top: 0;
+            width: 100vw;
+            margin: 0 0 28px calc(50% - 50vw);
+            padding: 19px calc(50vw - 620px);
+            background: rgba(248,247,242,.92);
+            border: 0;
+            border-bottom: 1px solid #e2e4df;
+            border-radius: 0;
+            box-shadow: none;
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 28px;
             z-index: 100;
-            box-shadow: 0 10px 25px rgba(38, 54, 59, 0.12);
-            backdrop-filter: blur(5px);
         }
 
-        .top-nav a {
-            color: #264a52;
+        .brand-mark {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            flex-shrink: 0;
             text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 11px;
+            color: var(--ink) !important;
+        }
+
+        .brand-name {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 29px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.4px;
-            transition: all 0.3s ease;
-            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
-        }
-
-        .top-nav a:hover {
-            color: #b05c64;
-            transform: translateY(-2px);
-        }
-
-        .nav-order-btn {
-            background: #315963;
-            color: white !important;
-            padding: 8px 16px;
-            border-radius: 4px;
-            border: 1px solid #23464f;
-            text-shadow: none !important;
-        }
-        .nav-order-btn:hover {
-            background: #23464f !important;
-            color: white !important;
-        }
-
-        header {
-            text-align: left;
-            padding: 54px 35px 42px;
-            margin-bottom: 30px;
-            position: relative;
-            background-image: linear-gradient(rgba(232, 245, 248, 0.72), rgba(232, 245, 248, 0.72)), url('images/header-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            border-radius: 8px;
-            border: 1px solid var(--line);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .studio-tag {
-            display: inline-block;
-            background: var(--white);
-            color: var(--blue-dark);
-            padding: 7px 13px;
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.7px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            border: 1px solid var(--line);
-            box-shadow: 0 4px 14px rgba(62,127,145,.08);
-        }
-
-        .studio-tag::before { content: "♡ "; }
-
-        header h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(52px, 8vw, 86px);
             line-height: 1;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: #264a52;
-            margin-bottom: 22px;
+            letter-spacing: -.5px;
         }
 
-        header p {
-            color: #4a5e65;
-            font-size: 13px;
-            max-width: 510px;
-            line-height: 1.8;
+        .brand-caption {
+            margin-top: 5px;
+            color: #788589;
+            font-family: 'Inter', sans-serif;
+            font-size: 9px;
             font-weight: 500;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
         }
 
-        header::after {
-            content: "домашние торты • на заказ";
-            position: absolute;
-            right: 25px;
-            bottom: 48px;
-            color: var(--blue-dark);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 10px;
-            letter-spacing: 1.4px;
-            text-transform: uppercase;
-            transform: rotate(-5deg);
-            opacity: .85;
+        .nav-links { 
+            display: flex; 
+            align-items: center; 
+            justify-content: flex-end; 
+            gap: clamp(13px, 2vw, 27px); 
+            flex-wrap: wrap; 
         }
+
+        .top-nav .nav-links a {
+            color: #4e5b5e;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: .2px;
+            transition: color 0.3s ease;
+        }
+
+        .top-nav .nav-links a:hover { color: #496b78; }
+
+        .top-nav .nav-links .nav-order-btn {
+            padding: 11px 17px;
+            color: white !important;
+            background: #496b78;
+            border: 1px solid #496b78;
+            border-radius: 2px;
+        }
+
+        .top-nav .nav-links .nav-order-btn:hover { background: #354f59 !important; }
+
+        /* Полноширинный верхний баннер */
+        .studio-banner {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 100vw;
+            min-height: clamp(470px, 68vw, 650px);
+            margin: 26px 0 30px calc(50% - 50vw);
+            padding: clamp(24px, 6vw, 84px);
+            overflow: hidden;
+            border-radius: 0;
+            background-color: #dce5e6;
+            background-image: linear-gradient(90deg, rgba(248, 247, 242, 0) 0%, rgba(248, 247, 242, .06) 38%, rgba(248, 247, 242, .42) 58%, rgba(248, 247, 242, .82) 100%), url('images/banner.jpg');
+            background-size: cover;
+            background-position: center 48%;
+            background-repeat: no-repeat;
+        }
+
+        .studio-banner-copy {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            width: min(44%, 490px);
+            padding: clamp(28px, 3.8vw, 48px);
+            background: rgba(250, 248, 243, 0.78);
+            -webkit-backdrop-filter: blur(18px) saturate(112%);
+            backdrop-filter: blur(18px) saturate(112%);
+            border: 1px solid rgba(255, 255, 255, 0.42);
+            border-radius: 38% 24% 34% 22% / 13% 18% 12% 17%;
+            box-shadow: 0 12px 42px rgba(40, 48, 48, 0.07), inset 0 0 28px rgba(255,255,255,0.18);
+        }
+
+        .studio-banner-copy h2 {
+            max-width: 420px;
+            margin: 10px 0 13px;
+            color: #2f4147;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(30px, 3.5vw, 45px);
+            font-weight: 600;
+            line-height: 1.03;
+            letter-spacing: -.025em;
+            text-shadow: 0 1px 1px rgba(250,248,243,.18);
+        }
+
+        .studio-banner-copy > p:not(.section-kicker) {
+            max-width: 390px;
+            margin-bottom: 19px;
+            color: #40545b;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .studio-banner-copy .section-kicker { color: #4d707d; }
+
+        .hero-secondary { 
+            color: #365b68; 
+            font-size: 12px; 
+            text-decoration: none; 
+            border-bottom: 1px solid rgba(63, 98, 110, 0.38); 
+            padding: 7px 0; 
+        }
+
+        .hero-secondary span { margin-left: 8px; }
 
         /* --- Прайс-лист --- */
         .info-card {
-            background: var(--white);
-            border: 1px solid var(--line);
-            border-radius: 6px;
-            padding: 34px;
-            margin-bottom: 50px;
-            box-shadow: var(--shadow);
-            position: relative;
+            margin: 0 0 60px;
+            padding: 28px 0 31px;
+            background: transparent;
+            border: 0;
+            border-top: 1px solid #dce2df;
+            border-bottom: 1px solid #dce2df;
+            border-radius: 0;
+            box-shadow: none;
             scroll-margin-top: 100px;
         }
 
-        .info-card::before {
-            content: "ПРАЙС";
-            position: absolute;
-            top: -11px;
-            left: 25px;
-            background: var(--pink);
-            color: #9b6265;
-            padding: 4px 11px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            transform: rotate(-2deg);
-            border: 1px solid #e3c7c9;
-        }
-
         .info-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: #315963;
-            margin-bottom: 20px;
+            margin-bottom: 21px;
+            color: #354a50;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 31px;
+            font-weight: 600;
         }
 
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 0 30px;
             font-size: 13px;
         }
 
         .info-item {
-            background: var(--sky);
-            border: 1px solid #cfe4e9;
-            border-left: 3px solid var(--blue-dark);
-            border-radius: 3px;
-            padding: 17px 18px;
-            transition: transform 0.2s ease;
+            padding: 14px 0;
+            background: transparent;
+            border: 0;
+            border-bottom: 1px solid #e6e8e3;
+            border-radius: 0;
+            color: #525d60;
         }
-
-        .info-item:hover { transform: translateY(-2px); }
-        .info-item:nth-child(2) { border-left-color: #c98288; background: #fff4f4; }
-        .info-item:nth-child(3) { border-left-color: #72a374; background: #f1f8f1; }
-        .info-item:nth-child(4) { border-left-color: #bfa163; background: #fff9ed; }
 
         .info-item b {
             display: block;
-            color: #315963;
-            font-family: 'Montserrat', sans-serif;
+            color: #3f5b64;
+            font-family: 'Inter', sans-serif;
             font-size: 10px;
-            letter-spacing: 1.2px;
+            letter-spacing: .7px;
             text-transform: uppercase;
             margin-bottom: 5px;
         }
 
-        /* --- Кастомный стильный видео-плеер 16:9 --- */
-        .video-section {
-            margin: 0 0 60px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--line);
-            box-shadow: var(--shadow);
-            background: #000;
-            cursor: pointer;
-        }
-
-        .video-wrapper video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            pointer-events: none;
-        }
-
-        /* Центральная кнопка пуска/паузы/повтора */
-        .video-center-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            background: rgba(38, 54, 59, 0.65);
-            backdrop-filter: blur(5px);
-            border: 1.5px solid rgba(255, 255, 255, 0.4);
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0;
-            z-index: 3;
-        }
-
-        .video-wrapper:hover .video-center-btn,
-        .video-wrapper.paused .video-center-btn {
-            opacity: 1;
-        }
-
-        .video-center-btn:hover {
-            background: rgba(62, 127, 145, 0.85);
-            transform: translate(-50%, -50%) scale(1.08);
-        }
-
-        .video-center-btn svg {
-            width: 30px;
-            height: 30px;
-            fill: currentColor;
-            stroke: currentColor;
-            stroke-width: 0;
-        }
-
-        /* Кнопка звука в правом нижнем углу */
-        .video-mute-btn {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            width: 40px;
-            height: 40px;
-            background: rgba(38, 54, 59, 0.65);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            color: white;
-            cursor: pointer;
-            transition: background 0.2s ease, transform 0.2s ease;
-            z-index: 3;
-        }
-
-        .video-mute-btn:hover {
-            background: rgba(62, 127, 145, 0.85);
-            transform: scale(1.05);
-        }
-
-        .video-mute-btn svg {
-            width: 20px;
-            height: 20px;
-            stroke: currentColor;
-            stroke-width: 2;
-            fill: none;
+        .price-tag {
+            color: #1c282c;
+            font-weight: 700;
         }
 
         section { 
-            margin-bottom: 72px; 
+            margin-bottom: 92px; 
             scroll-margin-top: 100px;
         }
 
-        /* --- Изящные заголовки категорий --- */
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(34px, 5vw, 44px);
-            line-height: 1.1;
-            font-weight: 600;
-            font-style: italic;
-            color: #264a52;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 17px;
-            letter-spacing: 0.2px;
-        }
+        .section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 25px; margin-bottom: 8px; }
 
-        .section-title::before {
-            content: "";
-            width: 10px;
-            height: 10px;
-            flex: 0 0 10px;
-            background: var(--blue-dark);
-            border-radius: 50%;
-            box-shadow: 5px -3px 0 var(--pink);
-        }
-
-        .section-title span {
-            margin-left: auto;
-            white-space: nowrap;
-            background: var(--white);
-            border: 1px solid var(--line);
-            border-radius: 3px;
-            color: var(--blue-dark);
-            padding: 6px 12px;
-            font-family: 'Montserrat', sans-serif;
+        .section-kicker {
+            margin: 0 0 8px;
+            color: #537580;
+            font-family: 'Inter', sans-serif;
             font-size: 9px;
-            font-weight: 700;
-            font-style: normal;
-            letter-spacing: 1px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
         }
 
+        .section-title {
+            margin: 0;
+            color: #24363a;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(35px, 4vw, 48px);
+            font-style: normal;
+            font-weight: 600;
+            line-height: 1.05;
+            letter-spacing: -.3px;
+        }
+
+        .section-price {
+            flex-shrink: 0;
+            padding-bottom: 5px;
+            color: #1c282c;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .section-price span { color: #5b696c; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; }
+        .section-price-small { font-size: 24px; }
+
+        .portfolio-side-note { padding-bottom: 6px; color: #5c6c6e; font-size: 11px; }
+        .section-intro { max-width: 570px; margin: 12px 0 27px; color: #58686a; font-size: 12px; line-height: 1.8; }
+
         .grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 17px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 32px 22px;
         }
 
         .card {
-            background: var(--white);
-            border: 1px solid var(--line);
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 6px 24px rgba(70,116,128,.09);
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            overflow: visible;
+            transition: transform .25s ease;
         }
 
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 36px rgba(70,116,128,0.2);
-        }
+        .card:hover { transform: translateY(-3px); }
 
         .card-img-wrap {
             width: 100%;
-            height: 255px;
+            height: clamp(220px, 25vw, 320px);
             overflow: hidden;
-            background: var(--sky-deep);
+            background: #ecefeb;
             position: relative;
-            border-bottom: 1px solid var(--line);
+            border: 0;
+            border-radius: 2px;
+            box-shadow: 0 4px 18px rgba(38, 54, 59, 0.05);
         }
 
         .card-img-wrap img {
@@ -448,26 +345,27 @@
             display: block;
             object-fit: cover;
             cursor: zoom-in;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform .5s ease;
         }
 
-        .card:hover .card-img-wrap img { transform: scale(1.06); }
+        .card:hover .card-img-wrap img { transform: scale(1.025); }
 
         .like-btn {
             position: absolute;
-            right: 12px;
-            top: 12px;
-            width: 34px;
-            height: 34px;
+            right: 10px;
+            top: 10px;
+            width: 32px;
+            height: 32px;
             display: grid;
             place-items: center;
             background: rgba(255,255,255,.92);
-            color: var(--blue-dark);
+            color: #405c64;
             border-radius: 50%;
             font-size: 15px;
-            border: 1px solid var(--line);
+            border: 0;
             cursor: pointer;
             z-index: 2;
+            box-shadow: 0 2px 8px rgba(0,0,0,.06);
             transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
         }
 
@@ -475,7 +373,6 @@
         .like-btn.active {
             background: #fff0f1;
             color: #d86b73;
-            border-color: #e5b3b7;
             animation: heartBeat 0.4s ease;
         }
 
@@ -486,118 +383,141 @@
         }
 
         .card-content {
-            padding: 19px 20px 22px;
-            min-height: 128px;
+            padding: 15px 0 0;
+            min-height: 0;
             display: flex;
             flex-direction: column;
         }
 
         .card-title {
-            font-family: 'Cormorant Garamond', serif;
-            color: #264a52;
-            font-size: 22px;
-            line-height: 1.15;
-            margin-bottom: 6px;
-            font-weight: 700;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            color: #24363a;
+            font-size: 25px;
+            line-height: 1.1;
+            margin-bottom: 7px;
+            font-weight: 600;
         }
 
         .card-desc {
-            color: var(--muted);
-            font-size: 12px;
-            line-height: 1.7;
+            color: #5d6a6c;
+            font-size: 11px;
+            line-height: 1.75;
         }
 
         .bento-single-card {
-            max-width: 690px;
-            margin: 0 auto;
+            max-width: 800px;
+            margin: 0;
+            display: grid;
+            grid-template-columns: .95fr 1.05fr;
+            gap: 32px;
+            align-items: center;
         }
 
         .bento-single-card .card-img-wrap { height: 360px; }
-        .bento-single-card .card-content { padding: 25px 28px 28px; }
+        .bento-single-card .card-content { padding: 10px 0; }
 
         .bento-list {
             list-style: none;
             margin-top: 10px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 11px 24px;
+            grid-template-columns: 1fr;
+            gap: 13px 22px;
         }
 
         .bento-list li {
-            color: var(--muted);
+            color: #5d6a6c;
             font-size: 12px;
-            padding-left: 18px;
+            padding-left: 14px;
             position: relative;
         }
 
         .bento-list li::before {
-            content: "♥";
+            content: "—";
             position: absolute;
             left: 0;
-            top: 1px;
-            color: #c98288;
-            font-size: 9px;
+            top: 0;
+            color: #496b78;
+            font-size: 11px;
         }
 
         .bento-list li b { color: var(--ink); font-weight: 600; }
 
-        /* --- Секция "Примеры моих работ" с фоном из синих роз --- */
         #portfolio {
-            background-image: linear-gradient(
-                rgba(232, 245, 248, 0.88), 
-                rgba(232, 245, 248, 0.90)
-            ), url('images/portfolio-bg-roses.jpg');
+            padding: 45px 0 0;
+            margin-bottom: 60px;
+            background: none;
+            border: 0;
+            border-top: 1px solid rgba(220, 226, 223, 0.8);
+            border-radius: 0;
+            box-shadow: none;
+            scroll-margin-top: 100px;
+        }
+
+        #portfolio .card-img-wrap { height: clamp(230px, 27vw, 340px); }
+
+        /* Полноширинный нижний баннер перед футером */
+        .bottom-banner {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            min-height: clamp(380px, 50vw, 500px);
+            margin: 50px 0 0 calc(50% - 50vw);
+            padding: clamp(30px, 5vw, 60px);
+            overflow: hidden;
+            background-color: #dce5e6;
+            background-image: linear-gradient(0deg, rgba(248, 247, 242, 0.4) 0%, rgba(38, 54, 59, 0.45) 100%), url('images/bottom-banner.jpg');
             background-size: cover;
             background-position: center;
-            border: 1.5px solid var(--line);
-            border-radius: 12px;
-            padding: 40px 30px;
-            margin-bottom: 72px;
-            box-shadow: var(--shadow);
-            scroll-margin-top: 100px;
+            background-repeat: no-repeat;
+            text-align: center;
+        }
+
+        .bottom-banner-copy {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 620px;
+            padding: clamp(30px, 4vw, 50px);
+            background: rgba(250, 248, 243, 0.88);
+            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 4px;
+            box-shadow: 0 15px 45px rgba(30, 45, 50, 0.08);
+        }
+
+        .bottom-banner-copy h3 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(30px, 4vw, 42px);
+            line-height: 1.1;
+            font-weight: 600;
+            color: #2e4147;
+            margin-bottom: 12px;
+        }
+
+        .bottom-banner-copy p {
+            color: #4e6067;
+            font-size: 13px;
+            margin-bottom: 25px;
+            line-height: 1.7;
         }
 
         footer {
-            background: #bce1e8;
-            border: 1px solid var(--line);
-            border-radius: 7px;
-            padding: 52px 24px 43px;
+            background: #e8eff0;
+            border: 0;
+            border-radius: 0;
+            padding: 35px 20px 30px;
             text-align: center;
-            margin-top: 78px;
+            margin-top: 0;
             position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: none;
             scroll-margin-top: 100px;
-        }
-
-        footer::before {
-            content: "♡";
-            position: absolute;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 180px;
-            color: rgba(255,255,255,.5);
-            right: -25px;
-            top: -80px;
-            transform: rotate(15deg);
-        }
-
-        footer h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(30px, 4vw, 40px);
-            line-height: 1.15;
-            font-weight: 700;
-            color: #264a52;
-            max-width: 650px;
-            margin: 0 auto 12px;
-            position: relative;
-        }
-
-        footer p {
-            color: #435e65;
-            font-size: 12px;
-            margin-bottom: 25px;
-            position: relative;
-            font-weight: 500;
         }
 
         .footer-buttons {
@@ -605,47 +525,48 @@
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
-            position: relative;
         }
 
         .phone-btn, .order-main-btn {
             display: inline-block;
-            background: #315963;
+            background: #496b78;
             color: white;
             text-decoration: none;
-            padding: 14px 27px;
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: .8px;
-            transition: transform 0.2s ease, background 0.2s ease;
-            border: 1px solid #23464f;
+            padding: 13px 24px;
+            border-radius: 2px;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .2px;
+            transition: background 0.2s ease;
+            border: 0;
             cursor: pointer;
         }
 
-        .phone-btn:hover, .order-main-btn:hover {
-            transform: translateY(-2px);
-            background: #23464f;
-        }
+        .phone-btn:hover { background: #354f59; }
 
-        .order-main-btn {
-            background: #b05c64;
-            border-color: #934951;
-        }
-        .order-main-btn:hover {
-            background: #934951;
-        }
+        .order-main-btn { background: #b77e7b; }
+        .order-main-btn:hover { background: #9d6865; }
 
         .footer-note {
-            color: #4a676f;
-            border-top: 1px solid rgba(49,89,99,.22);
-            padding-top: 17px;
-            margin-top: 25px;
-            font-size: 9px;
+            color: #748387;
+            padding-top: 10px;
+            font-size: 10px;
             letter-spacing: .7px;
-            position: relative;
-            font-weight: 600;
+            font-weight: 400;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .footer-note a {
+            color: #496b78;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .footer-note a:hover {
+            color: #354f59;
         }
 
         /* --- Кнопка "Наверх" --- */
@@ -655,10 +576,10 @@
             right: 30px;
             width: 48px;
             height: 48px;
-            background: var(--blue-dark);
+            background: #496b78;
             color: var(--white);
             border: none;
-            border-radius: 50%;
+            border-radius: 2px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -668,7 +589,6 @@
             transform: translateY(20px);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 999;
-            box-shadow: 0 6px 20px rgba(62, 127, 145, 0.3);
         }
 
         .scroll-top-btn svg {
@@ -684,16 +604,14 @@
         }
 
         .scroll-top-btn:hover {
-            background: #264a52;
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(62, 127, 145, 0.4);
+            background: #354f59;
         }
         
         .scroll-top-btn:hover svg {
             transform: translateY(-2px);
         }
 
-        /* --- Модальные окна (картинка и форма) --- */
+        /* --- Модальные окна --- */
         .modal {
             display: flex;
             position: fixed;
@@ -720,8 +638,7 @@
             max-width: 94vw;
             max-height: 89vh;
             object-fit: contain;
-            border-radius: 6px;
-            border: 2px solid var(--line);
+            border-radius: 2px;
             transform: scale(0.9);
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -741,22 +658,21 @@
 
         .modal-close:hover { opacity: 1; }
 
-        /* Окно формы заказа */
         .order-modal-content {
             background: var(--white);
             width: 100%;
             max-width: 500px;
             padding: 35px;
-            border-radius: 8px;
+            border-radius: 3px;
             position: relative;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
             max-height: 90vh;
             overflow-y: auto;
             text-align: left;
         }
 
         .order-modal-content h3 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: 32px;
             color: #264a52;
             margin-bottom: 8px;
@@ -775,9 +691,9 @@
         }
 
         .form-group label {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 10px;
-            font-weight: 700;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: #315963;
@@ -789,11 +705,11 @@
         .form-group textarea {
             padding: 12px;
             border: 1px solid var(--line);
-            border-radius: 4px;
+            border-radius: 2px;
             font-size: 14px;
             font-family: 'Inter', sans-serif;
             color: var(--ink);
-            background: var(--sky);
+            background: #f8f7f2;
             outline: none;
             transition: border-color 0.2s ease;
         }
@@ -807,14 +723,14 @@
 
         .submit-order-btn {
             width: 100%;
-            background: #315963;
+            background: #496b78;
             color: white;
             padding: 14px;
             border: none;
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
+            border-radius: 2px;
+            font-family: 'Inter', sans-serif;
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
             cursor: pointer;
@@ -823,374 +739,88 @@
         }
 
         .submit-order-btn:hover {
-            background: #23464f;
+            background: #354f59;
         }
 
-        @media (max-width: 900px) {
-            .grid { grid-template-columns: repeat(2, 1fr); }
-            .card-img-wrap { height: 275px; }
-        }
-
-        @media (max-width: 650px) {
-            body { padding: 0 11px 25px; }
-            .top-nav { gap: 10px; flex-wrap: wrap; padding: 14px; justify-content: center; }
-            header { padding: 42px 20px 38px; text-align: left; margin-top: 15px; }
-            header h1 { font-size: 48px; }
-            header::after { display: none; }
-            .info-card { padding: 27px 20px; margin-bottom: 40px; }
-            .info-grid, .grid, .bento-list { grid-template-columns: 1fr; }
-            .section-title { align-items: flex-start; flex-wrap: wrap; }
-            .section-title span { margin-left: 0; }
-            .card-img-wrap { height: 300px; }
-            .bento-single-card .card-img-wrap { height: 320px; }
-            #portfolio { padding: 25px 15px; }
-            footer { margin-top: 55px; padding: 45px 18px 38px; }
-            .scroll-top-btn { bottom: 20px; right: 20px; width: 42px; height: 42px; }
-        }
-
-        /* --- Обновлённый редакционный стиль --- */
-        :root {
-            --sky: #f8f7f2;
-            --sky-deep: #e9eff0;
-            --white: #fffefa;
-            --ink: #303a3d;
-            --muted: #707b7d;
-            --blue-dark: #496b78;
-            --pink: #e8d8d5;
-            --line: #dce2df;
-            --shadow: 0 12px 35px rgba(47, 65, 68, .07);
-        }
-
-        body {
-            background: #f8f7f2;
-            color: var(--ink);
-            padding: 0 30px 40px;
-            line-height: 1.65;
-        }
-        body::before, body::after { display: none; }
-        .container { max-width: 1240px; }
-        .top-nav {
-            position: sticky;
-            top: 0;
-            margin: 0 0 28px;
-            padding: 19px 0;
-            background: rgba(248,247,242,.94);
-            background-image: none;
-            border: 0;
-            border-bottom: 1px solid #e2e4df;
-            border-radius: 0;
-            box-shadow: none;
-            backdrop-filter: blur(12px);
-            justify-content: space-between;
-            gap: 28px;
-        }
-        .brand-mark {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            flex-shrink: 0;
-            text-decoration: none;
-            text-shadow: none !important;
-            text-transform: none !important;
-            letter-spacing: 0 !important;
-            color: var(--ink) !important;
-        }
-        .brand-name {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 29px;
-            font-weight: 700;
-            line-height: 1;
-            letter-spacing: -.5px;
-        }
-        .brand-caption {
-            margin-top: 5px;
-            color: #788589;
-            font-family: 'Inter', sans-serif;
-            font-size: 9px;
-            font-weight: 500;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-        }
-        .nav-links { display: flex; align-items: center; justify-content: flex-end; gap: clamp(13px, 2vw, 27px); flex-wrap: wrap; }
-        .top-nav .nav-links a {
-            color: #4e5b5e;
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            font-weight: 500;
-            text-transform: none;
-            letter-spacing: .2px;
-            text-shadow: none;
-        }
-        .top-nav .nav-links a:hover { color: #496b78; transform: none; }
-        .top-nav .nav-links .nav-order-btn {
-            padding: 11px 17px;
-            color: white !important;
-            background: #496b78;
-            border: 1px solid #496b78;
-            border-radius: 2px;
-        }
-        .top-nav .nav-links .nav-order-btn:hover { background: #354f59 !important; }
-
-        header.hero {
-            display: grid;
-            grid-template-columns: minmax(0, 1.04fr) minmax(320px, .96fr);
-            gap: clamp(35px, 7vw, 100px);
-            align-items: center;
-            min-height: 490px;
-            padding: 36px 0 66px;
-            margin-bottom: 54px;
-            background: none;
-            border: 0;
-            border-radius: 0;
-            box-shadow: none;
-            overflow: visible;
-            text-align: left;
-        }
-        .hero-copy { max-width: 590px; }
-        .hero-eyebrow, .section-kicker {
-            margin: 0 0 16px;
-            color: #66838d;
-            font-family: 'Inter', sans-serif;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 1.7px;
-            text-transform: uppercase;
-        }
-        header.hero h1 {
-            max-width: 680px;
-            margin: 0 0 22px;
-            color: #2e4147;
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(48px, 6.2vw, 79px);
-            font-weight: 600;
-            line-height: .99;
-            letter-spacing: -1.2px;
-        }
-        header.hero h1 em { color: #66838d; font-weight: 600; }
-        header.hero .hero-description {
-            max-width: 440px;
-            margin: 0;
-            color: #667174;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 1.9;
-        }
-        .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 29px; }
-        .hero-primary {
-            display: inline-block;
-            padding: 14px 21px;
-            background: #496b78;
-            color: #fff;
-            text-decoration: none;
+        .privacy-policy-text {
             font-size: 12px;
-            font-weight: 500;
-            transition: background .2s ease;
+            color: var(--muted);
+            line-height: 1.7;
         }
-        .hero-primary:hover { background: #354f59; }
-        .hero-secondary { color: #43575d; font-size: 12px; text-decoration: none; border-bottom: 1px solid #bdc9c8; padding: 7px 0; }
-        .hero-secondary span { margin-left: 8px; }
-        .hero-note { margin-top: 29px; color: #8a9494; font-size: 10px; letter-spacing: .3px; }
-        .hero-image { position: relative; min-width: 0; }
-        .hero-image img {
-            display: block;
-            width: 100%;
-            height: clamp(350px, 43vw, 510px);
-            object-fit: cover;
-            border-radius: 2px;
-            border: 0;
-        }
-        .hero-image-note {
-            position: absolute;
-            right: -18px;
-            bottom: 22px;
-            padding: 15px 19px;
-            background: #fffefa;
-            color: #617176;
+        .privacy-policy-text h4 {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 17px;
-            font-style: italic;
-            line-height: 1.2;
-            box-shadow: 0 7px 25px rgba(47,65,68,.08);
+            font-size: 20px;
+            color: #264a52;
+            margin: 14px 0 6px;
         }
-        header.hero::after { display: none; }
-        .info-card {
-            margin: 0 0 60px;
-            padding: 28px 0 31px;
-            background: transparent;
-            border: 0;
-            border-top: 1px solid #dce2df;
-            border-bottom: 1px solid #dce2df;
-            border-radius: 0;
-            box-shadow: none;
-        }
-        .info-card::before { display: none; }
-        .info-card h3 {
-            margin-bottom: 21px;
-            color: #354a50;
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 31px;
-            font-weight: 600;
-        }
-        .info-grid { gap: 0 30px; }
-        .info-item, .info-item:nth-child(n) {
-            padding: 14px 0;
-            background: transparent;
-            border: 0;
-            border-bottom: 1px solid #e6e8e3;
-            border-radius: 0;
-            color: #657174;
-            font-size: 12px;
-        }
-        .info-item b {
-            color: #3f5b64;
-            font-family: 'Inter', sans-serif;
+        .privacy-policy-text h4:first-child { margin-top: 0; }
+        .privacy-policy-text p { margin-bottom: 10px; }
+
+        .form-privacy-note {
             font-size: 10px;
-            letter-spacing: .7px;
-        }
-        .info-item:hover { transform: none; }
-        .video-section { margin-bottom: 78px; }
-        .video-wrapper {
-            border: 0;
-            border-radius: 2px;
-            box-shadow: none;
-        }
-        section { margin-bottom: 92px; }
-        .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 25px; margin-bottom: 8px; }
-        .section-kicker { margin-bottom: 8px; font-size: 9px; letter-spacing: 1.5px; }
-        .section-title {
-            display: block;
-            margin: 0;
-            color: #30454b;
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(35px, 4vw, 48px);
-            font-style: normal;
-            font-weight: 600;
-            line-height: 1.05;
-            letter-spacing: -.3px;
-        }
-        .section-title::before { display: none; }
-        .section-title span { display: none; }
-        .section-price {
-            flex-shrink: 0;
-            padding-bottom: 5px;
-            color: #496b78;
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 26px;
-            line-height: 1;
-        }
-        .section-price span { color: #8a9494; font-family: 'Inter', sans-serif; font-size: 11px; }
-        .section-price-small { font-size: 21px; }
-        .portfolio-side-note { padding-bottom: 6px; color: #7c8889; font-size: 11px; }
-        .section-intro { max-width: 570px; margin: 12px 0 27px; color: #7a8586; font-size: 12px; line-height: 1.8; }
-        .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 22px; }
-        .card {
-            background: transparent;
-            border: 0;
-            border-radius: 0;
-            box-shadow: none;
-            overflow: visible;
-            transition: transform .25s ease;
-        }
-        .card:hover { transform: translateY(-3px); box-shadow: none; }
-        .card-img-wrap {
-            height: clamp(220px, 25vw, 320px);
-            border: 0;
-            border-radius: 2px;
-            background: #ecefeb;
-            overflow: hidden;
-        }
-        .card-img-wrap img { transition: transform .5s ease; }
-        .card:hover .card-img-wrap img { transform: scale(1.025); }
-        .like-btn {
-            top: 10px;
-            right: 10px;
-            width: 32px;
-            height: 32px;
-            border: 0;
-            color: #405c64;
-            box-shadow: 0 2px 8px rgba(0,0,0,.06);
-        }
-        .card-content { min-height: 0; padding: 15px 0 0; }
-        .card-title {
-            margin-bottom: 7px;
-            color: #35484d;
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 25px;
-            font-weight: 600;
-            line-height: 1.1;
-        }
-        .card-desc { color: #7b8585; font-size: 11px; line-height: 1.75; }
-        .bento-single-card { max-width: 800px; margin: 0; display: grid; grid-template-columns: .95fr 1.05fr; gap: 32px; align-items: center; }
-        .bento-single-card .card-img-wrap { height: 360px; }
-        .bento-single-card .card-content { padding: 10px 0; }
-        .bento-list { gap: 13px 22px; }
-        .bento-list li { padding-left: 14px; font-size: 12px; }
-        .bento-list li::before { content: "—"; top: 0; color: #6b8b94; font-size: 11px; }
-        #portfolio {
-            padding: 45px 0 0;
-            margin-bottom: 90px;
-            background: none;
-            border: 0;
-            border-top: 1px solid #dce2df;
-            border-radius: 0;
-            box-shadow: none;
-        }
-        #portfolio .card-img-wrap { height: clamp(230px, 27vw, 340px); }
-        footer {
-            margin-top: 0;
-            padding: 55px 20px 35px;
-            background: #e8eff0;
-            border: 0;
-            border-radius: 2px;
-            box-shadow: none;
+            color: var(--muted);
             text-align: center;
+            margin-top: 10px;
+            line-height: 1.4;
         }
-        footer::before { display: none; }
-        footer h3 { color: #30454b; font-weight: 600; }
-        footer p { color: #6f7b7e; font-size: 13px; }
-        .phone-btn, .order-main-btn {
-            padding: 13px 22px;
-            border: 0;
-            border-radius: 2px;
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: .2px;
-            text-transform: none;
+        .form-privacy-note a {
+            color: #496b78;
+            text-decoration: underline;
         }
-        .phone-btn { background: #496b78; }
-        .order-main-btn { background: #b77e7b; }
-        .footer-note { color: #748387; border-top-color: rgba(73,107,120,.2); font-size: 10px; font-weight: 400; }
-        .scroll-top-btn { background: #496b78; border-radius: 2px; box-shadow: none; }
-        .scroll-top-btn:hover { background: #354f59; box-shadow: none; }
-        .order-modal-content { border-radius: 3px; }
-        .form-group input, .form-group select, .form-group textarea { border-radius: 2px; }
-        .submit-order-btn { border-radius: 2px; }
+
+        @media (max-width: 1300px) {
+            .top-nav { padding-left: 30px; padding-right: 30px; }
+        }
 
         @media (max-width: 900px) {
             body { padding: 0 22px 30px; }
-            .top-nav { align-items: flex-start; }
+            .top-nav { align-items: flex-start; padding-left: 22px; padding-right: 22px; }
             .nav-links { gap: 12px 18px; }
-            header.hero { gap: 30px; min-height: 0; }
-            .hero-image img { height: 400px; }
             .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .card-img-wrap { height: 300px; }
         }
+
+        @media (max-width: 700px) {
+            .studio-banner {
+                min-height: 560px;
+                margin-top: 18px;
+                margin-bottom: 25px;
+                padding: 22px 16px;
+                align-items: flex-end;
+                justify-content: center;
+                background-image: linear-gradient(0deg, rgba(248,247,242,.94) 0%, rgba(248,247,242,.76) 24%, rgba(248,247,242,.28) 49%, rgba(248,247,242,0) 76%), url('images/banner.jpg');
+                background-position: center center;
+            }
+            .studio-banner-copy { 
+                width: 100%; 
+                padding: 25px 24px; 
+                background: rgba(250, 248, 243, 0.86); 
+                border: 1px solid rgba(255,255,255,.48); 
+                border-radius: 30px 22px 34px 20px; 
+                -webkit-backdrop-filter: blur(16px); 
+                backdrop-filter: blur(16px); 
+                box-shadow: 0 8px 30px rgba(40,48,48,.07); 
+            }
+            .studio-banner-copy h2 { font-size: 34px; }
+
+            .bottom-banner {
+                min-height: 420px;
+                padding: 20px 16px;
+            }
+            .bottom-banner-copy {
+                padding: 24px 20px;
+            }
+        }
+
         @media (max-width: 650px) {
             body { padding: 0 16px 22px; }
-            .top-nav { position: relative; top: auto; flex-direction: column; gap: 16px; padding: 17px 0; margin-bottom: 14px; }
+            .top-nav { position: relative; top: auto; flex-direction: column; gap: 16px; padding: 17px 16px; margin-bottom: 14px; }
             .brand-name { font-size: 27px; }
             .nav-links { width: 100%; justify-content: flex-start; gap: 12px 16px; }
             .top-nav .nav-links a { font-size: 11px; }
             .top-nav .nav-links .nav-order-btn { padding: 9px 12px; }
-            header.hero { grid-template-columns: 1fr; gap: 27px; padding: 35px 0 45px; margin-bottom: 35px; }
-            header.hero h1 { font-size: clamp(44px, 12vw, 62px); }
-            header.hero .hero-description { font-size: 13px; }
-            .hero-image img { height: min(105vw, 440px); }
-            .hero-image-note { right: 8px; bottom: 12px; font-size: 15px; }
             .info-card { padding: 24px 0; margin-bottom: 42px; }
             .info-grid { grid-template-columns: 1fr; }
-            .video-section { margin-bottom: 55px; }
             section { margin-bottom: 65px; }
             .section-heading { align-items: flex-start; flex-direction: column; gap: 10px; }
             .section-title { font-size: 39px; }
@@ -1207,93 +837,17 @@
             .bento-list { grid-template-columns: 1fr; }
             #portfolio { padding-top: 35px; }
             #portfolio .card-img-wrap { height: clamp(170px, 52vw, 260px); }
-            footer { padding: 40px 14px 28px; }
+            footer { padding: 30px 14px 25px; }
             .footer-buttons { gap: 10px; }
             .phone-btn, .order-main-btn { padding: 12px 15px; font-size: 10px; }
             .scroll-top-btn { bottom: 17px; right: 16px; }
         }
+
         @media (max-width: 380px) {
             .grid { grid-template-columns: 1fr; }
             .card-img-wrap, #portfolio .card-img-wrap { height: 300px; }
         }
-
-    
-        /* Полноширинный баннер: отступ от шапки до блока прайса */
-        .studio-banner {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            width: 100vw;
-            min-height: clamp(470px, 68vw, 650px);
-            margin: 26px 0 30px calc(50% - 50vw);
-            padding: clamp(24px, 6vw, 84px);
-            overflow: hidden;
-            border-radius: 0;
-            background-color: #dce5e6;
-            background-image: linear-gradient(90deg, rgba(248, 247, 242, 0) 0%, rgba(248, 247, 242, .06) 38%, rgba(248, 247, 242, .42) 58%, rgba(248, 247, 242, .82) 100%), url('images/banner.jpg');
-            background-size: cover;
-            background-position: center 48%;
-            background-repeat: no-repeat;
-        }
-        .studio-banner-copy {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            width: min(42%, 470px);
-            padding: clamp(24px, 3.5vw, 48px);
-            background: transparent;
-            backdrop-filter: none;
-        }
-        .studio-banner-copy h2 {
-            max-width: 420px;
-            margin: 10px 0 13px;
-            color: #304650;
-            font: 600 clamp(30px, 3.5vw, 45px)/1.03 var(--serif);
-            letter-spacing: -.025em;
-        }
-        .studio-banner-copy > p:not(.section-kicker) {
-            max-width: 390px;
-            margin-bottom: 19px;
-            color: #4e6067;
-            font-size: 13px;
-            line-height: 1.8;
-        }
-        .studio-banner-copy .section-kicker { color: #587581; }
-        /* Мягкая органическая подложка: текст читается, но блок не выглядит жёсткой карточкой */
-        .studio-banner-copy {
-            width: min(44%, 490px);
-            padding: clamp(28px, 3.8vw, 48px);
-            background: rgba(250, 248, 243, 0.78);
-            -webkit-backdrop-filter: blur(18px) saturate(112%);
-            backdrop-filter: blur(18px) saturate(112%);
-            border: 1px solid rgba(255, 255, 255, 0.42);
-            border-radius: 38% 24% 34% 22% / 13% 18% 12% 17%;
-            box-shadow: 0 12px 42px rgba(40, 48, 48, 0.07), inset 0 0 28px rgba(255,255,255,0.18);
-        }
-        .studio-banner-copy h2 { color: #2f4147; text-shadow: 0 1px 1px rgba(250,248,243,.18); }
-        .studio-banner-copy > p:not(.section-kicker) { color: #40545b; }
-        .studio-banner-copy .section-kicker { color: #4d707d; }
-        .studio-banner-copy .hero-secondary { color: #365b68; border-color: rgba(63, 98, 110, 0.38); }
-        .info-card { margin-top: 0; }
-        @media (max-width: 700px) {
-            .studio-banner {
-                min-height: 560px;
-                margin-top: 18px;
-                margin-bottom: 25px;
-                padding: 22px 16px;
-                align-items: flex-end;
-                justify-content: center;
-                background-image: linear-gradient(0deg, rgba(248,247,242,.94) 0%, rgba(248,247,242,.76) 24%, rgba(248,247,242,.28) 49%, rgba(248,247,242,0) 76%), url('images/banner.jpg');
-                background-position: center center;
-            }
-            .studio-banner-copy { width: 100%; padding: 25px 24px; background: rgba(250, 248, 243, 0.86); border: 1px solid rgba(255,255,255,.48); border-radius: 30px 22px 34px 20px; -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); box-shadow: 0 8px 30px rgba(40,48,48,.07); }
-            .studio-banner-copy h2 { font-size: 34px; }
-        }
-</style>
+    </style>
 </head>
 <body>
 
@@ -1314,8 +868,6 @@
             </div>
         </nav>
 
-
-
         <section class="studio-banner" aria-label="Индивидуальный заказ торта">
             <div class="studio-banner-copy">
                 <p class="section-kicker">ВАШ ПОВОД — НАШ ДЕКОР</p>
@@ -1330,40 +882,22 @@
             <div class="info-grid">
                 <div class="info-item">
                     <b>Классические начинки</b>
-                    1500 ₽ / кг (мин. заказ — от 2 кг)
+                    <span class="price-tag">1 500 ₽ / кг</span> (мин. заказ — от 2 кг)
                 </div>
                 <div class="info-item">
                     <b>Премиум начинки</b>
-                    1700 ₽ / кг (мин. заказ — от 2 кг)
+                    <span class="price-tag">1 700 ₽ / кг</span> (мин. заказ — от 2 кг)
                 </div>
                 <div class="info-item">
                     <b>Декор</b>
-                    Простой — от 500 ₽ | Сложный — индивидуально
+                    Простой — <span class="price-tag">от 500 ₽</span> | Сложный — индивидуально
                 </div>
                 <div class="info-item">
                     <b>Бенто-торты</b>
-                    Диаметр 12 см (вес 400–500 г)
+                    <span class="price-tag">1 100 ₽</span> (диаметр 12 см, вес 400–500 г)
                 </div>
             </div>
         </div>
-
-        <!-- Кастомный видео-плеер 16:9 без заставок (1-й кадр видео) -->
-        <section class="video-section">
-            <div class="video-wrapper paused" id="videoWrapper" onclick="toggleVideoPlay(event)">
-                <video id="promoVideo" preload="metadata" playsinline muted>
-                    <source src="images/promo.mp4" type="video/mp4">
-                    Ваш браузер не поддерживает видео.
-                </video>
-                <!-- Центральная кнопка пуска/паузы/повтора -->
-                <button class="video-center-btn" id="centerPlayBtn" aria-label="Воспроизвести / Повторить">
-                    <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </button>
-                <!-- Кнопка звука (заглушить/включить) -->
-                <button class="video-mute-btn" id="muteBtn" onclick="toggleMute(event)" aria-label="Звук">
-                    <svg id="soundIcon" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-                </button>
-            </div>
-        </section>
 
         <!-- 1. Классика -->
         <section id="classic" class="cake-section">
@@ -1521,7 +1055,7 @@
         <section id="bento" class="cake-section bento-section">
             <div class="section-heading">
                 <div><p class="section-kicker">Небольшой торт — большой повод</p><h2 class="section-title">Бенто-торты</h2></div>
-                <p class="section-price section-price-small">12 см <span>· 400–500 г</span></p>
+                <p class="section-price section-price-small">1 100 ₽ <span>/ 12 см (400–500 г)</span></p>
             </div>
             <p class="section-intro">Компактный формат для личного поздравления, свидания или маленького праздника.</p>
             <div class="card bento-single-card">
@@ -1542,7 +1076,7 @@
             </div>
         </section>
 
-        <!-- 4. Примеры моих работ (с фоном из роз) -->
+        <!-- 4. Примеры моих работ -->
         <section id="portfolio" class="portfolio-section">
             <div class="section-heading">
                 <div><p class="section-kicker">Каждый торт — отдельная история</p><h2 class="section-title">Работы мастерской</h2></div>
@@ -1583,15 +1117,23 @@
             </div>
         </section>
 
-        <footer id="contacts">
-            <h3>Расскажите, каким вы представляете свой торт</h3>
-            <p>Обсудим начинку, оформление и дату — вместе подберём подходящий вариант.</p>
-            <div class="footer-buttons">
-                <a href="tel:+79057436210" class="phone-btn">+7 (905) 743-62-10</a>
-                <button class="order-main-btn" onclick="openOrderModal(event)">Оставить заявку</button>
+        <!-- Полноширинный баннер с призывом к действию перед подвалом -->
+        <section class="bottom-banner" id="bottomBanner" aria-label="Обсудить заказ торта">
+            <div class="bottom-banner-copy">
+                <p class="section-kicker">СОЗДАЙТЕ СВОЙ ИДЕАЛЬНЫЙ ТОРТ</p>
+                <h3>Расскажите, каким вы представляете свой праздник</h3>
+                <p>Обсудим начинку, декор и дату — подберём идеальный вариант под ваш бюджет.</p>
+                <div class="footer-buttons">
+                    <a href="tel:+79057436210" class="phone-btn">+7 (905) 743-62-10</a>
+                    <button class="order-main-btn" onclick="openOrderModal(event)">Оставить заявку</button>
+                </div>
             </div>
+        </section>
+
+        <footer id="contacts">
             <div class="footer-note">
-                Виктория · торты на заказ
+                <span>Виктория · торты на заказ</span>
+                <a href="#" onclick="openPrivacyModal(event)">Политика конфиденциальности</a>
             </div>
         </footer>
     </div>
@@ -1599,215 +1141,3 @@
     <!-- Модальное окно для увеличения фото -->
     <div id="imageModal" class="modal" onclick="closeModal()">
         <span class="modal-close">&times;</span>
-        <img id="modalImg" src="" alt="Увеличенное фото">
-    </div>
-
-    <!-- Модальное окно для формы заявки -->
-    <div id="orderModal" class="modal" onclick="closeOrderModalOutside(event)">
-        <div class="order-modal-content">
-            <span class="modal-close" style="color: #264a52;" onclick="closeOrderModal()">&times;</span>
-            <h3>Оформление заказа</h3>
-            <p>Заполните форму, и заявка придет в Telegram.</p>
-            
-            <form id="cakeOrderForm" onsubmit="handleFormSubmit(event)">
-                <div class="form-group">
-                    <label for="userName">Ваше имя *</label>
-                    <input type="text" id="userName" name="Имя заказчика" required placeholder="Как к вам обращаться?">
-                </div>
-
-                <div class="form-group">
-                    <label for="userContact">Телефон / Telegram *</label>
-                    <input type="text" id="userContact" name="Контакты" required placeholder="+7 (999) 000-00-00">
-                </div>
-
-                <div class="form-group">
-                    <label for="cakeFilling">Начинка</label>
-                    <select id="cakeFilling" name="Выбранная начинка">
-                        <option value="Не выбрана">Выберите начинку...</option>
-                        <optgroup label="Классика (1500 ₽/кг)">
-                            <option value="Мак-Лимон">Мак-Лимон</option>
-                            <option value="Клубника-Сливки">Клубника-Сливки</option>
-                            <option value="Молочная девочка">Молочная девочка</option>
-                            <option value="Банан-Карамель">Банан-Карамель</option>
-                            <option value="Ваниль / Вишня">Ваниль / Вишня</option>
-                            <option value="Банан / Нутелла">Банан / Нутелла</option>
-                            <option value="Бабл Гам">Бабл Гам</option>
-                        </optgroup>
-                        <optgroup label="Премиум (1700 ₽/кг)">
-                            <option value="Орео">Орео</option>
-                            <option value="Малиновый Рафаэлло">Малиновый Рафаэлло</option>
-                            <option value="Киндер Кантри">Киндер Кантри</option>
-                            <option value="Сникерс">Сникерс</option>
-                            <option value="Фисташка-Малина">Фисташка-Малина</option>
-                            <option value="Морковный">Морковный</option>
-                        </optgroup>
-                        <optgroup label="Бенто-торты">
-                            <option value="Бенто-торт">Бенто-торт (выбрать начинку)</option>
-                        </optgroup>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="cakeWeight">Примерный вес (кг)</label>
-                    <input type="text" id="cakeWeight" name="Вес торта" placeholder="Например: 2 кг или бенто">
-                </div>
-
-                <div class="form-group">
-                    <label for="cakeComment">Пожелания к дизайну / дата</label>
-                    <textarea id="cakeComment" name="Пожелания и дата" rows="3" placeholder="Надпись, декор, дата праздника..."></textarea>
-                </div>
-
-                <button type="submit" class="submit-order-btn">Отправить заказ</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Кнопка наверх -->
-    <button id="scrollTopBtn" class="scroll-top-btn" title="Наверх" onclick="scrollToTop()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6"/>
-        </svg>
-    </button>
-
-    <script>
-        // Управление кастомным видео-плеером
-        const video = document.getElementById('promoVideo');
-        const wrapper = document.getElementById('videoWrapper');
-        const playIcon = document.getElementById('playIcon');
-        const soundIcon = document.getElementById('soundIcon');
-
-        function toggleVideoPlay(event) {
-            if (event.target.closest('#muteBtn')) return;
-
-            if (video.paused || video.ended) {
-                if (video.ended) {
-                    video.currentTime = 0;
-                }
-                video.play();
-                wrapper.classList.remove('paused');
-                playIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'; // Иконка паузы
-            } else {
-                video.pause();
-                wrapper.classList.add('paused');
-                playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>'; // Иконка play
-            }
-        }
-
-        // Событие окончания видео: показываем полупрозрачную круговую стрелку (повтор)
-        video.addEventListener('ended', function() {
-            wrapper.classList.add('paused');
-            playIcon.innerHTML = '<path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.23-5.23" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';
-        });
-
-        function toggleMute(event) {
-            event.stopPropagation();
-            video.muted = !video.muted;
-            if (video.muted) {
-                soundIcon.innerHTML = '<path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
-            } else {
-                soundIcon.innerHTML = '<path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>';
-            }
-        }
-
-        // Работа с модальным окном картинок
-        function openModal(img) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImg');
-            modalImg.src = img.src;
-            modal.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('imageModal');
-            modal.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        // Работа с модальным окном формы заявки
-        function openOrderModal(event) {
-            event.preventDefault();
-            document.getElementById('orderModal').classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeOrderModal() {
-            document.getElementById('orderModal').classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        function closeOrderModalOutside(event) {
-            const modal = document.getElementById('orderModal');
-            if (event.target === modal) {
-                closeOrderModal();
-            }
-        }
-
-        function toggleLike(button) {
-            button.classList.toggle('active');
-            button.textContent = button.classList.contains('active') ? '♥' : '♡';
-        }
-
-        // Обработка отправки формы через Telegram-бота (для GitHub Pages)
-        function handleFormSubmit(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('userName').value;
-            const contact = document.getElementById('userContact').value;
-            const filling = document.getElementById('cakeFilling').value;
-            const weight = document.getElementById('cakeWeight').value;
-            const comment = document.getElementById('cakeComment').value;
-
-            // Вставьте сюда токен вашего бота и ваш Chat ID
-            const BOT_TOKEN = '8877774740:AAHKVLOcKtS1J1mlKt04zObwusq1Tbnc2H8';
-            const CHAT_ID = '1193749282';
-
-            const message = `✨ *Новая заявка с сайта!*\n\n` +
-                            `👤 *Имя:* ${name}\n` +
-                            `📞 *Контакт:* ${contact}\n` +
-                            `🎂 *Начинка:* ${filling}\n` +
-                            `⚖️ *Вес:* ${weight || 'Не указан'}\n` +
-                            `💬 *Пожелания:* ${comment || 'Нет'}`;
-
-            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-
-            fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: CHAT_ID,
-                    text: message,
-                    parse_mode: 'Markdown'
-                })
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Спасибо! Ваша заявка успешно отправлена, скоро я с вами свяжусь.');
-                    closeOrderModal();
-                    document.getElementById('cakeOrderForm').reset();
-                } else {
-                    alert('Ошибка отправки. Пожалуйста, свяжитесь со мной по телефону из контактов.');
-                }
-            })
-            .catch(error => {
-                console.error('Ошибка:', error);
-                alert('Не удалось отправить заявку из-за ошибки сети.');
-            });
-        }
-
-        // Кнопка "Наверх"
-        window.addEventListener('scroll', function() {
-            const scrollBtn = document.getElementById('scrollTopBtn');
-            if (window.scrollY > 400) {
-                scrollBtn.classList.add('show');
-            } else {
-                scrollBtn.classList.remove('show');
-            }
-        });
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
-</body>
-</html>
