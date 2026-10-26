@@ -43,6 +43,7 @@
             line-height: 1.65;
             padding: 0 30px 40px;
             overflow-x: hidden;
+            transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @keyframes fadeInUp {
@@ -88,6 +89,7 @@
             align-items: center;
             gap: 28px;
             z-index: 100;
+            transition: background 0.3s ease;
         }
 
         .brand-mark {
@@ -276,7 +278,7 @@
 
         .section-kicker {
             margin: 0 0 8px;
-            color: #537580;
+            color: #66838d;
             font-family: 'Inter', sans-serif;
             font-size: 9px;
             font-weight: 600;
@@ -286,7 +288,7 @@
 
         .section-title {
             margin: 0;
-            color: #24363a;
+            color: #30454b;
             font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(35px, 4vw, 48px);
             font-style: normal;
@@ -305,11 +307,11 @@
             line-height: 1;
         }
 
-        .section-price span { color: #5b696c; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; }
+        .section-price span { color: #6a7678; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; }
         .section-price-small { font-size: 24px; }
 
-        .portfolio-side-note { padding-bottom: 6px; color: #5c6c6e; font-size: 11px; }
-        .section-intro { max-width: 570px; margin: 12px 0 27px; color: #58686a; font-size: 12px; line-height: 1.8; }
+        .portfolio-side-note { padding-bottom: 6px; color: #7c8889; font-size: 11px; }
+        .section-intro { max-width: 570px; margin: 12px 0 27px; color: #7a8586; font-size: 12px; line-height: 1.8; }
 
         .grid {
             display: grid;
@@ -336,7 +338,6 @@
             position: relative;
             border: 0;
             border-radius: 2px;
-            box-shadow: 0 4px 18px rgba(38, 54, 59, 0.05);
         }
 
         .card-img-wrap img {
@@ -391,7 +392,7 @@
 
         .card-title {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            color: #24363a;
+            color: #35484d;
             font-size: 25px;
             line-height: 1.1;
             margin-bottom: 7px;
@@ -399,7 +400,7 @@
         }
 
         .card-desc {
-            color: #5d6a6c;
+            color: #7b8585;
             font-size: 11px;
             line-height: 1.75;
         }
@@ -425,7 +426,7 @@
         }
 
         .bento-list li {
-            color: #5d6a6c;
+            color: var(--muted);
             font-size: 12px;
             padding-left: 14px;
             position: relative;
@@ -436,7 +437,7 @@
             position: absolute;
             left: 0;
             top: 0;
-            color: #496b78;
+            color: #6b8b94;
             font-size: 11px;
         }
 
@@ -447,7 +448,7 @@
             margin-bottom: 60px;
             background: none;
             border: 0;
-            border-top: 1px solid rgba(220, 226, 223, 0.8);
+            border-top: 1px solid #dce2df;
             border-radius: 0;
             box-shadow: none;
             scroll-margin-top: 100px;
