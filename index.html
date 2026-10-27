@@ -439,19 +439,19 @@
             line-height: 1.75;
         }
 
-        /* --- Стили для нового бенто-баннера с растворением --- */
+        /* --- Бенто-баннер с уменьшенным фото справа и растворением влево --- */
         .bento-banner-section {
             position: relative;
             width: 100vw;
             margin-left: calc(50% - 50vw);
             margin-right: calc(50% - 50vw);
             padding: clamp(40px, 5vw, 60px) clamp(20px, 5vw, 60px);
-            background-color: #e2e8e9;
+            background-color: #f8f7f2;
             background-image: 
-                linear-gradient(90deg, #f8f7f2 35%, rgba(248, 247, 242, 0.85) 55%, rgba(248, 247, 242, 0) 80%), 
+                linear-gradient(90deg, #f8f7f2 30%, rgba(248, 247, 242, 0.75) 50%, rgba(248, 247, 242, 0) 70%), 
                 url('images/bento-banner.jpg');
-            background-size: cover;
-            background-position: right center;
+            background-size: contain;
+            background-position: calc(100% - 40px) center;
             background-repeat: no-repeat;
             overflow: hidden;
             box-sizing: border-box;
@@ -881,7 +881,6 @@
             }
             .studio-banner-copy h2 { font-size: 34px; }
 
-            /* На мобильных градиент баннера делаем светлее, чтобы фото читалось снизу */
             .bento-banner-section {
                 background-image: linear-gradient(180deg, rgba(248,247,242,.95) 0%, rgba(248,247,242,.85) 40%, rgba(248,247,242,.5) 100%), url('images/bento-banner.jpg');
                 background-position: center bottom;
@@ -1186,7 +1185,7 @@
             </div>
         </section>
 
-        <!-- 3. Бенто-торты (Оформлен как полноширинный баннер с фото справа и растворением влево) -->
+        <!-- 3. Бенто-торты (Баннер с фото справа и растворением влево) -->
         <section id="bento" class="bento-banner-section" aria-label="Бенто-торты">
             <div class="bento-banner-inner">
                 <div class="section-heading" style="margin-bottom: 6px;">
