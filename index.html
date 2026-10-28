@@ -439,7 +439,7 @@
             line-height: 1.75;
         }
 
-        /* --- Бенто-баннер с плавным градиентом выцветания влево --- */
+        /* --- Бенто-баннер --- */
         .bento-banner-section {
             position: relative;
             width: 100vw;
@@ -503,7 +503,6 @@
 
         .bento-list li b { color: var(--ink); font-weight: 600; }
 
-        /* Плашка с ценой снизу под списком начинок */
         .bento-price-badge {
             display: inline-flex;
             align-items: baseline;
@@ -543,7 +542,6 @@
 
         #portfolio .card-img-wrap { height: clamp(230px, 27vw, 340px); }
 
-        /* Полноширинный нижний баннер перед футером */
         .bottom-banner {
             position: relative;
             display: flex;
@@ -856,7 +854,7 @@
             text-decoration: underline;
         }
 
-        /* --- ГЛУБОКАЯ И ЧИСТАЯ МОБИЛЬНАЯ АДАПТАЦИЯ --- */
+        /* --- МОБИЛЬНАЯ АДАПТАЦИЯ --- */
         @media (max-width: 1100px) {
             .info-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -871,7 +869,6 @@
         }
 
         @media (max-width: 768px) {
-            /* Шапка: логотип + скроллящаяся строка ссылок + кнопка */
             .top-nav {
                 flex-direction: column;
                 align-items: stretch;
@@ -908,7 +905,6 @@
                 margin-top: 4px;
             }
 
-            /* Верхний баннер */
             .studio-banner {
                 min-height: 480px;
                 margin-top: 10px;
@@ -928,10 +924,9 @@
             }
             .studio-banner-copy h2 { font-size: 30px; }
 
-            /* БЛОК БЕНТО: Исключаем аляповатость, разбиваем на текстуру и контент */
             .bento-banner-section {
                 padding: 24px 16px 30px;
-                background-image: none; /* Убираем фоновый нахлест на мобиле */
+                background-image: none;
                 background-color: #f8f7f2;
             }
 
@@ -944,7 +939,6 @@
                 border: 1px solid #e9ece8;
             }
 
-            /* Выносим фото бенто отдельным аккуратным блоком под текстом */
             .bento-content-wrap::after {
                 content: "";
                 display: block;
@@ -963,7 +957,6 @@
                 text-align: center;
             }
 
-            /* Нижний баннер */
             .bottom-banner {
                 min-height: 380px;
                 padding: 20px 14px;
@@ -983,7 +976,6 @@
             .section-price { font-size: 22px; }
             .order-modal-content { padding: 25px 18px; }
             
-            /* Предотвращение зума на iPhone при клике в поле ввода */
             .form-group input, 
             .form-group select, 
             .form-group textarea {
@@ -995,7 +987,7 @@
 <body>
 
     <div class="container">
-        <!-- Основная навигация и текстовый логотип -->
+        <!-- Навигация -->
         <nav class="top-nav" aria-label="Основная навигация">
             <a class="brand-mark" href="#" aria-label="Виктория — на главную">
                 <span class="brand-name">Виктория</span>
@@ -1005,7 +997,7 @@
                 <a href="#prices">Условия</a>
                 <a href="#classic">Начинки</a>
                 <a href="#bento">Бенто</a>
-                <a href="#cupcakes">Капкейки</a>
+                <a href="#cupcakes">Десерты</a>
                 <a href="#portfolio">Работы</a>
                 <a href="#contacts">Контакты</a>
                 <a href="#" class="nav-order-btn" onclick="openOrderModal(event)">Заказать торт</a>
@@ -1059,7 +1051,7 @@
                 <div class="price-card-item">
                     <div>
                         <div class="price-card-header">
-                            <span class="price-card-title">Капкейки</span>
+                            <span class="price-card-title">Капкейки & Трайфлы</span>
                             <span class="price-badge" style="background: #dce6e8; color: #496b78;">Новинка</span>
                         </div>
                         <div class="price-card-amount" style="font-size: 24px;">По запросу</div>
@@ -1087,6 +1079,16 @@
             </div>
             <p class="section-intro">Проверенные сочетания — от ягод и сливок до карамели и шоколада.</p>
             <div class="grid">
+                <div class="card">
+                    <div class="card-img-wrap">
+                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
+                        <img src="images/red-velvet.jpg" alt="Красный бархат" onclick="openModal(this)">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title">Красный бархат</div>
+                        <div class="card-desc">Бархатистые бисквитные коржи с легким нотками какао, нежный крем-чиз и ягодная прослойка на выбор (вишня или клубника).</div>
+                    </div>
+                </div>
                 <div class="card">
                     <div class="card-img-wrap">
                         <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
@@ -1268,7 +1270,6 @@
                         <li><b>Шоколад-Вишня / Банан-Карамель</b></li>
                     </ul>
 
-                    <!-- Цена -->
                     <div class="bento-price-badge">
                         <span class="price-val">1 100 ₽</span>
                         <span class="price-sub">/ диаметр 12 см (400–500 г)</span>
@@ -1277,25 +1278,25 @@
             </div>
         </section>
 
-        <!-- 4. Капкейки -->
+        <!-- 4. Капкейки & Трайфлы -->
         <section id="cupcakes" class="cake-section cupcakes-section">
             <div class="section-heading">
-                <div><p class="section-kicker">Порционные порции удовольствия</p><h2 class="section-title">Капкейки</h2></div>
+                <div><p class="section-kicker">Порционные десерты</p><h2 class="section-title">Капкейки & Трайфлы</h2></div>
                 <p class="portfolio-side-note">В аккуратной подарочной упаковке</p>
             </div>
-            <p class="section-intro">Идеальное дополнение к торту или отличный самостоятельный десерт для близких и коллег.</p>
+            <p class="section-intro">Идеальное дополнение к торту или отличный самостоятельный десерт для праздника, подарка или чаепития.</p>
             <div class="card bento-single-card">
                 <div class="card-img-wrap">
                     <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                    <img src="images/cupcakes.jpg" alt="Наборы капкейков" onclick="openModal(this)">
+                    <img src="images/cupcakes.jpg" alt="Капкейки & Трайфлы" onclick="openModal(this)">
                 </div>
                 <div class="card-content">
-                    <div class="card-title">Доступные начинки:</div>
+                    <div class="card-title">Популярные начинки:</div>
                     <ul class="bento-list">
-                        <li><b>Банан-Карамель</b></li>
-                        <li><b>Капкейк с малиной</b></li>
-                        <li><b>Вишня</b></li>
-                        <li><b>Сникерс</b></li>
+                        <li><b>Банан-Карамель</b> (нежный бисквит и тягучая карамель)</li>
+                        <li><b>Малина</b> (воздушный крем-чиз и ягодная начинка)</li>
+                        <li><b>Вишня</b> (шоколадный или ванильный акцент)</li>
+                        <li><b>Сникерс</b> (арахис, карамель и шоколад)</li>
                     </ul>
                 </div>
             </div>
@@ -1422,6 +1423,7 @@
                     <select id="cakeFilling" name="Выбранная начинка">
                         <option value="Не выбрана">Выберите начинку...</option>
                         <optgroup label="Классика (1500 ₽/кг)">
+                            <option value="Красный бархат">Красный бархат</option>
                             <option value="Мак-Лимон">Мак-Лимон</option>
                             <option value="Клубника-Сливки">Клубника-Сливки</option>
                             <option value="Молочная девочка">Молочная девочка</option>
@@ -1443,11 +1445,11 @@
                         <optgroup label="Бенто-торты (1100 ₽)">
                             <option value="Бенто-торт">Бенто-торт (выбрать начинку)</option>
                         </optgroup>
-                        <optgroup label="Капкейки">
-                            <option value="Капкейк Банан-Карамель">Капкейки: Банан-Карамель</option>
-                            <option value="Капкейк с малиной">Капкейки: С малиной</option>
-                            <option value="Капкейк Вишня">Капкейки: Вишня</option>
-                            <option value="Капкейк Сникерс">Капкейки: Сникерс</option>
+                        <optgroup label="Капкейки & Трайфлы">
+                            <option value="Капкейки/Трайфлы: Банан-Карамель">Банан-Карамель</option>
+                            <option value="Капкейки/Трайфлы: Малина">Малина</option>
+                            <option value="Капкейки/Трайфлы: Вишня">Вишня</option>
+                            <option value="Капкейки/Трайфлы: Сникерс">Сникерс</option>
                         </optgroup>
                     </select>
                 </div>
