@@ -411,7 +411,7 @@
             line-height: 1.7;
         }
 
-        /* --- Бенто-баннер --- */
+        /* --- Бенто-баннер (ПК — фон, Мобильный — картинка выносится вниз) --- */
         .bento-banner-section {
             position: relative;
             width: 100vw;
@@ -432,9 +432,21 @@
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .bento-content-wrap { max-width: 560px; }
+
+        .bento-mobile-img {
+            display: none;
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 4px 16px rgba(47, 65, 68, 0.08);
+        }
 
         .bento-list {
             list-style: none;
@@ -490,7 +502,7 @@
 
         #portfolio .card-img-wrap { height: clamp(210px, 27vw, 320px); }
 
-        /* --- Секция Отзывов (Миниатюрная и узкая карусель) --- */
+        /* --- Секция Отзывов (Минималистичная, строгая, низкая по высоте) --- */
         .reviews-section {
             margin-bottom: 60px;
         }
@@ -530,35 +542,35 @@
 
         .reviews-track {
             display: flex;
-            gap: 16px;
+            gap: 14px;
             overflow-x: auto;
             scroll-behavior: smooth;
             scrollbar-width: none;
             -ms-overflow-style: none;
-            padding: 8px 2px;
+            padding: 6px 2px;
             width: 100%;
         }
 
         .reviews-track::-webkit-scrollbar { display: none; }
 
-        /* Узкие и аккуратные компактные карточки отзывов */
+        /* Узкие, компактные по высоте карточки отзывов без «воды» */
         .review-card {
-            flex: 0 0 calc(25% - 12px);
-            min-width: 230px;
-            max-width: 280px;
-            height: 185px;
+            flex: 0 0 calc(25% - 11px);
+            min-width: 220px;
+            max-width: 260px;
+            height: 145px;
             background: rgba(255, 255, 255, 0.85);
             border: 1px solid rgba(220, 226, 223, 0.9);
             border-radius: 6px;
-            padding: 15px;
+            padding: 12px 14px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 4px 16px rgba(47, 65, 68, 0.03);
+            box-shadow: 0 4px 12px rgba(47, 65, 68, 0.03);
             backdrop-filter: blur(8px);
             position: relative;
             overflow: hidden;
-            transition: height 0.3s ease;
+            transition: height 0.25s ease;
         }
 
         .review-card.expanded {
@@ -569,7 +581,7 @@
         .review-card-top {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 3px;
         }
 
         .review-card-header {
@@ -580,14 +592,14 @@
 
         .review-author {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 600;
             color: #2e4147;
         }
 
         .review-stars {
             color: #d4a373;
-            font-size: 12px;
+            font-size: 11px;
             letter-spacing: 1px;
         }
 
@@ -596,10 +608,12 @@
             overflow: hidden;
         }
 
+        /* Премиальный шрифт с засечками для текста отзывов (не ИИшный стиль) */
         .review-text {
-            color: #617073;
-            font-size: 11px;
-            line-height: 1.5;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            color: #425256;
+            font-size: 13.5px;
+            line-height: 1.35;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -616,11 +630,12 @@
             background: none;
             border: none;
             color: #496b78;
-            font-size: 9.5px;
+            font-family: 'Inter', sans-serif;
+            font-size: 9px;
             font-weight: 600;
             cursor: pointer;
-            padding: 2px 0;
-            margin-top: 2px;
+            padding: 1px 0;
+            margin-top: 1px;
             text-align: left;
         }
 
@@ -631,21 +646,22 @@
             justify-content: space-between;
             align-items: center;
             border-top: 1px solid rgba(220, 226, 223, 0.6);
-            padding-top: 6px;
+            padding-top: 5px;
             margin-top: auto;
         }
 
         .review-date {
             color: #939d9f;
-            font-size: 9px;
+            font-family: 'Inter', sans-serif;
+            font-size: 8.5px;
         }
 
         .carousel-nav-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 36px;
-            height: 36px;
+            width: 34px;
+            height: 34px;
             background: rgba(255, 255, 255, 0.92);
             border: 1px solid #dce2df;
             border-radius: 50%;
@@ -663,8 +679,8 @@
             border-color: #496b78;
         }
 
-        .carousel-prev { left: -18px; }
-        .carousel-next { right: -18px; }
+        .carousel-prev { left: -16px; }
+        .carousel-next { right: -16px; }
 
         /* Нижний баннер */
         .bottom-banner {
@@ -957,11 +973,11 @@
             margin-bottom: 8px;
         }
 
-        /* Мобильная адаптация сетки */
+        /* Мобильная адаптация */
         @media (max-width: 900px) {
             .info-grid { grid-template-columns: repeat(2, 1fr); }
             .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; }
-            .review-card { flex: 0 0 calc(50% - 8px); min-width: 210px; }
+            .review-card { flex: 0 0 calc(50% - 8px); min-width: 200px; }
             .carousel-nav-btn { display: none; }
         }
 
@@ -970,6 +986,9 @@
             .info-grid { grid-template-columns: 1fr; }
             .grid { grid-template-columns: 1fr; }
             .review-card { flex: 0 0 calc(100% - 10px); }
+            /* На мобильных включаем картинку бенто вниз */
+            .bento-banner-section { background-image: none; background-color: #f8f7f2; }
+            .bento-mobile-img { display: block; }
             .top-nav {
                 flex-direction: column;
                 align-items: stretch;
@@ -1145,7 +1164,7 @@
             </div>
         </section>
 
-        <!-- 3. Бенто-торты -->
+        <!-- 3. Бенто-торты (на мобилках фото вынесено вниз) -->
         <section id="bento" class="bento-banner-section" aria-label="Бенто-торты">
             <div class="bento-banner-inner">
                 <div class="bento-content-wrap">
@@ -1164,6 +1183,8 @@
                         <span class="price-sub">/ диаметр 12 см (400–500 г)</span>
                     </div>
                 </div>
+                <!-- Картинка для мобилок (выносится аккуратно вниз) -->
+                <img src="images/bento-banner.jpg" alt="Бенто-торты" class="bento-mobile-img" onclick="openModal(this)">
             </div>
         </section>
 
@@ -1201,11 +1222,11 @@
                 <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work3.gif" alt="Императорская подача" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Императорская подача</div><div class="card-desc">Элегантное оформление и фирменная упаковка.</div></div></div>
                 <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work4.gif" alt="Авторский декор" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Авторский декор</div><div class="card-desc">Уникальное оформление под стиль вашего праздника.</div></div></div>
                 <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work5.gif" alt="Праздничное настроение" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Праздничное настроение</div><div class="card-desc">Яркие акценты и утонченные детали.</div></div></div>
-                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work6.gif" alt="Изысканная классика" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Изысканная классика</div><div class="card-desc">Строгие линии, безупречное исполнение.</div></div></div>
+                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work6.gif" alt="Императорская классика" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Изысканная классика</div><div class="card-desc">Строгие линии, безупречное исполнение.</div></div></div>
             </div>
         </section>
 
-        <!-- 5. Секция Отзывов (Узкие, минималистичные карточки перед финальным баннером) -->
+        <!-- 5. Секция Отзывов (Минималистичные, низкие по высоте карточки перед финальным баннером) -->
         <section id="reviews" class="reviews-section">
             <div class="reviews-header-wrap">
                 <div>
@@ -1227,7 +1248,7 @@
                                 <div class="review-stars">★★★★★</div>
                             </div>
                             <div class="review-text-wrap">
-                                <div class="review-text">Заказывали торт «Фисташка-малина» на юбилей. Это просто шедевр! Гости были в восторге, бисквит невероятно нежный. Спасибо огромное!</div>
+                                <div class="review-text">Заказывали торт «Фисташка-малина» на юбилей. Это просто шедевр! Гости были в восторге.</div>
                             </div>
                         </div>
                         <div class="review-footer-info">
@@ -1418,7 +1439,7 @@
         const SUPABASE_ANON_KEY = 'sb_publishable_Wu9TMB_o18fZcjM0yw5cWQ_aykFa_kE';
         const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // Telegram токен и чат
+        // Telegram токен и чат (без заглушек)
         const BOT_TOKEN = '8877774740:AAHKVLOcKtS1J1mlKt04zObwusq1Tbnc2H8';
         const CHAT_ID = '1193749282';
 
@@ -1445,14 +1466,14 @@
                         appendReviewCard(rev, track);
                     });
                 } else {
-                    track.innerHTML = '<div class="review-card"><div class="review-card-top"><div class="review-author">Пока нет отзывов</div><div class="review-text">Станьте первым, кто оставит отзыв о нашей мастерской!</div></div></div>';
+                    track.innerHTML = '<div class="review-card"><div class="review-card-top"><div class="review-author">Пока нет отзывов</div><div class="review-text">Будьте первыми!</div></div></div>';
                 }
             } catch (err) {
                 console.error('Ошибка загрузки отзывов:', err);
             }
         }
 
-        // Отрисовка карточки с поддержкой разворачивания длинного текста
+        // Отрисовка компактной карточки с кнопкой разворачивания
         function appendReviewCard(rev, trackContainer) {
             const stars = '★'.repeat(rev.rating) + '☆'.repeat(5 - rev.rating);
             const dateFormatted = new Date(rev.created_at).toLocaleDateString('ru-RU');
@@ -1481,7 +1502,7 @@
                 const textElem = document.getElementById(cardId);
                 const btnElem = document.getElementById('btn_' + cardId);
                 if (textElem && btnElem) {
-                    if (textElem.scrollHeight > textElem.clientHeight || rev.text.length > 90) {
+                    if (textElem.scrollHeight > textElem.clientHeight || rev.text.length > 70) {
                         btnElem.style.display = 'block';
                     }
                 }
@@ -1524,7 +1545,7 @@
 
         function scrollReviews(direction) {
             const track = document.getElementById('reviewsTrack');
-            const cardWidth = track.querySelector('.review-card').offsetWidth + 16;
+            const cardWidth = track.querySelector('.review-card').offsetWidth + 14;
             track.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
         }
 
