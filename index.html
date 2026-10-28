@@ -28,7 +28,6 @@
 
         html { scroll-behavior: smooth; }
 
-        /* Динамический суперградиент, меняющийся при прокрутке */
         body {
             font-family: 'Inter', sans-serif;
             color: var(--ink);
@@ -80,15 +79,12 @@
             background: rgba(248,247,242,.94);
             border: 0;
             border-bottom: 1px solid #e2e4df;
-            border-radius: 0;
-            box-shadow: none;
             backdrop-filter: blur(12px);
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 20px;
             z-index: 100;
-            transition: background 0.3s ease;
         }
 
         .brand-mark {
@@ -149,7 +145,7 @@
 
         .top-nav .nav-links .nav-order-btn:hover { background: #354f59 !important; }
 
-        /* Полноширинный верхний баннер */
+        /* Верхний баннер */
         .studio-banner {
             position: relative;
             display: flex;
@@ -159,8 +155,6 @@
             min-height: clamp(470px, 68vw, 650px);
             margin: 26px 0 30px calc(50% - 50vw);
             padding: clamp(24px, 6vw, 84px);
-            overflow: hidden;
-            border-radius: 0;
             background-color: #dce5e6;
             background-image: linear-gradient(90deg, rgba(248, 247, 242, 0) 0%, rgba(248, 247, 242, .06) 38%, rgba(248, 247, 242, .42) 58%, rgba(248, 247, 242, .82) 100%), url('images/banner.jpg');
             background-size: cover;
@@ -178,11 +172,10 @@
             width: min(44%, 490px);
             padding: clamp(28px, 3.8vw, 48px);
             background: rgba(250, 248, 243, 0.78);
-            -webkit-backdrop-filter: blur(18px) saturate(112%);
             backdrop-filter: blur(18px) saturate(112%);
             border: 1px solid rgba(255, 255, 255, 0.42);
             border-radius: 38% 24% 34% 22% / 13% 18% 12% 17%;
-            box-shadow: 0 12px 42px rgba(40, 48, 48, 0.07), inset 0 0 28px rgba(255,255,255,0.18);
+            box-shadow: 0 12px 42px rgba(40, 48, 48, 0.07);
         }
 
         .studio-banner-copy h2 {
@@ -193,8 +186,6 @@
             font-size: clamp(30px, 3.5vw, 45px);
             font-weight: 600;
             line-height: 1.03;
-            letter-spacing: -.025em;
-            text-shadow: 0 1px 1px rgba(250,248,243,.18);
         }
 
         .studio-banner-copy > p:not(.section-kicker) {
@@ -217,13 +208,11 @@
 
         .hero-secondary span { margin-left: 8px; }
 
-        /* --- Прайс-лист --- */
+        /* Прайс-лист */
         .info-card {
             margin: 0 0 60px;
             padding: 0;
             background: transparent;
-            border: 0;
-            box-shadow: none;
             scroll-margin-top: 100px;
         }
 
@@ -233,7 +222,6 @@
             font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(32px, 3.5vw, 40px);
             font-weight: 600;
-            letter-spacing: -.3px;
         }
 
         .info-grid {
@@ -243,7 +231,6 @@
         }
 
         .price-card-item {
-            position: relative;
             background: rgba(255, 255, 255, 0.72);
             border: 1px solid rgba(220, 226, 223, 0.8);
             border-radius: 6px;
@@ -285,7 +272,6 @@
             font-weight: 600;
             padding: 3px 8px;
             border-radius: 12px;
-            letter-spacing: .5px;
         }
 
         .price-card-amount {
@@ -325,10 +311,8 @@
             color: #30454b;
             font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(35px, 4vw, 48px);
-            font-style: normal;
             font-weight: 600;
             line-height: 1.05;
-            letter-spacing: -.3px;
         }
 
         .section-price {
@@ -342,8 +326,6 @@
         }
 
         .section-price span { color: #6a7678; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; }
-        .section-price-small { font-size: 24px; }
-
         .portfolio-side-note { padding-bottom: 6px; color: #7c8889; font-size: 11px; }
         .section-intro { max-width: 570px; margin: 12px 0 27px; color: #7a8586; font-size: 12px; line-height: 1.8; }
 
@@ -356,9 +338,6 @@
         .card {
             background: transparent;
             border: 0;
-            border-radius: 0;
-            box-shadow: none;
-            overflow: visible;
             transition: transform .25s ease;
         }
 
@@ -370,7 +349,6 @@
             overflow: hidden;
             background: #ecefeb;
             position: relative;
-            border: 0;
             border-radius: 2px;
         }
 
@@ -401,25 +379,17 @@
             cursor: pointer;
             z-index: 2;
             box-shadow: 0 2px 8px rgba(0,0,0,.06);
-            transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+            transition: transform 0.2s ease;
         }
 
         .like-btn:hover { transform: scale(1.1); }
         .like-btn.active {
             background: #fff0f1;
             color: #d86b73;
-            animation: heartBeat 0.4s ease;
-        }
-
-        @keyframes heartBeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.25); }
-            100% { transform: scale(1); }
         }
 
         .card-content {
             padding: 15px 0 0;
-            min-height: 0;
             display: flex;
             flex-direction: column;
         }
@@ -448,21 +418,12 @@
             padding: clamp(45px, 6vw, 75px) clamp(20px, 5vw, 60px);
             background-color: #f8f7f2;
             background-image: 
-                linear-gradient(
-                    90deg, 
-                    #f8f7f2 0%, 
-                    #f8f7f2 35%, 
-                    rgba(248, 247, 242, 0.95) 50%, 
-                    rgba(248, 247, 242, 0.6) 65%, 
-                    rgba(248, 247, 242, 0.15) 85%, 
-                    transparent 100%
-                ), 
+                linear-gradient(90deg, #f8f7f2 0%, #f8f7f2 35%, rgba(248, 247, 242, 0.95) 50%, rgba(248, 247, 242, 0.6) 65%, transparent 100%), 
                 url('images/bento-banner.jpg');
             background-size: contain;
             background-position: right center;
             background-repeat: no-repeat;
             overflow: hidden;
-            box-sizing: border-box;
         }
 
         .bento-banner-inner {
@@ -472,9 +433,7 @@
             z-index: 2;
         }
 
-        .bento-content-wrap {
-            max-width: 520px;
-        }
+        .bento-content-wrap { max-width: 520px; }
 
         .bento-list {
             list-style: none;
@@ -482,7 +441,7 @@
             margin-bottom: 25px;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 12px 22px;
+            gap: 12px;
         }
 
         .bento-list li {
@@ -498,7 +457,6 @@
             left: 0;
             top: 0;
             color: #6b8b94;
-            font-size: 11px;
         }
 
         .bento-list li b { color: var(--ink); font-weight: 600; }
@@ -512,7 +470,6 @@
             border: 1px solid rgba(220, 226, 223, 0.9);
             border-radius: 4px;
             backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(47, 65, 68, 0.04);
         }
 
         .bento-price-badge .price-val {
@@ -520,28 +477,140 @@
             font-size: 26px;
             font-weight: 700;
             color: #233236;
-            line-height: 1;
         }
 
-        .bento-price-badge .price-sub {
-            color: #707b7d;
-            font-size: 11px;
-            font-weight: 400;
-        }
+        .bento-price-badge .price-sub { color: #707b7d; font-size: 11px; }
 
         #portfolio {
             padding: 45px 0 0;
             margin-bottom: 60px;
-            background: none;
-            border: 0;
             border-top: 1px solid #dce2df;
-            border-radius: 0;
-            box-shadow: none;
-            scroll-margin-top: 100px;
         }
 
         #portfolio .card-img-wrap { height: clamp(230px, 27vw, 340px); }
 
+        /* --- Секция отзывов-карусели --- */
+        .reviews-section {
+            margin-bottom: 70px;
+        }
+
+        .reviews-header-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .add-review-btn {
+            background: transparent;
+            border: 1px solid #496b78;
+            color: #496b78;
+            padding: 8px 16px;
+            border-radius: 2px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .add-review-btn:hover {
+            background: #496b78;
+            color: #white;
+        }
+
+        .reviews-carousel-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .reviews-track {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE */
+            padding: 10px 4px;
+            width: 100%;
+        }
+
+        .reviews-track::-webkit-scrollbar { display: none; }
+
+        .review-card {
+            flex: 0 0 calc(33.333% - 14px);
+            min-width: 280px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(220, 226, 223, 0.9);
+            border-radius: 4px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(47, 65, 68, 0.03);
+            backdrop-filter: blur(8px);
+        }
+
+        .review-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .review-author {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #2e4147;
+        }
+
+        .review-stars {
+            color: #d4a373;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            color: #617073;
+            font-size: 12px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .review-date {
+            color: #939d9f;
+            font-size: 10px;
+        }
+
+        .carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid #dce2df;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .carousel-nav-btn:hover {
+            background: #496b78;
+            color: white;
+            border-color: #496b78;
+        }
+
+        .carousel-prev { left: -20px; }
+        .carousel-next { right: -20px; }
+
+        /* Нижний баннер */
         .bottom-banner {
             position: relative;
             display: flex;
@@ -551,12 +620,10 @@
             min-height: clamp(380px, 50vw, 500px);
             margin: 50px 0 0 calc(50% - 50vw);
             padding: clamp(30px, 5vw, 60px);
-            overflow: hidden;
             background-color: #dce5e6;
             background-image: linear-gradient(0deg, rgba(248, 247, 242, 0.4) 0%, rgba(38, 54, 59, 0.45) 100%), url('images/bottom-banner.jpg');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
             text-align: center;
         }
 
@@ -570,7 +637,6 @@
             max-width: 620px;
             padding: clamp(30px, 4vw, 50px);
             background: rgba(250, 248, 243, 0.88);
-            -webkit-backdrop-filter: blur(16px);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.5);
             border-radius: 4px;
@@ -595,15 +661,8 @@
 
         footer {
             background: #e8eff0;
-            border: 0;
-            border-radius: 0;
             padding: 35px 20px 30px;
             text-align: center;
-            margin-top: 0;
-            position: relative;
-            overflow: hidden;
-            box-shadow: none;
-            scroll-margin-top: 100px;
         }
 
         .footer-buttons {
@@ -620,17 +679,13 @@
             text-decoration: none;
             padding: 13px 24px;
             border-radius: 2px;
-            font-family: 'Inter', sans-serif;
             font-size: 11px;
             font-weight: 600;
-            letter-spacing: .2px;
-            transition: background 0.2s ease;
             border: 0;
             cursor: pointer;
         }
 
         .phone-btn:hover { background: #354f59; }
-
         .order-main-btn { background: #b77e7b; }
         .order-main-btn:hover { background: #9d6865; }
 
@@ -639,7 +694,6 @@
             padding-top: 10px;
             font-size: 10px;
             letter-spacing: .7px;
-            font-weight: 400;
             display: flex;
             flex-direction: column;
             gap: 6px;
@@ -651,11 +705,8 @@
             text-decoration: underline;
             text-underline-offset: 2px;
         }
-        .footer-note a:hover {
-            color: #354f59;
-        }
 
-        /* --- Кнопка "Наверх" --- */
+        /* Кнопка "Наверх" */
         .scroll-top-btn {
             position: fixed;
             bottom: 30px;
@@ -677,27 +728,11 @@
             z-index: 999;
         }
 
-        .scroll-top-btn svg {
-            width: 24px;
-            height: 24px;
-            transition: transform 0.2s ease;
-        }
+        .scroll-top-btn svg { width: 24px; height: 24px; }
+        .scroll-top-btn.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        .scroll-top-btn:hover { background: #354f59; }
 
-        .scroll-top-btn.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .scroll-top-btn:hover {
-            background: #354f59;
-        }
-        
-        .scroll-top-btn:hover svg {
-            transform: translateY(-2px);
-        }
-
-        /* --- Модальные окна --- */
+        /* Модальные окна */
         .modal {
             display: flex;
             position: fixed;
@@ -707,10 +742,9 @@
             justify-content: center;
             align-items: center;
             padding: 25px;
-            backdrop-filter: blur(0px);
             visibility: hidden;
             opacity: 0;
-            transition: opacity 0.3s ease, backdrop-filter 0.3s ease, visibility 0.3s ease;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .modal.open {
@@ -739,7 +773,6 @@
             font-size: 32px;
             cursor: pointer;
             opacity: .8;
-            transition: opacity 0.2s ease;
         }
 
         .modal-close:hover { opacity: 1; }
@@ -777,7 +810,6 @@
         }
 
         .form-group label {
-            font-family: 'Inter', sans-serif;
             font-size: 10px;
             font-weight: 600;
             text-transform: uppercase;
@@ -797,7 +829,6 @@
             color: var(--ink);
             background: #f8f7f2;
             outline: none;
-            transition: border-color 0.2s ease;
         }
 
         .form-group input:focus, 
@@ -807,6 +838,30 @@
             background: var(--white);
         }
 
+        /* Чекбокс согласия с юридической стороны */
+        .checkbox-group {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-top: 3px;
+            cursor: pointer;
+            accent-color: #496b78;
+        }
+
+        .checkbox-group label {
+            font-size: 11px;
+            text-transform: none;
+            letter-spacing: normal;
+            color: var(--muted);
+            cursor: pointer;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
         .submit-order-btn {
             width: 100%;
             background: #496b78;
@@ -814,7 +869,6 @@
             padding: 14px;
             border: none;
             border-radius: 2px;
-            font-family: 'Inter', sans-serif;
             font-size: 12px;
             font-weight: 600;
             letter-spacing: 1px;
@@ -824,9 +878,7 @@
             transition: background 0.2s ease;
         }
 
-        .submit-order-btn:hover {
-            background: #354f59;
-        }
+        .submit-order-btn:hover { background: #354f59; }
 
         .privacy-policy-text {
             font-size: 12px;
@@ -839,33 +891,14 @@
             color: #264a52;
             margin: 14px 0 6px;
         }
-        .privacy-policy-text h4:first-child { margin-top: 0; }
         .privacy-policy-text p { margin-bottom: 10px; }
 
-        .form-privacy-note {
-            font-size: 10px;
-            color: var(--muted);
-            text-align: center;
-            margin-top: 10px;
-            line-height: 1.4;
-        }
-        .form-privacy-note a {
-            color: #496b78;
-            text-decoration: underline;
-        }
-
-        /* --- МОБИЛЬНАЯ АДАПТАЦИЯ --- */
-        @media (max-width: 1100px) {
-            .info-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
+        /* Мобильная адаптация карусели */
         @media (max-width: 900px) {
             body { padding: 0 18px 30px; }
             .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .card-img-wrap { height: 260px; }
-            .info-grid { grid-template-columns: repeat(2, 1fr); }
+            .review-card { flex: 0 0 calc(100% - 10px); }
+            .carousel-nav-btn { display: none; } /* На мобилках свайпаем пальцем */
         }
 
         @media (max-width: 768px) {
@@ -874,113 +907,11 @@
                 align-items: stretch;
                 gap: 12px;
                 padding: 12px 16px;
-                margin-bottom: 20px;
             }
-            .brand-mark {
-                align-items: center;
-                text-align: center;
-            }
-            .brand-name { font-size: 24px; }
-            
-            .nav-links {
-                justify-content: flex-start;
-                gap: 12px;
-                overflow-x: auto;
-                padding-bottom: 4px;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-            }
-            .nav-links::-webkit-scrollbar { display: none; }
-
-            .top-nav .nav-links a {
-                font-size: 12px;
-                padding: 4px 8px;
-            }
-
-            .top-nav .nav-links .nav-order-btn {
-                display: block;
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-                margin-top: 4px;
-            }
-
-            .studio-banner {
-                min-height: 480px;
-                margin-top: 10px;
-                margin-bottom: 30px;
-                padding: 20px 14px;
-                align-items: flex-end;
-                justify-content: center;
-                background-position: center top;
-            }
-
-            .studio-banner-copy {
-                width: 100%;
-                padding: 22px 18px;
-                background: rgba(250, 248, 243, 0.92);
-                border-radius: 16px;
-                border: 1px solid rgba(255,255,255,0.6);
-            }
-            .studio-banner-copy h2 { font-size: 30px; }
-
-            .bento-banner-section {
-                padding: 24px 16px 30px;
-                background-image: none;
-                background-color: #f8f7f2;
-            }
-
-            .bento-content-wrap {
-                max-width: 100%;
-                background: #ffffff;
-                padding: 22px 18px;
-                border-radius: 12px;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-                border: 1px solid #e9ece8;
-            }
-
-            .bento-content-wrap::after {
-                content: "";
-                display: block;
-                width: 100%;
-                height: 240px;
-                margin-top: 20px;
-                background-image: url('images/bento-banner.jpg');
-                background-size: cover;
-                background-position: center;
-                border-radius: 8px;
-            }
-
-            .bento-price-badge {
-                width: 100%;
-                justify-content: center;
-                text-align: center;
-            }
-
-            .bottom-banner {
-                min-height: 380px;
-                padding: 20px 14px;
-            }
-            .bottom-banner-copy {
-                padding: 24px 18px;
-            }
-        }
-
-        @media (max-width: 580px) {
-            body { padding: 0 12px 20px; }
-            section { margin-bottom: 50px; }
-            .info-grid { grid-template-columns: 1fr; }
-            .grid { grid-template-columns: 1fr; gap: 24px; }
-            .card-img-wrap, #portfolio .card-img-wrap { height: 280px; }
-            .section-title { font-size: 32px; }
-            .section-price { font-size: 22px; }
-            .order-modal-content { padding: 25px 18px; }
-            
-            .form-group input, 
-            .form-group select, 
-            .form-group textarea {
-                font-size: 16px;
-            }
+            .brand-mark { align-items: center; text-align: center; }
+            .nav-links { justify-content: flex-start; overflow-x: auto; padding-bottom: 4px; }
+            .studio-banner { min-height: 480px; align-items: flex-end; justify-content: center; }
+            .studio-banner-copy { width: 100%; }
         }
     </style>
 </head>
@@ -998,6 +929,7 @@
                 <a href="#classic">Начинки</a>
                 <a href="#bento">Бенто</a>
                 <a href="#cupcakes">Десерты</a>
+                <a href="#reviews">Отзывы</a>
                 <a href="#portfolio">Работы</a>
                 <a href="#contacts">Контакты</a>
                 <a href="#" class="nav-order-btn" onclick="openOrderModal(event)">Заказать торт</a>
@@ -1019,9 +951,7 @@
             <div class="info-grid">
                 <div class="price-card-item">
                     <div>
-                        <div class="price-card-header">
-                            <span class="price-card-title">Классические</span>
-                        </div>
+                        <div class="price-card-header"><span class="price-card-title">Классические</span></div>
                         <div class="price-card-amount">1 500 ₽ <span style="font-size: 18px; font-weight: 400; color: #707b7d;">/ кг</span></div>
                     </div>
                     <div class="price-card-subtext">Минимальный заказ — от 2 кг</div>
@@ -1029,10 +959,7 @@
 
                 <div class="price-card-item">
                     <div>
-                        <div class="price-card-header">
-                            <span class="price-card-title">Премиум</span>
-                            <span class="price-badge">Хит</span>
-                        </div>
+                        <div class="price-card-header"><span class="price-card-title">Премиум</span><span class="price-badge">Хит</span></div>
                         <div class="price-card-amount">1 700 ₽ <span style="font-size: 18px; font-weight: 400; color: #707b7d;">/ кг</span></div>
                     </div>
                     <div class="price-card-subtext">Насыщенные слои и ореховые акценты</div>
@@ -1040,9 +967,7 @@
 
                 <div class="price-card-item">
                     <div>
-                        <div class="price-card-header">
-                            <span class="price-card-title">Бенто-торты</span>
-                        </div>
+                        <div class="price-card-header"><span class="price-card-title">Бенто-торты</span></div>
                         <div class="price-card-amount">1 100 ₽</div>
                     </div>
                     <div class="price-card-subtext">Диаметр 12 см (вес 400–500 г)</div>
@@ -1050,10 +975,7 @@
 
                 <div class="price-card-item">
                     <div>
-                        <div class="price-card-header">
-                            <span class="price-card-title">Капкейки & Трайфлы</span>
-                            <span class="price-badge" style="background: #dce6e8; color: #496b78;">Новинка</span>
-                        </div>
+                        <div class="price-card-header"><span class="price-card-title">Капкейки & Трайфлы</span><span class="price-badge" style="background: #dce6e8; color: #496b78;">Новинка</span></div>
                         <div class="price-card-amount" style="font-size: 24px;">По запросу</div>
                     </div>
                     <div class="price-card-subtext">Наборы в подарочной упаковке</div>
@@ -1061,9 +983,7 @@
 
                 <div class="price-card-item">
                     <div>
-                        <div class="price-card-header">
-                            <span class="price-card-title">Декор</span>
-                        </div>
+                        <div class="price-card-header"><span class="price-card-title">Декор</span></div>
                         <div class="price-card-amount" style="font-size: 26px;">от 500 ₽</div>
                     </div>
                     <div class="price-card-subtext">Простой декор входит / сложный — индивидуально</div>
@@ -1080,104 +1000,44 @@
             <p class="section-intro">Проверенные сочетания — от ягод и сливок до карамели и шоколада.</p>
             <div class="grid">
                 <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/red-velvet.jpg" alt="Красный бархат" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Красный бархат</div>
-                        <div class="card-desc">Бархатистые бисквитные коржи с легким нотками какао, нежный крем-чиз и ягодная прослойка на выбор (вишня или клубника).</div>
-                    </div>
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/red-velvet.jpg" alt="Красный бархат" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Красный бархат</div><div class="card-desc">Бархатистые бисквитные коржи с легким нотками какао, нежный крем-чиз и ягодная прослойка на выбор.</div></div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/cake1.jpg" alt="Мак-Лимон" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Мак-Лимон</div>
-                        <div class="card-desc">Маковый бисквит с нежным лимонным курдом.</div>
-                    </div>
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake1.jpg" alt="Мак-Лимон" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Мак-Лимон</div><div class="card-desc">Маковый бисквит с нежным лимонным курдом.</div></div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/cake2.jpg" alt="Клубника-Сливки" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Клубника-Сливки</div>
-                        <div class="card-desc">Ванильный бисквит, клубничный мусс со сливками, конфи из клубники, крем-чиз на сливках.</div>
-                    </div>
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake2.jpg" alt="Клубника-Сливки" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Клубника-Сливки</div><div class="card-desc">Ванильный бисквит, клубничный мусс со сливками, конфи из клубники.</div></div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/cake3.jpg" alt="Молочная девочка" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Молочная девочка</div>
-                        <div class="card-desc">Ванильные коржи на сгущенном молоке, клубничное конфи, сметанно-сливочный крем.</div>
-                    </div>
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake3.jpg" alt="Молочная девочка" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Молочная девочка</div><div class="card-desc">Ванильные коржи на сгущенном молоке, клубничное конфи, сметанно-сливочный крем.</div></div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/cake4.jpg" alt="Банан-Карамель" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Банан-Карамель</div>
-                        <div class="card-desc">Влажные карамельные коржи, сливочный крем, тягучая карамель и бананы.</div>
-                    </div>
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake4.jpg" alt="Банан-Карамель" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Банан-Карамель</div><div class="card-desc">Влажные карамельные коржи, сливочный крем, тягучая карамель и бананы.</div></div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/cake5.jpg" alt="Ваниль / вишня" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Ваниль / Вишня</div>
-                        <div class="card-desc">Классический ванильный бисквит, крем-чиз и пикантный вишневый соус.</div>
-                    </div>
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake5.jpg" alt="Ваниль / вишня" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Ваниль / Вишня</div><div class="card-desc">Классический ванильный бисквит, крем-чиз и пикантный вишневый соус.</div></div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/cake6.jpg" alt="Банан / нутелла" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Банан / Нутелла</div>
-                        <div class="card-desc">Шоколадный бисквит, спелый банан, нутелла и крем-чиз.</div>
-                    </div>
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake6.jpg" alt="Банан / нутелла" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Банан / Нутелла</div><div class="card-desc">Шоколадный бисквит, спелый банан, нутелла и крем-чиз.</div></div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/cake7.jpg" alt="Бабл Гам" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Бабл Гам</div>
-                        <div class="card-desc">Нежная и яркая начинка с любимым вкусом детства.</div>
-                    </div>
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake7.jpg" alt="Бабл Гам" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Бабл Гам</div><div class="card-desc">Нежная и яркая начинка с любимым вкусом детства.</div></div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/cake14.jpg" alt="Шоколадная девочка" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Шоколадная девочка</div>
-                        <div class="card-desc">Шоколадный бисквит, сливочный крем.</div>
-                    </div>
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake14.jpg" alt="Шоколадная девочка" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Шоколадная девочка</div><div class="card-desc">Шоколадный бисквит, сливочный крем.</div></div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/cake15.jpg" alt="Шоколад-вишня" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Шоколад-вишня</div>
-                        <div class="card-desc">Шоколадный бисквит, шоколадный мусс, вишневая начинка.</div>
-                    </div>
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake15.jpg" alt="Шоколад-вишня" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Шоколад-вишня</div><div class="card-desc">Шоколадный бисквит, шоколадный мусс, вишневая начинка.</div></div>
                 </div>
             </div>
         </section>
@@ -1191,64 +1051,28 @@
             <p class="section-intro">Слои вкуса, ореховые акценты, шоколад и ягодные конфи.</p>
             <div class="grid">
                 <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/cake8.jpg" alt="Орео" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Орео</div>
-                        <div class="card-desc">Шоколадные коржи и крем с кусочками культового печенья.</div>
-                    </div>
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake8.jpg" alt="Орео" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Орео</div><div class="card-desc">Шоколадные коржи и крем с кусочками культового печенья.</div></div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/cake9.jpg" alt="Малиновый рафаэлло" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Малиновый Рафаэлло</div>
-                        <div class="card-desc">Кокосовый бисквит, рафаэлло-крем, хрустящий слой, малиновое конфи, мусс и кокосовая пропитка.</div>
-                    </div>
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake9.jpg" alt="Малиновый рафаэлло" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Малиновый Рафаэлло</div><div class="card-desc">Кокосовый бисквит, рафаэлло-крем, хрустящий слой, малиновое конфи.</div></div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/cake10.jpg" alt="Киндер кантри" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Киндер Кантри</div>
-                        <div class="card-desc">Шоколадный бисквит, ганаш, начинка в стиле Киндер Кантри, молочно-шоколадные пропитки и ванильный крем.</div>
-                    </div>
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake10.jpg" alt="Киндер кантри" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Киндер Кантри</div><div class="card-desc">Шоколадный бисквит, ганаш, начинка в стиле Киндер Кантри.</div></div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/cake11.jpg" alt="Сникерс" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Сникерс</div>
-                        <div class="card-desc">Шоколадный бисквит, обилие арахиса с карамелью, мусс на молочном шоколаде и арахисовый крем.</div>
-                    </div>
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake11.jpg" alt="Сникерс" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Сникерс</div><div class="card-desc">Шоколадный бисквит, обилие арахиса с карамелью, арахисовый крем.</div></div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/cake12.jpg" alt="Фисташка-малина" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Фисташка-Малина</div>
-                        <div class="card-desc">Ароматный фисташковый бисквит, сливочный крем-чиз, хрустящий слой и малиновое конфи.</div>
-                    </div>
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake12.jpg" alt="Фисташка-малина" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Фисташка-Малина</div><div class="card-desc">Ароматный фисташковый бисквит, крем-чиз, малиновое конфи.</div></div>
                 </div>
                 <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/cake13.jpg" alt="Морковный" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Морковный</div>
-                        <div class="card-desc">Пряный морковный бисквит, карамель с грецкими орехами, ванильный крем-чиз и вишневое конфи.</div>
-                    </div>
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake13.jpg" alt="Морковный" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Морковный</div><div class="card-desc">Пряный морковный бисквит, карамель с орехами, вишневое конфи.</div></div>
                 </div>
             </div>
         </section>
@@ -1260,16 +1084,13 @@
                     <p class="section-kicker">Небольшой торт — большой повод</p>
                     <h2 class="section-title">Бенто-торты</h2>
                     <p class="section-intro" style="margin-bottom: 20px;">Компактный формат для личного поздравления, свидания или маленького праздника.</p>
-                    
                     <div class="card-title" style="margin-bottom: 10px;">Доступные начинки:</div>
                     <ul class="bento-list">
                         <li><b>Красный бархат</b> с вишней или клубникой</li>
                         <li><b>Сникерс</b> (шоколад, карамель, арахис, крем-чиз)</li>
                         <li><b>Ваниль-Клубника</b> (воздушный бисквит и ягодное конфи)</li>
                         <li><b>Банан-Карамель</b> (нежный бисквит, банановое пюре, карамель)</li>
-                        <li><b>Шоколад-Вишня / Банан-Карамель</b></li>
                     </ul>
-
                     <div class="bento-price-badge">
                         <span class="price-val">1 100 ₽</span>
                         <span class="price-sub">/ диаметр 12 см (400–500 г)</span>
@@ -1284,12 +1105,9 @@
                 <div><p class="section-kicker">Порционные десерты</p><h2 class="section-title">Капкейки & Трайфлы</h2></div>
                 <p class="portfolio-side-note">В аккуратной подарочной упаковке</p>
             </div>
-            <p class="section-intro">Идеальное дополнение к торту или отличный самостоятельный десерт для праздника, подарка или чаепития.</p>
+            <p class="section-intro">Идеальное дополнение к торту или отличный самостоятельный десерт для праздника.</p>
             <div class="card bento-single-card">
-                <div class="card-img-wrap">
-                    <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                    <img src="images/cupcakes.jpg" alt="Капкейки & Трайфлы" onclick="openModal(this)">
-                </div>
+                <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cupcakes.jpg" alt="Капкейки & Трайфлы" onclick="openModal(this)"></div>
                 <div class="card-content">
                     <div class="card-title">Популярные начинки:</div>
                     <ul class="bento-list">
@@ -1302,7 +1120,37 @@
             </div>
         </section>
 
-        <!-- 5. Примеры моих работ -->
+        <!-- 5. Секция Отзывов (Карусель со свайпом и Realtime) -->
+        <section id="reviews" class="reviews-section">
+            <div class="reviews-header-wrap">
+                <div>
+                    <p class="section-kicker">Реальные мнения</p>
+                    <h2 class="section-title">Отзывы клиентов</h2>
+                </div>
+                <button class="add-review-btn" onclick="openReviewModal(event)">Оставить отзыв ✍️</button>
+            </div>
+            <p class="section-intro">Что говорят те, кто уже попробовал наши торты и десерты.</p>
+
+            <div class="reviews-carousel-container">
+                <button class="carousel-nav-btn carousel-prev" onclick="scrollReviews(-1)">❮</button>
+                <div class="reviews-track" id="reviewsTrack">
+                    <!-- Отзывы будут динамически загружаться сюда из Supabase -->
+                    <div class="review-card">
+                        <div>
+                            <div class="review-card-header">
+                                <span class="review-author">Анна</span>
+                                <div class="review-stars">★★★★★</div>
+                            </div>
+                            <div class="review-text">Заказывали торт «Фисташка-малина» на юбилей. Это просто шедевр! Гости были в восторге, бисквит невероятно нежный. Спасибо огромное!</div>
+                        </div>
+                        <div class="review-date">Загрузка отзывов...</div>
+                    </div>
+                </div>
+                <button class="carousel-nav-btn carousel-next" onclick="scrollReviews(1)">❯</button>
+            </div>
+        </section>
+
+        <!-- 6. Примеры моих работ -->
         <section id="portfolio" class="portfolio-section">
             <div class="section-heading">
                 <div><p class="section-kicker">Каждый торт — отдельная история</p><h2 class="section-title">Работы мастерской</h2></div>
@@ -1310,66 +1158,12 @@
             </div>
             <p class="section-intro">Примеры оформления, которые можно взять за основу или адаптировать под ваши пожелания.</p>
             <div class="grid">
-                <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/work1.gif" alt="Королевский дизайн" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Королевский дизайн</div>
-                        <div class="card-desc">Изысканный декор ручной работы, превращающий каждое изделие в подлинное произведение искусства.</div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/work2.gif" alt="Невероятный вкус" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Невероятный вкус</div>
-                        <div class="card-desc">Божественное сочетание нежнейших текстур, авторских пропиток и премиальных ингредиентов, тающее во рту.</div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/work3.gif" alt="Императорская подача" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Императорская подача</div>
-                        <div class="card-desc">Элегантное оформление и фирменная упаковка, создающие атмосферу роскоши и незабываемого праздника.</div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/work4.gif" alt="Авторский декор" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Авторский декор</div>
-                        <div class="card-desc">Уникальное оформление под стиль вашего праздника, гармонично дополняющее общую атмосферу.</div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/work5.gif" alt="Праздничное настроение" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Праздничное настроение</div>
-                        <div class="card-desc">Яркие акценты и утонченные детали, которые делают каждое торжество поистине незабываемым.</div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img-wrap">
-                        <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                        <img src="images/work6.gif" alt="Изысканная классика" onclick="openModal(this)">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">Изысканная классика</div>
-                        <div class="card-desc">Строгие линии, безупречное исполнение и внимание к каждому нюансу вашего заказа.</div>
-                    </div>
-                </div>
+                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work1.gif" alt="Королевский дизайн" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Королевский дизайн</div><div class="card-desc">Изысканный декор ручной работы.</div></div></div>
+                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work2.gif" alt="Невероятный вкус" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Невероятный вкус</div><div class="card-desc">Божественное сочетание нежнейших текстур.</div></div></div>
+                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work3.gif" alt="Императорская подача" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Императорская подача</div><div class="card-desc">Элегантное оформление и фирменная упаковка.</div></div></div>
+                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work4.gif" alt="Авторский декор" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Авторский декор</div><div class="card-desc">Уникальное оформление под стиль вашего праздника.</div></div></div>
+                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work5.gif" alt="Праздничное настроение" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Праздничное настроение</div><div class="card-desc">Яркие акценты и утонченные детали.</div></div></div>
+                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work6.gif" alt="Изысканная классика" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Изысканная классика</div><div class="card-desc">Строгие линии, безупречное исполнение.</div></div></div>
             </div>
         </section>
 
@@ -1464,10 +1258,45 @@
                     <textarea id="cakeComment" name="Пожелания и дата" rows="3" placeholder="Надпись, декор, дата праздника..."></textarea>
                 </div>
 
-                <button type="submit" class="submit-order-btn">Отправить заказ</button>
-                <div class="form-privacy-note">
-                    Нажимая кнопку, вы соглашаетесь с <a href="#" onclick="openPrivacyModal(event)">политикой конфиденциальности</a>
+                <!-- Юридический чекбокс согласия -->
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="orderPrivacyCheck" required>
+                    <label for="orderPrivacyCheck">Я согласен(а) с <a href="#" onclick="openPrivacyModal(event)">политикой конфиденциальности</a> и условиями обработки данных</label>
                 </div>
+
+                <button type="submit" class="submit-order-btn">Отправить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно для добавления отзыва -->
+    <div id="reviewModal" class="modal" onclick="closeReviewModalOutside(event)">
+        <div class="order-modal-content">
+            <span class="modal-close" style="color: #264a52;" onclick="closeReviewModal()">&times;</span>
+            <h3>Оставить отзыв</h3>
+            <p>Поделитесь своими впечатлениями о заказе.</p>
+            
+            <form id="reviewForm" onsubmit="handleReviewSubmit(event)">
+                <div class="form-group">
+                    <label for="reviewName">Ваше имя *</label>
+                    <input type="text" id="reviewName" required placeholder="Как вас зовут?">
+                </div>
+
+                <div class="form-group">
+                    <label for="reviewRating">Оценка *</label>
+                    <select id="reviewRating">
+                        <option value="5">★★★★★ (5/5)</option>
+                        <option value="4">★★★★☆ (4/5)</option>
+                        <option value="3">★★★☆☆ (3/5)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="reviewText">Ваш отзыв *</label>
+                    <textarea id="reviewText" rows="4" required placeholder="Что вам больше всего понравилось?"></textarea>
+                </div>
+
+                <button type="submit" class="submit-order-btn">Отправить отзыв</button>
             </form>
         </div>
     </div>
@@ -1482,13 +1311,10 @@
                 <p>Настоящая политика конфиденциальности определяет, как кондитерская мастерская собирает, использует и защищает информацию, которую вы предоставляете при использовании этого сайта.</p>
                 
                 <h4>2. Собираемая информация</h4>
-                <p>Мы собираем только те данные, которые вы добровольно указываете в форме заказа: ваше имя и контактные данные (телефон или аккаунт в Telegram), а также детали заказа.</p>
+                <p>Мы собираем только те данные, которые вы добровольно указываете в форме заказа и отзывов: имя, контактные данные и текст сообщений.</p>
                 
                 <h4>3. Использование данных</h4>
-                <p>Указанные данные используются исключительно для связи с вами по поводу оформления, изготовления и доставки вашего заказа. Мы не передаем ваши личные данные третьим лицам.</p>
-                
-                <h4>4. Согласие</h4>
-                <p>Оставляя заявку на сайте, вы даете согласие на обработку своих персональных данных для целей выполнения вашего заказа.</p>
+                <p>Указанные данные используются исключительно для связи по поводу заказа или публикации отзывов.</p>
             </div>
         </div>
     </div>
@@ -1500,70 +1326,205 @@
         </svg>
     </button>
 
+    <!-- Подключаем Supabase клиент прямо в браузер -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <script>
-        // Динамический суперградиент при прокрутке страницы
+        // Инициализация Supabase
+        const SUPABASE_URL = 'https://aqfxxgcnsjvucxhhagrt.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_Wu9TMB_o18fZcjM0yw5cWQ_aykFa_kE';
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Загрузка отзывов и подписка на Realtime при старте
+        document.addEventListener("DOMContentLoaded", () => {
+            fetchReviews();
+            setupRealtimeReviews();
+        });
+
+        async function fetchReviews() {
+            const track = document.getElementById('reviewsTrack');
+            try {
+                const { data, error } = await supabaseClient
+                    .from('reviews')
+                    .select('*')
+                    .eq('is_approved', true)
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+
+                if (data && data.length > 0) {
+                    track.innerHTML = '';
+                    data.forEach(rev => {
+                        appendReviewCard(rev, track);
+                    });
+                } else {
+                    track.innerHTML = '<div class="review-card"><div><div class="review-author">Пока нет отзывов</div><div class="review-text">Станьте первым, кто оставит отзыв о нашей мастерской!</div></div></div>';
+                }
+            } catch (err) {
+                console.error('Ошибка загрузки отзывов:', err);
+            }
+        }
+
+        // Функция отрисовки одной карточки отзыва
+        function appendReviewCard(rev, trackContainer) {
+            const stars = '★'.repeat(rev.rating) + '☆'.repeat(5 - rev.rating);
+            const dateFormatted = new Date(rev.created_at).toLocaleDateString('ru-RU');
+            
+            const card = document.createElement('div');
+            card.className = 'review-card';
+            card.innerHTML = `
+                <div>
+                    <div class="review-card-header">
+                        <span class="review-author">${escapeHtml(rev.name)}</span>
+                        <div class="review-stars">${stars}</div>
+                    </div>
+                    <div class="review-text">${escapeHtml(rev.text)}</div>
+                </div>
+                <div class="review-date">${dateFormatted}</div>
+            `;
+            trackContainer.appendChild(card);
+        }
+
+        // МАГИЯ REALTIME: слушаем появление новых отзывов в базе
+        function setupRealtimeReviews() {
+            supabaseClient
+                .channel('public:reviews')
+                .on('postgres_changes', { 
+                    event: 'INSERT', 
+                    schema: 'public', 
+                    table: 'reviews' 
+                }, payload => {
+                    const newRev = payload.new;
+                    if (newRev.is_approved) {
+                        const track = document.getElementById('reviewsTrack');
+                        if (track.querySelector('.review-author')?.textContent === 'Пока нет отзывов') {
+                            track.innerHTML = '';
+                        }
+                        const stars = '★'.repeat(newRev.rating) + '☆'.repeat(5 - newRev.rating);
+                        const dateFormatted = new Date(newRev.created_at).toLocaleDateString('ru-RU');
+                        
+                        const card = document.createElement('div');
+                        card.className = 'review-card';
+                        card.innerHTML = `
+                            <div>
+                                <div class="review-card-header">
+                                    <span class="review-author">${escapeHtml(newRev.name)}</span>
+                                    <div class="review-stars">${stars}</div>
+                                </div>
+                                <div class="review-text">${escapeHtml(newRev.text)}</div>
+                            </div>
+                            <div class="review-date">${dateFormatted}</div>
+                        `;
+                        track.prepend(card);
+                    }
+                })
+                .subscribe();
+        }
+
+        // Прокрутка карусели отзывов кнопками
+        function scrollReviews(direction) {
+            const track = document.getElementById('reviewsTrack');
+            const cardWidth = track.querySelector('.review-card').offsetWidth + 20;
+            track.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+        }
+
+        // Отправка нового отзыва в Supabase + Telegram
+        async function handleReviewSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('reviewName').value;
+            const rating = parseInt(document.getElementById('reviewRating').value);
+            const text = document.getElementById('reviewText').value;
+
+            try {
+                const { error } = await supabaseClient
+                    .from('reviews')
+                    .insert([{ name, rating, text, is_approved: true }]);
+
+                if (error) throw error;
+
+                const BOT_TOKEN = 'ВСТАВЬТЕ_ТОКЕН_БОТА';
+                const CHAT_ID = '1193749282';
+                const msg = `💬 *Новый отзыв на сайте!*\n\n👤 *Имя:* ${name}\n⭐ *Оценка:* ${rating}/5\n✍️ *Текст:* ${text}`;
+                
+                fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: CHAT_ID, text: msg, parse_mode: 'Markdown' })
+                });
+
+                alert('Спасибо за ваш отзыв! Он успешно опубликован.');
+                closeReviewModal();
+                document.getElementById('reviewForm').reset();
+            } catch (err) {
+                console.error(err);
+                alert('Не удалось отправить отзыв. Попробуйте позже.');
+            }
+        }
+
+        // Защита от XSS
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+
+        // Управление модальными окнами отзывов
+        function openReviewModal(event) {
+            event.preventDefault();
+            document.getElementById('reviewModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeReviewModal() {
+            document.getElementById('reviewModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function closeReviewModalOutside(event) {
+            if (event.target === document.getElementById('reviewModal')) closeReviewModal();
+        }
+
+        // Динамический суперградиент при прокрутке
         window.addEventListener('scroll', function() {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
             if (docHeight <= 0) return;
-            
-            const progress = scrollTop / docHeight;
-            const gradientFactor = Math.sin(progress * Math.PI);
-            
-            document.body.style.setProperty('--scroll-progress', gradientFactor);
+            document.body.style.setProperty('--scroll-progress', scrollTop / docHeight);
         });
 
-        // Работа с модальным окном картинок
+        // Модалка картинок
         function openModal(img) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImg');
-            modalImg.src = img.src;
-            modal.classList.add('open');
+            document.getElementById('modalImg').src = img.src;
+            document.getElementById('imageModal').classList.add('open');
             document.body.style.overflow = 'hidden';
         }
-
         function closeModal() {
-            const modal = document.getElementById('imageModal');
-            modal.classList.remove('open');
+            document.getElementById('imageModal').classList.remove('open');
             document.body.style.overflow = '';
         }
 
-        // Работа с модальным окном формы заявки
+        // Форма заказа
         function openOrderModal(event) {
             event.preventDefault();
             document.getElementById('orderModal').classList.add('open');
             document.body.style.overflow = 'hidden';
         }
-
         function closeOrderModal() {
             document.getElementById('orderModal').classList.remove('open');
             document.body.style.overflow = '';
         }
-
         function closeOrderModalOutside(event) {
-            const modal = document.getElementById('orderModal');
-            if (event.target === modal) {
-                closeOrderModal();
-            }
+            if (event.target === document.getElementById('orderModal')) closeOrderModal();
         }
 
-        // Работа с модальным окном политики конфиденциальности
+        // Политика
         function openPrivacyModal(event) {
             event.preventDefault();
             document.getElementById('privacyModal').classList.add('open');
             document.body.style.overflow = 'hidden';
         }
-
         function closePrivacyModal() {
             document.getElementById('privacyModal').classList.remove('open');
             document.body.style.overflow = '';
         }
-
         function closePrivacyModalOutside(event) {
-            const modal = document.getElementById('privacyModal');
-            if (event.target === modal) {
-                closePrivacyModal();
-            }
+            if (event.target === document.getElementById('privacyModal')) closePrivacyModal();
         }
 
         function toggleLike(button) {
@@ -1571,10 +1532,9 @@
             button.textContent = button.classList.contains('active') ? '♥' : '♡';
         }
 
-        // Обработка отправки формы через Telegram-бота
+        // Отправка заказа в Telegram
         function handleFormSubmit(event) {
             event.preventDefault();
-
             const name = document.getElementById('userName').value;
             const contact = document.getElementById('userContact').value;
             const filling = document.getElementById('cakeFilling').value;
@@ -1584,49 +1544,30 @@
             const BOT_TOKEN = '8877774740:AAHKVLOcKtS1J1mlKt04zObwusq1Tbnc2H8';
             const CHAT_ID = '1193749282';
 
-            const message = `✨ *Новая заявка с сайта!*\n\n` +
-                            `👤 *Имя:* ${name}\n` +
-                            `📞 *Контакт:* ${contact}\n` +
-                            `🎂 *Начинка/Десерт:* ${filling}\n` +
-                            `⚖️ *Количество/Вес:* ${weight || 'Не указан'}\n` +
-                            `💬 *Пожелания:* ${comment || 'Нет'}`;
+            const message = `✨ *Новая заявка с сайта!*\n\n👤 *Имя:* ${name}\n📞 *Контакт:* ${contact}\n🎂 *Начинка:* ${filling}\n⚖️ *Вес:* ${weight || 'Не указан'}\n💬 *Пожелания:* ${comment || 'Нет'}`;
 
-            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-
-            fetch(url, {
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: CHAT_ID,
-                    text: message,
-                    parse_mode: 'Markdown'
-                })
+                body: JSON.stringify({ chat_id: CHAT_ID, text: message, parse_mode: 'Markdown' })
             })
             .then(response => {
                 if (response.ok) {
-                    alert('Спасибо! Ваша заявка успешно отправлена, скоро я с вами свяжусь.');
+                    alert('Спасибо! Ваша заявка успешно отправлена.');
                     closeOrderModal();
                     document.getElementById('cakeOrderForm').reset();
                 } else {
-                    alert('Ошибка отправки. Пожалуйста, свяжитесь со мной по телефону из контактов.');
+                    alert('Ошибка отправки. Свяжитесь по телефону.');
                 }
-            })
-            .catch(error => {
-                console.error('Ошибка:', error);
-                alert('Не удалось отправить заявку из-за ошибки сети.');
             });
         }
 
-        // Кнопка "Наверх"
+        // Кнопка наверх
         window.addEventListener('scroll', function() {
             const scrollBtn = document.getElementById('scrollTopBtn');
-            if (window.scrollY > 400) {
-                scrollBtn.classList.add('show');
-            } else {
-                scrollBtn.classList.remove('show');
-            }
+            if (window.scrollY > 400) scrollBtn.classList.add('show');
+            else scrollBtn.classList.remove('show');
         });
-
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
