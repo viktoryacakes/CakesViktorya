@@ -8,8 +8,8 @@
     <!-- Фирменная фавиконка «Тортик со свечкой» -->
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
-    <!-- Подключаем Cormorant Garamond для изящных заголовков -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&amp;family=Inter:wght@300;400;500;600&amp;family=Montserrat:wght@500;600;700&amp;display=swap" rel="stylesheet">
+    <!-- Подключаем Cormorant Garamond и Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <style>
         :root {
             --sky: #f8f7f2;
@@ -217,7 +217,7 @@
 
         .hero-secondary span { margin-left: 8px; }
 
-        /* --- Привлекательный прайс-лист в карточках --- */
+        /* --- Прайс-лист --- */
         .info-card {
             margin: 0 0 60px;
             padding: 0;
@@ -439,19 +439,27 @@
             line-height: 1.75;
         }
 
-        /* --- Бенто-баннер с уменьшенным фото справа и растворением влево --- */
+        /* --- Бенто-баннер с плавным градиентом выцветания влево --- */
         .bento-banner-section {
             position: relative;
             width: 100vw;
             margin-left: calc(50% - 50vw);
             margin-right: calc(50% - 50vw);
-            padding: clamp(40px, 5vw, 60px) clamp(20px, 5vw, 60px);
+            padding: clamp(45px, 6vw, 75px) clamp(20px, 5vw, 60px);
             background-color: #f8f7f2;
             background-image: 
-                linear-gradient(90deg, #f8f7f2 30%, rgba(248, 247, 242, 0.75) 50%, rgba(248, 247, 242, 0) 70%), 
+                linear-gradient(
+                    90deg, 
+                    #f8f7f2 0%, 
+                    #f8f7f2 35%, 
+                    rgba(248, 247, 242, 0.95) 50%, 
+                    rgba(248, 247, 242, 0.6) 65%, 
+                    rgba(248, 247, 242, 0.15) 85%, 
+                    transparent 100%
+                ), 
                 url('images/bento-banner.jpg');
             background-size: contain;
-            background-position: calc(100% - 40px) center;
+            background-position: right center;
             background-repeat: no-repeat;
             overflow: hidden;
             box-sizing: border-box;
@@ -465,12 +473,13 @@
         }
 
         .bento-content-wrap {
-            max-width: 550px;
+            max-width: 520px;
         }
 
         .bento-list {
             list-style: none;
             margin-top: 15px;
+            margin-bottom: 25px;
             display: grid;
             grid-template-columns: 1fr;
             gap: 12px 22px;
@@ -493,6 +502,33 @@
         }
 
         .bento-list li b { color: var(--ink); font-weight: 600; }
+
+        /* Плашка с ценой снизу под списком начинок */
+        .bento-price-badge {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 8px;
+            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(220, 226, 223, 0.9);
+            border-radius: 4px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(47, 65, 68, 0.04);
+        }
+
+        .bento-price-badge .price-val {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #233236;
+            line-height: 1;
+        }
+
+        .bento-price-badge .price-sub {
+            color: #707b7d;
+            font-size: 11px;
+            font-weight: 400;
+        }
 
         #portfolio {
             padding: 45px 0 0;
@@ -820,7 +856,7 @@
             text-decoration: underline;
         }
 
-        /* --- Адаптивность для мобильных телефонов --- */
+        /* --- ГЛУБОКАЯ И ЧИСТАЯ МОБИЛЬНАЯ АДАПТАЦИЯ --- */
         @media (max-width: 1100px) {
             .info-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -828,101 +864,131 @@
         }
 
         @media (max-width: 900px) {
-            body { padding: 0 22px 30px; }
-            .top-nav { align-items: center; padding: 14px 20px; }
+            body { padding: 0 18px 30px; }
             .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .card-img-wrap { height: 300px; }
+            .card-img-wrap { height: 260px; }
             .info-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
+            /* Шапка: логотип + скроллящаяся строка ссылок + кнопка */
             .top-nav {
                 flex-direction: column;
                 align-items: stretch;
                 gap: 12px;
-                padding: 14px 16px;
+                padding: 12px 16px;
+                margin-bottom: 20px;
             }
             .brand-mark {
                 align-items: center;
                 text-align: center;
             }
+            .brand-name { font-size: 24px; }
+            
             .nav-links {
-                justify-content: center;
-                gap: 8px 14px;
+                justify-content: flex-start;
+                gap: 12px;
+                overflow-x: auto;
+                padding-bottom: 4px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
             }
-            .top-nav .nav-links a {
-                font-size: 10.5px;
-            }
-            .top-nav .nav-links .nav-order-btn {
-                padding: 8px 12px;
-            }
-        }
+            .nav-links::-webkit-scrollbar { display: none; }
 
-        @media (max-width: 700px) {
+            .top-nav .nav-links a {
+                font-size: 12px;
+                padding: 4px 8px;
+            }
+
+            .top-nav .nav-links .nav-order-btn {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                margin-top: 4px;
+            }
+
+            /* Верхний баннер */
             .studio-banner {
-                min-height: 560px;
-                margin-top: 18px;
-                margin-bottom: 25px;
-                padding: 22px 16px;
+                min-height: 480px;
+                margin-top: 10px;
+                margin-bottom: 30px;
+                padding: 20px 14px;
                 align-items: flex-end;
                 justify-content: center;
-                background-image: linear-gradient(0deg, rgba(248,247,242,.94) 0%, rgba(248,247,242,.76) 24%, rgba(248,247,242,.28) 49%, rgba(248,247,242,0) 76%), url('images/banner.jpg');
-                background-position: center center;
+                background-position: center top;
             }
-            .studio-banner-copy { 
-                width: 100%; 
-                padding: 25px 24px; 
-                background: rgba(250, 248, 243, 0.86); 
-                border: 1px solid rgba(255,255,255,.48); 
-                border-radius: 30px 22px 34px 20px; 
-                -webkit-backdrop-filter: blur(16px); 
-                backdrop-filter: blur(16px); 
-                box-shadow: 0 8px 30px rgba(40,48,48,.07); 
-            }
-            .studio-banner-copy h2 { font-size: 34px; }
 
+            .studio-banner-copy {
+                width: 100%;
+                padding: 22px 18px;
+                background: rgba(250, 248, 243, 0.92);
+                border-radius: 16px;
+                border: 1px solid rgba(255,255,255,0.6);
+            }
+            .studio-banner-copy h2 { font-size: 30px; }
+
+            /* БЛОК БЕНТО: Исключаем аляповатость, разбиваем на текстуру и контент */
             .bento-banner-section {
-                background-image: linear-gradient(180deg, rgba(248,247,242,.95) 0%, rgba(248,247,242,.85) 40%, rgba(248,247,242,.5) 100%), url('images/bento-banner.jpg');
-                background-position: center bottom;
-                padding: 35px 16px;
+                padding: 24px 16px 30px;
+                background-image: none; /* Убираем фоновый нахлест на мобиле */
+                background-color: #f8f7f2;
             }
 
+            .bento-content-wrap {
+                max-width: 100%;
+                background: #ffffff;
+                padding: 22px 18px;
+                border-radius: 12px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+                border: 1px solid #e9ece8;
+            }
+
+            /* Выносим фото бенто отдельным аккуратным блоком под текстом */
+            .bento-content-wrap::after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 240px;
+                margin-top: 20px;
+                background-image: url('images/bento-banner.jpg');
+                background-size: cover;
+                background-position: center;
+                border-radius: 8px;
+            }
+
+            .bento-price-badge {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+
+            /* Нижний баннер */
             .bottom-banner {
-                min-height: 420px;
-                padding: 20px 16px;
+                min-height: 380px;
+                padding: 20px 14px;
             }
             .bottom-banner-copy {
-                padding: 24px 20px;
+                padding: 24px 18px;
             }
         }
 
-        @media (max-width: 650px) {
-            body { padding: 0 16px 22px; }
-            .brand-name { font-size: 25px; }
-            .info-card { padding: 0; margin-bottom: 42px; }
+        @media (max-width: 580px) {
+            body { padding: 0 12px 20px; }
+            section { margin-bottom: 50px; }
             .info-grid { grid-template-columns: 1fr; }
-            section { margin-bottom: 65px; }
-            .section-heading { align-items: flex-start; flex-direction: column; gap: 10px; }
-            .section-title { font-size: 36px; }
-            .section-price { font-size: 23px; }
-            .section-intro { margin-bottom: 22px; }
-            .grid { grid-template-columns: 1fr 1fr; gap: 24px 13px; }
-            .card-img-wrap { height: clamp(170px, 52vw, 260px); }
-            .card-content { padding-top: 11px; }
-            .card-title { font-size: 21px; }
-            .card-desc { font-size: 10px; }
-            .bento-list { grid-template-columns: 1fr; }
-            #portfolio { padding-top: 35px; }
-            #portfolio .card-img-wrap { height: clamp(170px, 52vw, 260px); }
-            footer { padding: 30px 14px 25px; }
-            .footer-buttons { gap: 10px; }
-            .phone-btn, .order-main-btn { padding: 12px 15px; font-size: 10px; }
-            .scroll-top-btn { bottom: 17px; right: 16px; }
-        }
-
-        @media (max-width: 380px) {
-            .grid { grid-template-columns: 1fr; }
-            .card-img-wrap, #portfolio .card-img-wrap { height: 300px; }
+            .grid { grid-template-columns: 1fr; gap: 24px; }
+            .card-img-wrap, #portfolio .card-img-wrap { height: 280px; }
+            .section-title { font-size: 32px; }
+            .section-price { font-size: 22px; }
+            .order-modal-content { padding: 25px 18px; }
+            
+            /* Предотвращение зума на iPhone при клике в поле ввода */
+            .form-group input, 
+            .form-group select, 
+            .form-group textarea {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -1185,16 +1251,14 @@
             </div>
         </section>
 
-        <!-- 3. Бенто-торты (Баннер с фото справа и растворением влево) -->
+        <!-- 3. Бенто-торты -->
         <section id="bento" class="bento-banner-section" aria-label="Бенто-торты">
             <div class="bento-banner-inner">
-                <div class="section-heading" style="margin-bottom: 6px;">
-                    <div><p class="section-kicker">Небольшой торт — большой повод</p><h2 class="section-title">Бенто-торты</h2></div>
-                    <p class="section-price section-price-small">1 100 ₽ <span>/ 12 см (400–500 г)</span></p>
-                </div>
-                <p class="section-intro" style="margin-bottom: 20px;">Компактный формат для личного поздравления, свидания или маленького праздника.</p>
-                
                 <div class="bento-content-wrap">
+                    <p class="section-kicker">Небольшой торт — большой повод</p>
+                    <h2 class="section-title">Бенто-торты</h2>
+                    <p class="section-intro" style="margin-bottom: 20px;">Компактный формат для личного поздравления, свидания или маленького праздника.</p>
+                    
                     <div class="card-title" style="margin-bottom: 10px;">Доступные начинки:</div>
                     <ul class="bento-list">
                         <li><b>Красный бархат</b> с вишней или клубникой</li>
@@ -1203,6 +1267,12 @@
                         <li><b>Банан-Карамель</b> (нежный бисквит, банановое пюре, карамель)</li>
                         <li><b>Шоколад-Вишня / Банан-Карамель</b></li>
                     </ul>
+
+                    <!-- Цена -->
+                    <div class="bento-price-badge">
+                        <span class="price-val">1 100 ₽</span>
+                        <span class="price-sub">/ диаметр 12 см (400–500 г)</span>
+                    </div>
                 </div>
             </div>
         </section>
