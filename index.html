@@ -411,7 +411,7 @@
             line-height: 1.7;
         }
 
-        /* --- Бенто-баннер (Исправлено на мобилках) --- */
+        /* --- Бенто-баннер --- */
         .bento-banner-section {
             position: relative;
             width: 100vw;
@@ -490,7 +490,7 @@
 
         #portfolio .card-img-wrap { height: clamp(210px, 27vw, 320px); }
 
-        /* --- Секция Отзывов (Компактная карусель) --- */
+        /* --- Секция Отзывов (Миниатюрная и узкая карусель) --- */
         .reviews-section {
             margin-bottom: 60px;
         }
@@ -541,16 +541,16 @@
 
         .reviews-track::-webkit-scrollbar { display: none; }
 
-        /* Компактные карточки отзывов фиксированной высоты */
+        /* Узкие и аккуратные компактные карточки отзывов */
         .review-card {
-            flex: 0 0 calc(33.333% - 11px);
-            min-width: 270px;
-            max-width: 360px;
-            height: 200px;
+            flex: 0 0 calc(25% - 12px);
+            min-width: 230px;
+            max-width: 280px;
+            height: 185px;
             background: rgba(255, 255, 255, 0.85);
             border: 1px solid rgba(220, 226, 223, 0.9);
             border-radius: 6px;
-            padding: 18px;
+            padding: 15px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -569,7 +569,7 @@
         .review-card-top {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 4px;
         }
 
         .review-card-header {
@@ -580,14 +580,14 @@
 
         .review-author {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 600;
             color: #2e4147;
         }
 
         .review-stars {
             color: #d4a373;
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 1px;
         }
 
@@ -598,10 +598,10 @@
 
         .review-text {
             color: #617073;
-            font-size: 11.5px;
-            line-height: 1.55;
+            font-size: 11px;
+            line-height: 1.5;
             display: -webkit-box;
-            -webkit-line-clamp: 4;
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -616,11 +616,11 @@
             background: none;
             border: none;
             color: #496b78;
-            font-size: 10px;
+            font-size: 9.5px;
             font-weight: 600;
             cursor: pointer;
             padding: 2px 0;
-            margin-top: 3px;
+            margin-top: 2px;
             text-align: left;
         }
 
@@ -631,13 +631,13 @@
             justify-content: space-between;
             align-items: center;
             border-top: 1px solid rgba(220, 226, 223, 0.6);
-            padding-top: 8px;
+            padding-top: 6px;
             margin-top: auto;
         }
 
         .review-date {
             color: #939d9f;
-            font-size: 9.5px;
+            font-size: 9px;
         }
 
         .carousel-nav-btn {
@@ -895,7 +895,6 @@
             background: var(--white);
         }
 
-        /* Чекбокс согласия */
         .checkbox-group {
             flex-direction: row;
             align-items: flex-start;
@@ -940,7 +939,6 @@
 
         .submit-order-btn:hover { background: #354f59; }
 
-        /* Полноценная юридическая политика конфиденциальности */
         .privacy-policy-text {
             font-size: 11.5px;
             color: var(--muted);
@@ -963,7 +961,7 @@
         @media (max-width: 900px) {
             .info-grid { grid-template-columns: repeat(2, 1fr); }
             .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; }
-            .review-card { flex: 0 0 calc(100% - 10px); }
+            .review-card { flex: 0 0 calc(50% - 8px); min-width: 210px; }
             .carousel-nav-btn { display: none; }
         }
 
@@ -971,6 +969,7 @@
             body { padding: 0 12px 30px; }
             .info-grid { grid-template-columns: 1fr; }
             .grid { grid-template-columns: 1fr; }
+            .review-card { flex: 0 0 calc(100% - 10px); }
             .top-nav {
                 flex-direction: column;
                 align-items: stretch;
@@ -1146,7 +1145,7 @@
             </div>
         </section>
 
-        <!-- 3. Бенто-торты (аккуратный адаптивный блок) -->
+        <!-- 3. Бенто-торты -->
         <section id="bento" class="bento-banner-section" aria-label="Бенто-торты">
             <div class="bento-banner-inner">
                 <div class="bento-content-wrap">
@@ -1189,7 +1188,24 @@
             </div>
         </section>
 
-        <!-- 5. Секция Отзывов (Компактная мини-карусель перед финальным баннером) -->
+        <!-- 6. Примеры моих работ -->
+        <section id="portfolio" class="portfolio-section">
+            <div class="section-heading">
+                <div><p class="section-kicker">Каждый торт — отдельная история</p><h2 class="section-title">Работы мастерской</h2></div>
+                <p class="portfolio-side-note">Идеи для вашего праздника</p>
+            </div>
+            <p class="section-intro">Примеры оформления, которые можно взять за основу или адаптировать под ваши пожелания.</p>
+            <div class="grid">
+                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work1.gif" alt="Королевский дизайн" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Королевский дизайн</div><div class="card-desc">Изысканный декор ручной работы.</div></div></div>
+                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work2.gif" alt="Невероятный вкус" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Невероятный вкус</div><div class="card-desc">Божественное сочетание нежнейших текстур.</div></div></div>
+                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work3.gif" alt="Императорская подача" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Императорская подача</div><div class="card-desc">Элегантное оформление и фирменная упаковка.</div></div></div>
+                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work4.gif" alt="Авторский декор" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Авторский декор</div><div class="card-desc">Уникальное оформление под стиль вашего праздника.</div></div></div>
+                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work5.gif" alt="Праздничное настроение" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Праздничное настроение</div><div class="card-desc">Яркие акценты и утонченные детали.</div></div></div>
+                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work6.gif" alt="Изысканная классика" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Изысканная классика</div><div class="card-desc">Строгие линии, безупречное исполнение.</div></div></div>
+            </div>
+        </section>
+
+        <!-- 5. Секция Отзывов (Узкие, минималистичные карточки перед финальным баннером) -->
         <section id="reviews" class="reviews-section">
             <div class="reviews-header-wrap">
                 <div>
@@ -1220,23 +1236,6 @@
                     </div>
                 </div>
                 <button class="carousel-nav-btn carousel-next" onclick="scrollReviews(1)">❯</button>
-            </div>
-        </section>
-
-        <!-- 6. Примеры моих работ -->
-        <section id="portfolio" class="portfolio-section">
-            <div class="section-heading">
-                <div><p class="section-kicker">Каждый торт — отдельная история</p><h2 class="section-title">Работы мастерской</h2></div>
-                <p class="portfolio-side-note">Идеи для вашего праздника</p>
-            </div>
-            <p class="section-intro">Примеры оформления, которые можно взять за основу или адаптировать под ваши пожелания.</p>
-            <div class="grid">
-                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work1.gif" alt="Королевский дизайн" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Королевский дизайн</div><div class="card-desc">Изысканный декор ручной работы.</div></div></div>
-                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work2.gif" alt="Невероятный вкус" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Невероятный вкус</div><div class="card-desc">Божественное сочетание нежнейших текстур.</div></div></div>
-                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work3.gif" alt="Императорская подача" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Императорская подача</div><div class="card-desc">Элегантное оформление и фирменная упаковка.</div></div></div>
-                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work4.gif" alt="Авторский декор" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Авторский декор</div><div class="card-desc">Уникальное оформление под стиль вашего праздника.</div></div></div>
-                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work5.gif" alt="Праздничное настроение" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Праздничное настроение</div><div class="card-desc">Яркие акценты и утонченные детали.</div></div></div>
-                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work6.gif" alt="Изысканная классика" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Изысканная классика</div><div class="card-desc">Строгие линии, безупречное исполнение.</div></div></div>
             </div>
         </section>
 
@@ -1457,7 +1456,7 @@
         function appendReviewCard(rev, trackContainer) {
             const stars = '★'.repeat(rev.rating) + '☆'.repeat(5 - rev.rating);
             const dateFormatted = new Date(rev.created_at).toLocaleDateString('ru-RU');
-            const cardId = 'rev_' + Math.random().toString(36.2);
+            const cardId = 'rev_' + Math.random().toString(36).substring(2, 9);
             
             const card = document.createElement('div');
             card.className = 'review-card';
@@ -1478,19 +1477,17 @@
             `;
             trackContainer.appendChild(card);
 
-            // Проверяем, длинный ли текст, чтобы показать кнопку "Развернуть"
             setTimeout(() => {
                 const textElem = document.getElementById(cardId);
                 const btnElem = document.getElementById('btn_' + cardId);
                 if (textElem && btnElem) {
-                    if (textElem.scrollHeight > textElem.clientHeight || rev.text.length > 110) {
+                    if (textElem.scrollHeight > textElem.clientHeight || rev.text.length > 90) {
                         btnElem.style.display = 'block';
                     }
                 }
             }, 50);
         }
 
-        // Функция разворачивания длинного отзыва
         function toggleReviewText(id) {
             const textElem = document.getElementById(id);
             const btnElem = document.getElementById('btn_' + id);
@@ -1504,7 +1501,6 @@
             }
         }
 
-        // Подписка на Realtime появление новых отзывов
         function setupRealtimeReviews() {
             supabaseClient
                 .channel('public:reviews')
@@ -1520,20 +1516,18 @@
                             track.innerHTML = '';
                         }
                         appendReviewCard(newRev, track);
-                        track.prepend(track.lastChild); // Ставим в начало
+                        track.prepend(track.lastChild);
                     }
                 })
                 .subscribe();
         }
 
-        // Прокрутка карусели
         function scrollReviews(direction) {
             const track = document.getElementById('reviewsTrack');
             const cardWidth = track.querySelector('.review-card').offsetWidth + 16;
             track.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
         }
 
-        // Отправка отзыва
         async function handleReviewSubmit(event) {
             event.preventDefault();
             const name = document.getElementById('reviewName').value;
@@ -1581,7 +1575,6 @@
             if (event.target === document.getElementById('reviewModal')) closeReviewModal();
         }
 
-        // Прокрутка и градиент
         window.addEventListener('scroll', function() {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -1597,7 +1590,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Модалка картинок
         function openModal(img) {
             document.getElementById('modalImg').src = img.src;
             document.getElementById('imageModal').classList.add('open');
@@ -1608,7 +1600,6 @@
             document.body.style.overflow = '';
         }
 
-        // Форма заказа
         function openOrderModal(event) {
             event.preventDefault();
             document.getElementById('orderModal').classList.add('open');
@@ -1622,7 +1613,6 @@
             if (event.target === document.getElementById('orderModal')) closeOrderModal();
         }
 
-        // Политика
         function openPrivacyModal(event) {
             event.preventDefault();
             document.getElementById('privacyModal').classList.add('open');
@@ -1641,7 +1631,6 @@
             button.textContent = button.classList.contains('active') ? '♥' : '♡';
         }
 
-        // Отправка заказа в Telegram
         function handleFormSubmit(event) {
             event.preventDefault();
             const name = document.getElementById('userName').value;
