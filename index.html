@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Виктория — Авторские торты на заказ</title>
     
     <!-- Фирменная фавиконка «Тортик со свечкой» -->
@@ -39,7 +39,8 @@
             );
             background-attachment: fixed;
             line-height: 1.65;
-            padding: 0 30px 40px;
+            padding: 0 16px 40px;
+            max-width: 100vw;
             overflow-x: hidden;
             transition: background-color 0.1s ease;
         }
@@ -52,6 +53,7 @@
         .container {
             max-width: 1240px;
             margin: 0 auto;
+            width: 100%;
             animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
@@ -75,7 +77,7 @@
             top: 0;
             width: 100vw;
             margin: 0 0 28px calc(50% - 50vw);
-            padding: 16px clamp(20px, 5vw, 60px);
+            padding: 16px clamp(16px, 5vw, 60px);
             background: rgba(248,247,242,.94);
             border: 0;
             border-bottom: 1px solid #e2e4df;
@@ -83,7 +85,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
             z-index: 100;
         }
 
@@ -98,7 +100,7 @@
 
         .brand-name {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 700;
             line-height: 1;
             letter-spacing: -.5px;
@@ -108,7 +110,7 @@
             margin-top: 4px;
             color: #788589;
             font-family: 'Inter', sans-serif;
-            font-size: 8.5px;
+            font-size: 8px;
             font-weight: 500;
             letter-spacing: 1.2px;
             text-transform: uppercase;
@@ -118,7 +120,7 @@
             display: flex; 
             align-items: center; 
             justify-content: flex-end; 
-            gap: clamp(10px, 1.8vw, 24px); 
+            gap: clamp(8px, 1.5vw, 24px); 
             flex-wrap: wrap; 
         }
 
@@ -136,7 +138,7 @@
         .top-nav .nav-links a:hover { color: #496b78; }
 
         .top-nav .nav-links .nav-order-btn {
-            padding: 10px 15px;
+            padding: 8px 14px;
             color: white !important;
             background: #496b78;
             border: 1px solid #496b78;
@@ -152,13 +154,13 @@
             align-items: center;
             justify-content: flex-end;
             width: 100vw;
-            min-height: clamp(470px, 68vw, 650px);
-            margin: 26px 0 30px calc(50% - 50vw);
-            padding: clamp(24px, 6vw, 84px);
+            min-height: clamp(400px, 60vw, 650px);
+            margin: 20px 0 30px calc(50% - 50vw);
+            padding: clamp(20px, 5vw, 84px);
             background-color: #dce5e6;
             background-image: linear-gradient(90deg, rgba(248, 247, 242, 0) 0%, rgba(248, 247, 242, .06) 38%, rgba(248, 247, 242, .42) 58%, rgba(248, 247, 242, .82) 100%), url('images/banner.jpg');
             background-size: cover;
-            background-position: center 48%;
+            background-position: center;
             background-repeat: no-repeat;
         }
 
@@ -169,12 +171,12 @@
             flex-direction: column;
             align-items: flex-start;
             justify-content: center;
-            width: min(44%, 490px);
-            padding: clamp(28px, 3.8vw, 48px);
-            background: rgba(250, 248, 243, 0.78);
+            width: min(100%, 490px);
+            padding: clamp(24px, 3.8vw, 48px);
+            background: rgba(250, 248, 243, 0.85);
             backdrop-filter: blur(18px) saturate(112%);
             border: 1px solid rgba(255, 255, 255, 0.42);
-            border-radius: 38% 24% 34% 22% / 13% 18% 12% 17%;
+            border-radius: 24px;
             box-shadow: 0 12px 42px rgba(40, 48, 48, 0.07);
         }
 
@@ -183,7 +185,7 @@
             margin: 10px 0 13px;
             color: #2f4147;
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(30px, 3.5vw, 45px);
+            font-size: clamp(28px, 3.5vw, 45px);
             font-weight: 600;
             line-height: 1.03;
         }
@@ -210,17 +212,17 @@
 
         /* Прайс-лист */
         .info-card {
-            margin: 0 0 60px;
+            margin: 0 0 50px;
             padding: 0;
             background: transparent;
             scroll-margin-top: 100px;
         }
 
         .info-card h3 {
-            margin-bottom: 28px;
+            margin-bottom: 20px;
             color: #354a50;
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(32px, 3.5vw, 40px);
+            font-size: clamp(28px, 3.5vw, 40px);
             font-weight: 600;
         }
 
@@ -234,7 +236,7 @@
             background: rgba(255, 255, 255, 0.72);
             border: 1px solid rgba(220, 226, 223, 0.8);
             border-radius: 6px;
-            padding: 22px 18px;
+            padding: 18px 14px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -253,7 +255,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .price-card-title {
@@ -261,7 +263,7 @@
             font-family: 'Inter', sans-serif;
             font-size: 10px;
             font-weight: 700;
-            letter-spacing: 1.2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
@@ -270,34 +272,34 @@
             color: #8c5b55;
             font-size: 9px;
             font-weight: 600;
-            padding: 3px 8px;
+            padding: 2px 6px;
             border-radius: 12px;
         }
 
         .price-card-amount {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 30px;
+            font-size: 26px;
             font-weight: 700;
             color: #233236;
             line-height: 1;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .price-card-subtext {
             color: #707b7d;
-            font-size: 11.5px;
-            line-height: 1.5;
+            font-size: 11px;
+            line-height: 1.4;
         }
 
         section { 
-            margin-bottom: 92px; 
+            margin-bottom: 70px; 
             scroll-margin-top: 100px;
         }
 
-        .section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 25px; margin-bottom: 8px; }
+        .section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 15px; margin-bottom: 8px; flex-wrap: wrap; }
 
         .section-kicker {
-            margin: 0 0 8px;
+            margin: 0 0 6px;
             color: #66838d;
             font-family: 'Inter', sans-serif;
             font-size: 9px;
@@ -310,29 +312,29 @@
             margin: 0;
             color: #30454b;
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(35px, 4vw, 48px);
+            font-size: clamp(30px, 4vw, 48px);
             font-weight: 600;
             line-height: 1.05;
         }
 
         .section-price {
             flex-shrink: 0;
-            padding-bottom: 5px;
+            padding-bottom: 2px;
             color: #1c282c;
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 700;
             line-height: 1;
         }
 
         .section-price span { color: #6a7678; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; }
-        .portfolio-side-note { padding-bottom: 6px; color: #7c8889; font-size: 11px; }
-        .section-intro { max-width: 570px; margin: 12px 0 27px; color: #7a8586; font-size: 12px; line-height: 1.8; }
+        .portfolio-side-note { padding-bottom: 4px; color: #7c8889; font-size: 11px; }
+        .section-intro { max-width: 570px; margin: 10px 0 24px; color: #7a8586; font-size: 12px; line-height: 1.7; }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 32px 22px;
+            gap: 24px 18px;
         }
 
         .card {
@@ -345,11 +347,11 @@
 
         .card-img-wrap {
             width: 100%;
-            height: clamp(220px, 25vw, 320px);
+            height: clamp(200px, 25vw, 300px);
             overflow: hidden;
             background: #ecefeb;
             position: relative;
-            border-radius: 2px;
+            border-radius: 4px;
         }
 
         .card-img-wrap img {
@@ -367,14 +369,14 @@
             position: absolute;
             right: 10px;
             top: 10px;
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             display: grid;
             place-items: center;
             background: rgba(255,255,255,.92);
             color: #405c64;
             border-radius: 50%;
-            font-size: 15px;
+            font-size: 14px;
             border: 0;
             cursor: pointer;
             z-index: 2;
@@ -389,7 +391,7 @@
         }
 
         .card-content {
-            padding: 15px 0 0;
+            padding: 12px 0 0;
             display: flex;
             flex-direction: column;
         }
@@ -397,33 +399,32 @@
         .card-title {
             font-family: 'Cormorant Garamond', Georgia, serif;
             color: #35484d;
-            font-size: 25px;
+            font-size: 22px;
             line-height: 1.1;
-            margin-bottom: 7px;
+            margin-bottom: 5px;
             font-weight: 600;
         }
 
         .card-desc {
             color: #7b8585;
             font-size: 11px;
-            line-height: 1.75;
+            line-height: 1.7;
         }
 
-        /* --- Бенто-баннер --- */
+        /* --- Бенто-баннер (Исправлено на мобилках) --- */
         .bento-banner-section {
             position: relative;
             width: 100vw;
             margin-left: calc(50% - 50vw);
             margin-right: calc(50% - 50vw);
-            padding: clamp(45px, 6vw, 75px) clamp(20px, 5vw, 60px);
-            background-color: #f8f7f2;
+            padding: clamp(40px, 6vw, 75px) clamp(16px, 5vw, 60px);
+            background-color: #f1efea;
             background-image: 
-                linear-gradient(90deg, #f8f7f2 0%, #f8f7f2 35%, rgba(248, 247, 242, 0.95) 50%, rgba(248, 247, 242, 0.6) 65%, transparent 100%), 
+                linear-gradient(180deg, rgba(248, 247, 242, 0.95) 0%, rgba(248, 247, 242, 0.9) 100%), 
                 url('images/bento-banner.jpg');
-            background-size: contain;
-            background-position: right center;
+            background-size: cover;
+            background-position: center;
             background-repeat: no-repeat;
-            overflow: hidden;
         }
 
         .bento-banner-inner {
@@ -433,21 +434,21 @@
             z-index: 2;
         }
 
-        .bento-content-wrap { max-width: 520px; }
+        .bento-content-wrap { max-width: 560px; }
 
         .bento-list {
             list-style: none;
-            margin-top: 15px;
-            margin-bottom: 25px;
+            margin-top: 12px;
+            margin-bottom: 20px;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 12px;
+            gap: 10px;
         }
 
         .bento-list li {
             color: var(--muted);
-            font-size: 12.5px;
-            padding-left: 16px;
+            font-size: 12px;
+            padding-left: 14px;
             position: relative;
         }
 
@@ -465,7 +466,7 @@
             display: inline-flex;
             align-items: baseline;
             gap: 8px;
-            padding: 10px 18px;
+            padding: 8px 16px;
             background: rgba(255, 255, 255, 0.92);
             border: 1px solid rgba(220, 226, 223, 0.9);
             border-radius: 4px;
@@ -474,7 +475,7 @@
 
         .bento-price-badge .price-val {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 700;
             color: #233236;
         }
@@ -482,30 +483,32 @@
         .bento-price-badge .price-sub { color: #707b7d; font-size: 11px; }
 
         #portfolio {
-            padding: 45px 0 0;
-            margin-bottom: 60px;
+            padding: 35px 0 0;
+            margin-bottom: 50px;
             border-top: 1px solid #dce2df;
         }
 
-        #portfolio .card-img-wrap { height: clamp(230px, 27vw, 340px); }
+        #portfolio .card-img-wrap { height: clamp(210px, 27vw, 320px); }
 
-        /* --- Секция отзывов-карусели --- */
+        /* --- Секция Отзывов (Компактная карусель) --- */
         .reviews-section {
-            margin-bottom: 70px;
+            margin-bottom: 60px;
         }
 
         .reviews-header-wrap {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .add-review-btn {
             background: transparent;
             border: 1px solid #496b78;
             color: #496b78;
-            padding: 8px 16px;
+            padding: 7px 14px;
             border-radius: 2px;
             font-size: 11px;
             font-weight: 600;
@@ -516,7 +519,7 @@
 
         .add-review-btn:hover {
             background: #496b78;
-            color: #white;
+            color: white;
         }
 
         .reviews-carousel-container {
@@ -527,69 +530,122 @@
 
         .reviews-track {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             overflow-x: auto;
             scroll-behavior: smooth;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE */
-            padding: 10px 4px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 8px 2px;
             width: 100%;
         }
 
         .reviews-track::-webkit-scrollbar { display: none; }
 
+        /* Компактные карточки отзывов фиксированной высоты */
         .review-card {
-            flex: 0 0 calc(33.333% - 14px);
-            min-width: 280px;
-            background: rgba(255, 255, 255, 0.75);
+            flex: 0 0 calc(33.333% - 11px);
+            min-width: 270px;
+            max-width: 360px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.85);
             border: 1px solid rgba(220, 226, 223, 0.9);
-            border-radius: 4px;
-            padding: 24px;
+            border-radius: 6px;
+            padding: 18px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 4px 20px rgba(47, 65, 68, 0.03);
+            box-shadow: 0 4px 16px rgba(47, 65, 68, 0.03);
             backdrop-filter: blur(8px);
+            position: relative;
+            overflow: hidden;
+            transition: height 0.3s ease;
+        }
+
+        .review-card.expanded {
+            height: auto;
+            max-height: none;
+        }
+
+        .review-card-top {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
         .review-card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
         }
 
         .review-author {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
             color: #2e4147;
         }
 
         .review-stars {
             color: #d4a373;
-            font-size: 14px;
-            letter-spacing: 2px;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .review-text-wrap {
+            position: relative;
+            overflow: hidden;
         }
 
         .review-text {
             color: #617073;
-            font-size: 12px;
-            line-height: 1.7;
-            margin-bottom: 15px;
+            font-size: 11.5px;
+            line-height: 1.55;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .review-card.expanded .review-text {
+            display: block;
+            overflow: visible;
+        }
+
+        .read-more-btn {
+            background: none;
+            border: none;
+            color: #496b78;
+            font-size: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 2px 0;
+            margin-top: 3px;
+            text-align: left;
+        }
+
+        .read-more-btn:hover { text-decoration: underline; }
+
+        .review-footer-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(220, 226, 223, 0.6);
+            padding-top: 8px;
+            margin-top: auto;
         }
 
         .review-date {
             color: #939d9f;
-            font-size: 10px;
+            font-size: 9.5px;
         }
 
         .carousel-nav-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             background: rgba(255, 255, 255, 0.92);
             border: 1px solid #dce2df;
             border-radius: 50%;
@@ -607,8 +663,8 @@
             border-color: #496b78;
         }
 
-        .carousel-prev { left: -20px; }
-        .carousel-next { right: -20px; }
+        .carousel-prev { left: -18px; }
+        .carousel-next { right: -18px; }
 
         /* Нижний баннер */
         .bottom-banner {
@@ -617,9 +673,9 @@
             align-items: center;
             justify-content: center;
             width: 100vw;
-            min-height: clamp(380px, 50vw, 500px);
-            margin: 50px 0 0 calc(50% - 50vw);
-            padding: clamp(30px, 5vw, 60px);
+            min-height: clamp(340px, 45vw, 480px);
+            margin: 40px 0 0 calc(50% - 50vw);
+            padding: clamp(24px, 5vw, 60px);
             background-color: #dce5e6;
             background-image: linear-gradient(0deg, rgba(248, 247, 242, 0.4) 0%, rgba(38, 54, 59, 0.45) 100%), url('images/bottom-banner.jpg');
             background-size: cover;
@@ -634,8 +690,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            max-width: 620px;
-            padding: clamp(30px, 4vw, 50px);
+            max-width: 600px;
+            padding: clamp(24px, 4vw, 45px);
             background: rgba(250, 248, 243, 0.88);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.5);
@@ -645,30 +701,30 @@
 
         .bottom-banner-copy h3 {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(30px, 4vw, 42px);
+            font-size: clamp(26px, 4vw, 38px);
             line-height: 1.1;
             font-weight: 600;
             color: #2e4147;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .bottom-banner-copy p {
             color: #4e6067;
-            font-size: 13px;
-            margin-bottom: 25px;
-            line-height: 1.7;
+            font-size: 12.5px;
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
 
         footer {
             background: #e8eff0;
-            padding: 35px 20px 30px;
+            padding: 30px 16px 25px;
             text-align: center;
         }
 
         .footer-buttons {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
@@ -677,7 +733,7 @@
             background: #496b78;
             color: white;
             text-decoration: none;
-            padding: 13px 24px;
+            padding: 12px 22px;
             border-radius: 2px;
             font-size: 11px;
             font-weight: 600;
@@ -691,12 +747,12 @@
 
         .footer-note {
             color: #748387;
-            padding-top: 10px;
+            padding-top: 8px;
             font-size: 10px;
             letter-spacing: .7px;
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
             align-items: center;
         }
 
@@ -709,10 +765,10 @@
         /* Кнопка "Наверх" */
         .scroll-top-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 48px;
-            height: 48px;
+            bottom: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
             background: #496b78;
             color: var(--white);
             border: none;
@@ -728,7 +784,7 @@
             z-index: 999;
         }
 
-        .scroll-top-btn svg { width: 24px; height: 24px; }
+        .scroll-top-btn svg { width: 22px; height: 22px; }
         .scroll-top-btn.show { opacity: 1; visibility: visible; transform: translateY(0); }
         .scroll-top-btn:hover { background: #354f59; }
 
@@ -741,7 +797,7 @@
             z-index: 1000;
             justify-content: center;
             align-items: center;
-            padding: 25px;
+            padding: 16px;
             visibility: hidden;
             opacity: 0;
             transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -767,10 +823,10 @@
 
         .modal-close {
             position: absolute;
-            top: 20px;
-            right: 25px;
+            top: 15px;
+            right: 20px;
             color: white;
-            font-size: 32px;
+            font-size: 30px;
             cursor: pointer;
             opacity: .8;
         }
@@ -781,30 +837,30 @@
             background: var(--white);
             width: 100%;
             max-width: 500px;
-            padding: 35px;
+            padding: 28px 24px;
             border-radius: 3px;
             position: relative;
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-            max-height: 90vh;
+            max-height: 88vh;
             overflow-y: auto;
             text-align: left;
         }
 
         .order-modal-content h3 {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 32px;
+            font-size: 28px;
             color: #264a52;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .order-modal-content p {
-            font-size: 13px;
+            font-size: 12.5px;
             color: var(--muted);
-            margin-bottom: 22px;
+            margin-bottom: 18px;
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 14px;
             display: flex;
             flex-direction: column;
         }
@@ -815,20 +871,21 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             color: #315963;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
 
         .form-group input, 
         .form-group select, 
         .form-group textarea {
-            padding: 12px;
+            padding: 10px 12px;
             border: 1px solid var(--line);
             border-radius: 2px;
-            font-size: 14px;
+            font-size: 13.5px;
             font-family: 'Inter', sans-serif;
             color: var(--ink);
             background: #f8f7f2;
             outline: none;
+            width: 100%;
         }
 
         .form-group input:focus, 
@@ -838,18 +895,21 @@
             background: var(--white);
         }
 
-        /* Чекбокс согласия с юридической стороны */
+        /* Чекбокс согласия */
         .checkbox-group {
             flex-direction: row;
             align-items: flex-start;
             gap: 10px;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .checkbox-group input[type="checkbox"] {
-            margin-top: 3px;
+            margin-top: 2px;
             cursor: pointer;
             accent-color: #496b78;
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
         }
 
         .checkbox-group label {
@@ -859,58 +919,67 @@
             color: var(--muted);
             cursor: pointer;
             font-weight: 400;
-            line-height: 1.4;
+            line-height: 1.35;
         }
 
         .submit-order-btn {
             width: 100%;
             background: #496b78;
             color: white;
-            padding: 14px;
+            padding: 13px;
             border: none;
             border-radius: 2px;
-            font-size: 12px;
+            font-size: 11.5px;
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 8px;
             transition: background 0.2s ease;
         }
 
         .submit-order-btn:hover { background: #354f59; }
 
+        /* Полноценная юридическая политика конфиденциальности */
         .privacy-policy-text {
-            font-size: 12px;
+            font-size: 11.5px;
             color: var(--muted);
-            line-height: 1.7;
+            line-height: 1.65;
+            text-align: left;
         }
         .privacy-policy-text h4 {
             font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 20px;
+            font-size: 17px;
             color: #264a52;
-            margin: 14px 0 6px;
+            margin: 12px 0 4px;
         }
-        .privacy-policy-text p { margin-bottom: 10px; }
+        .privacy-policy-text p { margin-bottom: 8px; }
+        .privacy-policy-text ul {
+            margin-left: 16px;
+            margin-bottom: 8px;
+        }
 
-        /* Мобильная адаптация карусели */
+        /* Мобильная адаптация сетки */
         @media (max-width: 900px) {
-            body { padding: 0 18px 30px; }
-            .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .info-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; }
             .review-card { flex: 0 0 calc(100% - 10px); }
-            .carousel-nav-btn { display: none; } /* На мобилках свайпаем пальцем */
+            .carousel-nav-btn { display: none; }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
+            body { padding: 0 12px 30px; }
+            .info-grid { grid-template-columns: 1fr; }
+            .grid { grid-template-columns: 1fr; }
             .top-nav {
                 flex-direction: column;
                 align-items: stretch;
-                gap: 12px;
-                padding: 12px 16px;
+                gap: 10px;
+                padding: 10px 14px;
             }
             .brand-mark { align-items: center; text-align: center; }
-            .nav-links { justify-content: flex-start; overflow-x: auto; padding-bottom: 4px; }
-            .studio-banner { min-height: 480px; align-items: flex-end; justify-content: center; }
+            .nav-links { justify-content: center; overflow-x: auto; padding-bottom: 4px; }
+            .studio-banner { min-height: 420px; align-items: flex-end; justify-content: center; }
             .studio-banner-copy { width: 100%; }
         }
     </style>
@@ -952,7 +1021,7 @@
                 <div class="price-card-item">
                     <div>
                         <div class="price-card-header"><span class="price-card-title">Классические</span></div>
-                        <div class="price-card-amount">1 500 ₽ <span style="font-size: 18px; font-weight: 400; color: #707b7d;">/ кг</span></div>
+                        <div class="price-card-amount">1 500 ₽ <span style="font-size: 16px; font-weight: 400; color: #707b7d;">/ кг</span></div>
                     </div>
                     <div class="price-card-subtext">Минимальный заказ — от 2 кг</div>
                 </div>
@@ -960,7 +1029,7 @@
                 <div class="price-card-item">
                     <div>
                         <div class="price-card-header"><span class="price-card-title">Премиум</span><span class="price-badge">Хит</span></div>
-                        <div class="price-card-amount">1 700 ₽ <span style="font-size: 18px; font-weight: 400; color: #707b7d;">/ кг</span></div>
+                        <div class="price-card-amount">1 700 ₽ <span style="font-size: 16px; font-weight: 400; color: #707b7d;">/ кг</span></div>
                     </div>
                     <div class="price-card-subtext">Насыщенные слои и ореховые акценты</div>
                 </div>
@@ -976,7 +1045,7 @@
                 <div class="price-card-item">
                     <div>
                         <div class="price-card-header"><span class="price-card-title">Капкейки & Трайфлы</span><span class="price-badge" style="background: #dce6e8; color: #496b78;">Новинка</span></div>
-                        <div class="price-card-amount" style="font-size: 24px;">По запросу</div>
+                        <div class="price-card-amount" style="font-size: 22px;">По запросу</div>
                     </div>
                     <div class="price-card-subtext">Наборы в подарочной упаковке</div>
                 </div>
@@ -984,7 +1053,7 @@
                 <div class="price-card-item">
                     <div>
                         <div class="price-card-header"><span class="price-card-title">Декор</span></div>
-                        <div class="price-card-amount" style="font-size: 26px;">от 500 ₽</div>
+                        <div class="price-card-amount" style="font-size: 24px;">от 500 ₽</div>
                     </div>
                     <div class="price-card-subtext">Простой декор входит / сложный — индивидуально</div>
                 </div>
@@ -1077,14 +1146,14 @@
             </div>
         </section>
 
-        <!-- 3. Бенто-торты -->
+        <!-- 3. Бенто-торты (аккуратный адаптивный блок) -->
         <section id="bento" class="bento-banner-section" aria-label="Бенто-торты">
             <div class="bento-banner-inner">
                 <div class="bento-content-wrap">
                     <p class="section-kicker">Небольшой торт — большой повод</p>
                     <h2 class="section-title">Бенто-торты</h2>
-                    <p class="section-intro" style="margin-bottom: 20px;">Компактный формат для личного поздравления, свидания или маленького праздника.</p>
-                    <div class="card-title" style="margin-bottom: 10px;">Доступные начинки:</div>
+                    <p class="section-intro" style="margin-bottom: 15px;">Компактный формат для личного поздравления, свидания или маленького праздника.</p>
+                    <div class="card-title" style="margin-bottom: 8px;">Доступные начинки:</div>
                     <ul class="bento-list">
                         <li><b>Красный бархат</b> с вишней или клубникой</li>
                         <li><b>Сникерс</b> (шоколад, карамель, арахис, крем-чиз)</li>
@@ -1120,7 +1189,7 @@
             </div>
         </section>
 
-        <!-- 5. Секция Отзывов (Карусель со свайпом и Realtime) -->
+        <!-- 5. Секция Отзывов (Компактная мини-карусель перед финальным баннером) -->
         <section id="reviews" class="reviews-section">
             <div class="reviews-header-wrap">
                 <div>
@@ -1134,16 +1203,20 @@
             <div class="reviews-carousel-container">
                 <button class="carousel-nav-btn carousel-prev" onclick="scrollReviews(-1)">❮</button>
                 <div class="reviews-track" id="reviewsTrack">
-                    <!-- Отзывы будут динамически загружаться сюда из Supabase -->
+                    <!-- Заглушка до загрузки из Supabase -->
                     <div class="review-card">
-                        <div>
+                        <div class="review-card-top">
                             <div class="review-card-header">
                                 <span class="review-author">Анна</span>
                                 <div class="review-stars">★★★★★</div>
                             </div>
-                            <div class="review-text">Заказывали торт «Фисташка-малина» на юбилей. Это просто шедевр! Гости были в восторге, бисквит невероятно нежный. Спасибо огромное!</div>
+                            <div class="review-text-wrap">
+                                <div class="review-text">Заказывали торт «Фисташка-малина» на юбилей. Это просто шедевр! Гости были в восторге, бисквит невероятно нежный. Спасибо огромное!</div>
+                            </div>
                         </div>
-                        <div class="review-date">Загрузка отзывов...</div>
+                        <div class="review-footer-info">
+                            <span class="review-date">Загрузка...</span>
+                        </div>
                     </div>
                 </div>
                 <button class="carousel-nav-btn carousel-next" onclick="scrollReviews(1)">❯</button>
@@ -1261,7 +1334,7 @@
                 <!-- Юридический чекбокс согласия -->
                 <div class="form-group checkbox-group">
                     <input type="checkbox" id="orderPrivacyCheck" required>
-                    <label for="orderPrivacyCheck">Я согласен(а) с <a href="#" onclick="openPrivacyModal(event)">политикой конфиденциальности</a> и условиями обработки данных</label>
+                    <label for="orderPrivacyCheck">Я согласен(а) с <a href="#" onclick="openPrivacyModal(event)">политикой конфиденциальности</a> и условиями обработки персональных данных</label>
                 </div>
 
                 <button type="submit" class="submit-order-btn">Отправить заказ</button>
@@ -1301,20 +1374,31 @@
         </div>
     </div>
 
-    <!-- Модальное окно политики конфиденциальности -->
+    <!-- Полноценная юридическая Политика конфиденциальности -->
     <div id="privacyModal" class="modal" onclick="closePrivacyModalOutside(event)">
         <div class="order-modal-content">
             <span class="modal-close" style="color: #264a52;" onclick="closePrivacyModal()">&times;</span>
             <h3>Политика конфиденциальности</h3>
             <div class="privacy-policy-text">
                 <h4>1. Общие положения</h4>
-                <p>Настоящая политика конфиденциальности определяет, как кондитерская мастерская собирает, использует и защищает информацию, которую вы предоставляете при использовании этого сайта.</p>
+                <p>Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных пользователей кондитерской мастерской «Виктория» (далее — Мастерская).</p>
                 
-                <h4>2. Собираемая информация</h4>
-                <p>Мы собираем только те данные, которые вы добровольно указываете в форме заказа и отзывов: имя, контактные данные и текст сообщений.</p>
-                
-                <h4>3. Использование данных</h4>
-                <p>Указанные данные используются исключительно для связи по поводу заказа или публикации отзывов.</p>
+                <h4>2. Собираемые персональные данные</h4>
+                <p>При оформлении заказа или публикации отзывов через сайт пользователь предоставляет следующие данные:</p>
+                <ul>
+                    <li>Имя или псевдоним;</li>
+                    <li>Контактный телефон / аккаунт Telegram;</li>
+                    <li>Текст отзывов и пожелания к заказам.</li>
+                </ul>
+
+                <h4>3. Цели сбора данных</h4>
+                <p>Сбор информации осуществляется исключительно для связи с клиентом с целью подтверждения заказа, согласования деталей декора, доставки кондитерских изделий, а также для отображения отзывов на сайте.</p>
+
+                <h4>4. Защита информации</h4>
+                <p>Мастерская принимает необходимые организационные и технические меры для защиты персональной информации пользователей от неправомерного доступа, изменения или раскрытия.</p>
+
+                <h4>5. Права пользователей</h4>
+                <p>Пользователь вправе в любой момент запросить удаление или изменение своих данных, обратившись по контактам, указанным на сайте.</p>
             </div>
         </div>
     </div>
@@ -1326,7 +1410,7 @@
         </svg>
     </button>
 
-    <!-- Подключаем Supabase клиент прямо в браузер -->
+    <!-- Подключаем Supabase клиент -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <script>
@@ -1334,6 +1418,10 @@
         const SUPABASE_URL = 'https://aqfxxgcnsjvucxhhagrt.supabase.co';
         const SUPABASE_ANON_KEY = 'sb_publishable_Wu9TMB_o18fZcjM0yw5cWQ_aykFa_kE';
         const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Telegram токен и чат
+        const BOT_TOKEN = '8877774740:AAHKVLOcKtS1J1mlKt04zObwusq1Tbnc2H8';
+        const CHAT_ID = '1193749282';
 
         // Загрузка отзывов и подписка на Realtime при старте
         document.addEventListener("DOMContentLoaded", () => {
@@ -1358,34 +1446,65 @@
                         appendReviewCard(rev, track);
                     });
                 } else {
-                    track.innerHTML = '<div class="review-card"><div><div class="review-author">Пока нет отзывов</div><div class="review-text">Станьте первым, кто оставит отзыв о нашей мастерской!</div></div></div>';
+                    track.innerHTML = '<div class="review-card"><div class="review-card-top"><div class="review-author">Пока нет отзывов</div><div class="review-text">Станьте первым, кто оставит отзыв о нашей мастерской!</div></div></div>';
                 }
             } catch (err) {
                 console.error('Ошибка загрузки отзывов:', err);
             }
         }
 
-        // Функция отрисовки одной карточки отзыва
+        // Отрисовка карточки с поддержкой разворачивания длинного текста
         function appendReviewCard(rev, trackContainer) {
             const stars = '★'.repeat(rev.rating) + '☆'.repeat(5 - rev.rating);
             const dateFormatted = new Date(rev.created_at).toLocaleDateString('ru-RU');
+            const cardId = 'rev_' + Math.random().toString(36.2);
             
             const card = document.createElement('div');
             card.className = 'review-card';
             card.innerHTML = `
-                <div>
+                <div class="review-card-top">
                     <div class="review-card-header">
                         <span class="review-author">${escapeHtml(rev.name)}</span>
                         <div class="review-stars">${stars}</div>
                     </div>
-                    <div class="review-text">${escapeHtml(rev.text)}</div>
+                    <div class="review-text-wrap">
+                        <div class="review-text" id="${cardId}">${escapeHtml(rev.text)}</div>
+                        <button class="read-more-btn" id="btn_${cardId}" style="display: none;" onclick="toggleReviewText('${cardId}')">Развернуть</button>
+                    </div>
                 </div>
-                <div class="review-date">${dateFormatted}</div>
+                <div class="review-footer-info">
+                    <span class="review-date">${dateFormatted}</span>
+                </div>
             `;
             trackContainer.appendChild(card);
+
+            // Проверяем, длинный ли текст, чтобы показать кнопку "Развернуть"
+            setTimeout(() => {
+                const textElem = document.getElementById(cardId);
+                const btnElem = document.getElementById('btn_' + cardId);
+                if (textElem && btnElem) {
+                    if (textElem.scrollHeight > textElem.clientHeight || rev.text.length > 110) {
+                        btnElem.style.display = 'block';
+                    }
+                }
+            }, 50);
         }
 
-        // МАГИЯ REALTIME: слушаем появление новых отзывов в базе
+        // Функция разворачивания длинного отзыва
+        function toggleReviewText(id) {
+            const textElem = document.getElementById(id);
+            const btnElem = document.getElementById('btn_' + id);
+            const cardElem = textElem.closest('.review-card');
+            
+            cardElem.classList.toggle('expanded');
+            if (cardElem.classList.contains('expanded')) {
+                btnElem.textContent = 'Свернуть';
+            } else {
+                btnElem.textContent = 'Развернуть';
+            }
+        }
+
+        // Подписка на Realtime появление новых отзывов
         function setupRealtimeReviews() {
             supabaseClient
                 .channel('public:reviews')
@@ -1400,35 +1519,21 @@
                         if (track.querySelector('.review-author')?.textContent === 'Пока нет отзывов') {
                             track.innerHTML = '';
                         }
-                        const stars = '★'.repeat(newRev.rating) + '☆'.repeat(5 - newRev.rating);
-                        const dateFormatted = new Date(newRev.created_at).toLocaleDateString('ru-RU');
-                        
-                        const card = document.createElement('div');
-                        card.className = 'review-card';
-                        card.innerHTML = `
-                            <div>
-                                <div class="review-card-header">
-                                    <span class="review-author">${escapeHtml(newRev.name)}</span>
-                                    <div class="review-stars">${stars}</div>
-                                </div>
-                                <div class="review-text">${escapeHtml(newRev.text)}</div>
-                            </div>
-                            <div class="review-date">${dateFormatted}</div>
-                        `;
-                        track.prepend(card);
+                        appendReviewCard(newRev, track);
+                        track.prepend(track.lastChild); // Ставим в начало
                     }
                 })
                 .subscribe();
         }
 
-        // Прокрутка карусели отзывов кнопками
+        // Прокрутка карусели
         function scrollReviews(direction) {
             const track = document.getElementById('reviewsTrack');
-            const cardWidth = track.querySelector('.review-card').offsetWidth + 20;
+            const cardWidth = track.querySelector('.review-card').offsetWidth + 16;
             track.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
         }
 
-        // Отправка нового отзыва в Supabase + Telegram
+        // Отправка отзыва
         async function handleReviewSubmit(event) {
             event.preventDefault();
             const name = document.getElementById('reviewName').value;
@@ -1442,8 +1547,6 @@
 
                 if (error) throw error;
 
-                const BOT_TOKEN = 'ВСТАВЬТЕ_ТОКЕН_БОТА';
-                const CHAT_ID = '1193749282';
                 const msg = `💬 *Новый отзыв на сайте!*\n\n👤 *Имя:* ${name}\n⭐ *Оценка:* ${rating}/5\n✍️ *Текст:* ${text}`;
                 
                 fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
@@ -1461,12 +1564,10 @@
             }
         }
 
-        // Защита от XSS
         function escapeHtml(str) {
             return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
         }
 
-        // Управление модальными окнами отзывов
         function openReviewModal(event) {
             event.preventDefault();
             document.getElementById('reviewModal').classList.add('open');
@@ -1480,13 +1581,21 @@
             if (event.target === document.getElementById('reviewModal')) closeReviewModal();
         }
 
-        // Динамический суперградиент при прокрутке
+        // Прокрутка и градиент
         window.addEventListener('scroll', function() {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            if (docHeight <= 0) return;
-            document.body.style.setProperty('--scroll-progress', scrollTop / docHeight);
+            if (docHeight > 0) {
+                document.body.style.setProperty('--scroll-progress', scrollTop / docHeight);
+            }
+            const scrollBtn = document.getElementById('scrollTopBtn');
+            if (window.scrollY > 400) scrollBtn.classList.add('show');
+            else scrollBtn.classList.remove('show');
         });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
         // Модалка картинок
         function openModal(img) {
@@ -1541,9 +1650,6 @@
             const weight = document.getElementById('cakeWeight').value;
             const comment = document.getElementById('cakeComment').value;
 
-            const BOT_TOKEN = '8877774740:AAHKVLOcKtS1J1mlKt04zObwusq1Tbnc2H8';
-            const CHAT_ID = '1193749282';
-
             const message = `✨ *Новая заявка с сайта!*\n\n👤 *Имя:* ${name}\n📞 *Контакт:* ${contact}\n🎂 *Начинка:* ${filling}\n⚖️ *Вес:* ${weight || 'Не указан'}\n💬 *Пожелания:* ${comment || 'Нет'}`;
 
             fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
@@ -1560,16 +1666,6 @@
                     alert('Ошибка отправки. Свяжитесь по телефону.');
                 }
             });
-        }
-
-        // Кнопка наверх
-        window.addEventListener('scroll', function() {
-            const scrollBtn = document.getElementById('scrollTopBtn');
-            if (window.scrollY > 400) scrollBtn.classList.add('show');
-            else scrollBtn.classList.remove('show');
-        });
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
