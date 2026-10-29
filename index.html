@@ -366,7 +366,12 @@
 
         .card:hover .card-img-wrap img { transform: scale(1.025); }
 
-        /* Метка отсутствия на складе */
+        /* Стиль для скрытых/отключенных товаров через админку */
+        .card.is-hidden {
+            display: none !important;
+        }
+
+        /* Бейдж "Временно нет" на карточке */
         .card.out-of-stock {
             opacity: 0.6;
         }
@@ -430,7 +435,7 @@
             line-height: 1.7;
         }
 
-        /* --- Бенто-баннер --- */
+        /* --- Бенто-баннер (ПК — фон, Мобильный — картинка выносится вниз) --- */
         .bento-banner-section {
             position: relative;
             width: 100vw;
@@ -521,7 +526,7 @@
 
         #portfolio .card-img-wrap { height: clamp(210px, 27vw, 320px); }
 
-        /* --- Секция Отзывов --- */
+        /* --- Секция Отзывов (Минималистичная, строгая, низкая по высоте) --- */
         .reviews-section {
             margin-bottom: 60px;
         }
@@ -572,6 +577,7 @@
 
         .reviews-track::-webkit-scrollbar { display: none; }
 
+        /* Узкие, компактные по высоте карточки отзывов без «воды» */
         .review-card {
             flex: 0 0 calc(25% - 11px);
             min-width: 220px;
@@ -626,6 +632,7 @@
             overflow: hidden;
         }
 
+        /* Премиальный шрифт с засечками для текста отзывов (не ИИшный стиль) */
         .review-text {
             font-family: 'Cormorant Garamond', Georgia, serif;
             color: #425256;
@@ -1003,6 +1010,7 @@
             .info-grid { grid-template-columns: 1fr; }
             .grid { grid-template-columns: 1fr; }
             .review-card { flex: 0 0 calc(100% - 10px); }
+            /* На мобильных включаем картинку бенто вниз */
             .bento-banner-section { background-image: none; background-color: #f8f7f2; }
             .bento-mobile-img { display: block; }
             .top-nav {
@@ -1094,31 +1102,93 @@
             </div>
         </div>
 
-        <!-- 1. Классика (Динамическая загрузка из Supabase) -->
+        <!-- 1. Классика (Каждой карточке добавлен data-title для автоматической связи с базой) -->
         <section id="classic" class="cake-section">
             <div class="section-heading">
                 <div><p class="section-kicker">Знакомые вкусы</p><h2 class="section-title">Классические начинки</h2></div>
                 <p class="section-price">1 500 ₽ <span>/ кг</span></p>
             </div>
             <p class="section-intro">Проверенные сочетания — от ягод и сливок до карамели и шоколада.</p>
-            <div class="grid" id="classic-grid">
-                <!-- Карточки подгружаются из Supabase, при необходимости здесь можно оставить статичные дублеры как фоллбек -->
+            <div class="grid">
+                <div class="card" data-title="Красный бархат">
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/red-velvet.jpg" alt="Красный бархат" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Красный бархат</div><div class="card-desc">Бархатистые бисквитные коржи с легким нотками какао, нежный крем-чиз и ягодная прослойка на выбор.</div></div>
+                </div>
+                <div class="card" data-title="Мак-Лимон">
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake1.jpg" alt="Мак-Лимон" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Мак-Лимон</div><div class="card-desc">Маковый бисквит с нежным лимонным курдом.</div></div>
+                </div>
+                <div class="card" data-title="Клубника-Сливки">
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake2.jpg" alt="Клубника-Сливки" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Клубника-Сливки</div><div class="card-desc">Ванильный бисквит, клубничный мусс со сливками, конфи из клубники.</div></div>
+                </div>
+                <div class="card" data-title="Молочная девочка">
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake3.jpg" alt="Молочная девочка" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Молочная девочка</div><div class="card-desc">Ванильные коржи на сгущенном молоке, клубничное конфи, сметанно-сливочный крем.</div></div>
+                </div>
+                <div class="card" data-title="Банан-Карамель">
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake4.jpg" alt="Банан-Карамель" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Банан-Карамель</div><div class="card-desc">Влажные карамельные коржи, сливочный крем, тягучая карамель и бананы.</div></div>
+                </div>
+                <div class="card" data-title="Ваниль / Вишня">
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake5.jpg" alt="Ваниль / вишня" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Ваниль / Вишня</div><div class="card-desc">Классический ванильный бисквит, крем-чиз и пикантный вишневый соус.</div></div>
+                </div>
+                <div class="card" data-title="Банан / Нутелла">
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake6.jpg" alt="Банан / нутелла" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Банан / Нутелла</div><div class="card-desc">Шоколадный бисквит, спелый банан, нутелла и крем-чиз.</div></div>
+                </div>
+                <div class="card" data-title="Бабл Гам">
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake7.jpg" alt="Бабл Гам" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Бабл Гам</div><div class="card-desc">Нежная и яркая начинка с любимым вкусом детства.</div></div>
+                </div>
+                <div class="card" data-title="Шоколадная девочка">
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake14.jpg" alt="Шоколадная девочка" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Шоколадная девочка</div><div class="card-desc">Шоколадный бисквит, сливочный крем.</div></div>
+                </div>
+                <div class="card" data-title="Шоколад-вишня">
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake15.jpg" alt="Шоколад-вишня" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Шоколад-вишня</div><div class="card-desc">Шоколадный бисквит, шоколадный мусс, вишневая начинка.</div></div>
+                </div>
             </div>
         </section>
 
-        <!-- 2. Премиум (Динамическая загрузка из Supabase) -->
+        <!-- 2. Премиум -->
         <section id="premium" class="cake-section premium-section">
             <div class="section-heading">
                 <div><p class="section-kicker">Более насыщенные сочетания</p><h2 class="section-title">Премиум начинки</h2></div>
                 <p class="section-price">1 700 ₽ <span>/ кг</span></p>
             </div>
             <p class="section-intro">Слои вкуса, ореховые акценты, шоколад и ягодные конфи.</p>
-            <div class="grid" id="premium-grid">
-                <!-- Карточки подгружаются из Supabase -->
+            <div class="grid">
+                <div class="card" data-title="Орео">
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake8.jpg" alt="Орео" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Орео</div><div class="card-desc">Шоколадные коржи и крем с кусочками культового печенья.</div></div>
+                </div>
+                <div class="card" data-title="Малиновый Рафаэлло">
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake9.jpg" alt="Малиновый рафаэлло" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Малиновый Рафаэлло</div><div class="card-desc">Кокосовый бисквит, рафаэлло-крем, хрустящий слой, малиновое конфи.</div></div>
+                </div>
+                <div class="card" data-title="Киндер Кантри">
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake10.jpg" alt="Киндер кантри" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Киндер Кантри</div><div class="card-desc">Шоколадный бисквит, ганаш, начинка в стиле Киндер Кантри.</div></div>
+                </div>
+                <div class="card" data-title="Сникерс">
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake11.jpg" alt="Сникерс" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Сникерс</div><div class="card-desc">Шоколадный бисквит, обилие арахиса с карамелью, арахисовый крем.</div></div>
+                </div>
+                <div class="card" data-title="Фисташка-Малина">
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake12.jpg" alt="Фисташка-малина" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Фисташка-Малина</div><div class="card-desc">Ароматный фисташковый бисквит, крем-чиз, малиновое конфи.</div></div>
+                </div>
+                <div class="card" data-title="Морковный">
+                    <div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/cake13.jpg" alt="Морковный" onclick="openModal(this)"></div>
+                    <div class="card-content"><div class="card-title">Морковный</div><div class="card-desc">Пряный морковный бисквит, карамель с орехами, вишневое конфи.</div></div>
+                </div>
             </div>
         </section>
 
-        <!-- 3. Бенто-торты -->
+        <!-- 3. Бенто-торты (на мобилках фото вынесено вниз) -->
         <section id="bento" class="bento-banner-section" aria-label="Бенто-торты">
             <div class="bento-banner-inner">
                 <div class="bento-content-wrap">
@@ -1137,6 +1207,7 @@
                         <span class="price-sub">/ диаметр 12 см (400–500 г)</span>
                     </div>
                 </div>
+                <!-- Картинка для мобилок (выносится аккуратно вниз) -->
                 <img src="images/bento-banner.jpg" alt="Бенто-торты" class="bento-mobile-img" onclick="openModal(this)">
             </div>
         </section>
@@ -1175,7 +1246,7 @@
                 <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work3.gif" alt="Императорская подача" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Императорская подача</div><div class="card-desc">Элегантное оформление и фирменная упаковка.</div></div></div>
                 <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work4.gif" alt="Авторский декор" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Авторский декор</div><div class="card-desc">Уникальное оформление под стиль вашего праздника.</div></div></div>
                 <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work5.gif" alt="Праздничное настроение" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Праздничное настроение</div><div class="card-desc">Яркие акценты и утонченные детали.</div></div></div>
-                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work6.gif" alt="Императорская классика" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Изысканная классика</div><div class="card-desc">Строгие линии, безупречное исполнение.</div></div></div>
+                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work6.gif" alt="Императорская классика" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Императорская классика</div><div class="card-desc">Строгие линии, безупречное исполнение.</div></div></div>
             </div>
         </section>
 
@@ -1239,6 +1310,7 @@
         <img id="modalImg" src="" alt="Увеличенное фото">
     </div>
 
+    <!-- Модальное окно для формы заявки -->
     <div id="orderModal" class="modal" onclick="closeOrderModalOutside(event)">
         <div class="order-modal-content">
             <span class="modal-close" style="color: #264a52;" onclick="closeOrderModal()">&times;</span>
@@ -1312,6 +1384,7 @@
         </div>
     </div>
 
+    <!-- Модальное окно для добавления отзыва -->
     <div id="reviewModal" class="modal" onclick="closeReviewModalOutside(event)">
         <div class="order-modal-content">
             <span class="modal-close" style="color: #264a52;" onclick="closeReviewModal()">&times;</span>
@@ -1343,6 +1416,7 @@
         </div>
     </div>
 
+    <!-- Полноценная юридическая Политика конфиденциальности -->
     <div id="privacyModal" class="modal" onclick="closePrivacyModalOutside(event)">
         <div class="order-modal-content">
             <span class="modal-close" style="color: #264a52;" onclick="closePrivacyModal()">&times;</span>
@@ -1350,12 +1424,28 @@
             <div class="privacy-policy-text">
                 <h4>1. Общие положения</h4>
                 <p>Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных пользователей кондитерской мастерской «Виктория» (далее — Мастерская).</p>
+                
                 <h4>2. Собираемые персональные данные</h4>
-                <p>При оформлении заказа или публикации отзывов через сайт пользователь предоставляет необходимые данные.</p>
+                <p>При оформлении заказа или публикации отзывов через сайт пользователь предоставляет следующие данные:</p>
+                <ul>
+                    <li>Имя или псевдоним;</li>
+                    <li>Контактный телефон / аккаунт Telegram;</li>
+                    <li>Текст отзывов и пожелания к заказам.</li>
+                </ul>
+
+                <h4>3. Цели сбора данных</h4>
+                <p>Сбор информации осуществляется исключительно для связи с клиентом с целью подтверждения заказа, согласования деталей декора, доставки кондитерских изделий, а также для отображения отзывов на сайте.</p>
+
+                <h4>4. Защита информации</h4>
+                <p>Мастерская принимает необходимые организационные и технические меры для защиты персональной информации пользователей от неправомерного доступа, изменения или раскрытия.</p>
+
+                <h4>5. Права пользователей</h4>
+                <p>Пользователь вправе в любой момент запросить удаление или изменение своих данных, обратившись по контактам, указанным на сайте.</p>
             </div>
         </div>
     </div>
 
+    <!-- Кнопка наверх -->
     <button id="scrollTopBtn" class="scroll-top-btn" title="Наверх" onclick="scrollToTop()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 15l-6-6-6 6"/>
@@ -1377,60 +1467,66 @@
 
         // Запуск при загрузке страницы
         document.addEventListener("DOMContentLoaded", () => {
-            fetchProducts();
+            syncProductsFromSupabase();
             fetchReviews();
             setupRealtimeReviews();
         });
 
-        // Загрузка товаров из Supabase
-        async function fetchProducts() {
+        // Синхронизируем статические карточки с данными из Supabase (цены, наличие, активность)
+        async function syncProductsFromSupabase() {
             try {
                 const { data, error } = await supabaseClient
                     .from('products')
-                    .select('*')
-                    .order('sort_order', { ascending: true });
+                    .select('*');
 
                 if (error) throw error;
 
                 if (data && data.length > 0) {
-                    const classicGrid = document.getElementById('classic-grid');
-                    const premiumGrid = document.getElementById('premium-grid');
-                    
-                    if (classicGrid) classicGrid.innerHTML = '';
-                    if (premiumGrid) premiumGrid.innerHTML = '';
-
+                    // Создаем карту товаров по их названию
+                    const productMap = {};
                     data.forEach(item => {
-                        if (item.is_active === false) return; // Скрываем выключенные админом
+                        productMap[item.title.trim().toLowerCase()] = item;
+                    });
 
-                        const isAvailable = item.is_available !== false;
-                        const cardClass = isAvailable ? 'card' : 'card out-of-stock';
+                    // Проходим по всем карточкам на сайте
+                    const cards = document.querySelectorAll('.cake-section .card');
+                    cards.forEach(card => {
+                        const titleEl = card.querySelector('.card-title');
+                        if (!titleEl) return;
                         
-                        const cardHTML = `
-                            <div class="${cardClass}">
-                                <div class="card-img-wrap">
-                                    <button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button>
-                                    <img src="${item.image_url || 'images/cake1.jpg'}" alt="${item.title}" onclick="openModal(this)">
-                                </div>
-                                <div class="card-content">
-                                    <div class="card-title">${item.title}</div>
-                                    <div class="card-desc">${item.description || ''}</div>
-                                    <div style="margin-top: 6px; font-weight: 600; color: #496b78; font-size: 13px;">
-                                        ${item.price} ${item.price_unit || '₽/кг'}
-                                    </div>
-                                </div>
-                            </div>
-                        `;
+                        const titleKey = titleEl.textContent.trim().toLowerCase();
+                        const dbItem = productMap[titleKey];
 
-                        // Распределяем по категориям
-                        if (item.category && item.category.toLowerCase().includes('премиум')) {
-                            if (premiumGrid) premiumGrid.innerHTML += cardHTML;
-                        } else {
-                            if (classicGrid) classicGrid.innerHTML += cardHTML;
+                        if (dbItem) {
+                            // Если товар выключен админом (is_active === false)
+                            if (dbItem.is_active === false) {
+                                card.classList.add('is-hidden');
+                                return;
+                            }
+
+                            // Если товара нет в наличии (is_available === false)
+                            if (dbItem.is_available === false) {
+                                card.classList.add('out-of-stock');
+                            } else {
+                                card.classList.remove('out-of-stock');
+                            }
+
+                            // Если в базе указана актуальная цена, обновляем ее прямо в карточке
+                            if (dbItem.price) {
+                                let priceContainer = card.querySelector('.card-dynamic-price');
+                                if (!priceContainer) {
+                                    priceContainer = document.createElement('div');
+                                    priceContainer.className = 'card-dynamic-price';
+                                    priceContainer.style.cssText = 'margin-top: 6px; font-weight: 600; color: #496b78; font-size: 13px;';
+                                    card.querySelector('.card-content').appendChild(priceContainer);
+                                }
+                                priceContainer.textContent = `${dbItem.price} ${dbItem.price_unit || '₽/кг'}`;
+                            }
                         }
                     });
                 }
             } catch (err) {
-                console.error('Ошибка загрузки каталога:', err);
+                console.error('Ошибка синхронизации товаров с Supabase:', err);
             }
         }
 
@@ -1459,6 +1555,7 @@
             }
         }
 
+        // Отрисовка компактной карточки с кнопкой разворачивания
         function appendReviewCard(rev, trackContainer) {
             const stars = '★'.repeat(rev.rating) + '☆'.repeat(5 - rev.rating);
             const dateFormatted = new Date(rev.created_at).toLocaleDateString('ru-RU');
@@ -1500,17 +1597,29 @@
             const cardElem = textElem.closest('.review-card');
             
             cardElem.classList.toggle('expanded');
-            btnElem.textContent = cardElem.classList.contains('expanded') ? 'Свернуть' : 'Развернуть';
+            if (cardElem.classList.contains('expanded')) {
+                btnElem.textContent = 'Свернуть';
+            } else {
+                btnElem.textContent = 'Развернуть';
+            }
         }
 
         function setupRealtimeReviews() {
             supabaseClient
                 .channel('public:reviews')
-                .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'reviews' }, payload => {
+                .on('postgres_changes', { 
+                    event: 'INSERT', 
+                    schema: 'public', 
+                    table: 'reviews' 
+                }, payload => {
                     const newRev = payload.new;
                     if (newRev.is_approved) {
                         const track = document.getElementById('reviewsTrack');
+                        if (track.querySelector('.review-author')?.textContent === 'Пока нет отзывов') {
+                            track.innerHTML = '';
+                        }
                         appendReviewCard(newRev, track);
+                        track.prepend(track.lastChild);
                     }
                 })
                 .subscribe();
@@ -1548,7 +1657,7 @@
                 document.getElementById('reviewForm').reset();
             } catch (err) {
                 console.error(err);
-                alert('Не удалось отправить отзыв.');
+                alert('Не удалось отправить отзыв. Попробуйте позже.');
             }
         }
 
@@ -1556,33 +1665,77 @@
             return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
         }
 
-        // Интерфейсные обработчики
-        function openReviewModal(e) { e.preventDefault(); document.getElementById('reviewModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
-        function closeReviewModal() { document.getElementById('reviewModal').classList.remove('open'); document.body.style.overflow = ''; }
-        function closeReviewModalOutside(e) { if (e.target === document.getElementById('reviewModal')) closeReviewModal(); }
+        function openReviewModal(event) {
+            event.preventDefault();
+            document.getElementById('reviewModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeReviewModal() {
+            document.getElementById('reviewModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function closeReviewModalOutside(event) {
+            if (event.target === document.getElementById('reviewModal')) closeReviewModal();
+        }
 
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', function() {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            if (docHeight > 0) document.body.style.setProperty('--scroll-progress', scrollTop / docHeight);
+            if (docHeight > 0) {
+                document.body.style.setProperty('--scroll-progress', scrollTop / docHeight);
+            }
             const scrollBtn = document.getElementById('scrollTopBtn');
             if (window.scrollY > 400) scrollBtn.classList.add('show');
             else scrollBtn.classList.remove('show');
         });
 
-        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-        function openModal(img) { document.getElementById('modalImg').src = img.src; document.getElementById('imageModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
-        function closeModal() { document.getElementById('imageModal').classList.remove('open'); document.body.style.overflow = ''; }
-        function openOrderModal(e) { e.preventDefault(); document.getElementById('orderModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
-        function closeOrderModal() { document.getElementById('orderModal').classList.remove('open'); document.body.style.overflow = ''; }
-        function closeOrderModalOutside(e) { if (e.target === document.getElementById('orderModal')) closeOrderModal(); }
-        function openPrivacyModal(e) { e.preventDefault(); document.getElementById('privacyModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
-        function closePrivacyModal() { document.getElementById('privacyModal').classList.remove('open'); document.body.style.overflow = ''; }
-        function closePrivacyModalOutside(e) { if (e.target === document.getElementById('privacyModal')) closePrivacyModal(); }
-        function toggleLike(btn) { btn.classList.toggle('active'); btn.textContent = btn.classList.contains('active') ? '♥' : '♡'; }
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-        function handleFormSubmit(e) {
-            e.preventDefault();
+        function openModal(img) {
+            document.getElementById('modalImg').src = img.src;
+            document.getElementById('imageModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('imageModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function openOrderModal(event) {
+            event.preventDefault();
+            document.getElementById('orderModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeOrderModal() {
+            document.getElementById('orderModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function closeOrderModalOutside(event) {
+            if (event.target === document.getElementById('orderModal')) closeOrderModal();
+        }
+
+        function openPrivacyModal(event) {
+            event.preventDefault();
+            document.getElementById('privacyModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closePrivacyModal() {
+            document.getElementById('privacyModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function closePrivacyModalOutside(event) {
+            if (event.target === document.getElementById('privacyModal')) closePrivacyModal();
+        }
+
+        function toggleLike(button) {
+            button.classList.toggle('active');
+            button.textContent = button.classList.contains('active') ? '♥' : '♡';
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
             const name = document.getElementById('userName').value;
             const contact = document.getElementById('userContact').value;
             const filling = document.getElementById('cakeFilling').value;
@@ -1595,13 +1748,14 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ chat_id: CHAT_ID, text: message, parse_mode: 'Markdown' })
-            }).then(res => {
-                if (res.ok) {
+            })
+            .then(response => {
+                if (response.ok) {
                     alert('Спасибо! Ваша заявка успешно отправлена.');
                     closeOrderModal();
                     document.getElementById('cakeOrderForm').reset();
                 } else {
-                    alert('Ошибка отправки.');
+                    alert('Ошибка отправки. Свяжитесь по телефону.');
                 }
             });
         }
