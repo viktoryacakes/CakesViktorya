@@ -366,12 +366,12 @@
 
         .card:hover .card-img-wrap img { transform: scale(1.025); }
 
-        /* Стиль для скрытых/отключенных товаров через админку */
+        /* Скрытие товаров через админку */
         .card.is-hidden {
             display: none !important;
         }
 
-        /* Бейдж "Временно нет" на карточке */
+        /* Метка отсутствия на складе */
         .card.out-of-stock {
             opacity: 0.6;
         }
@@ -526,7 +526,7 @@
 
         #portfolio .card-img-wrap { height: clamp(210px, 27vw, 320px); }
 
-        /* --- Секция Отзывов (Минималистичная, строгая, низкая по высоте) --- */
+        /* --- Секция Отзывов --- */
         .reviews-section {
             margin-bottom: 60px;
         }
@@ -577,7 +577,6 @@
 
         .reviews-track::-webkit-scrollbar { display: none; }
 
-        /* Узкие, компактные по высоте карточки отзывов без «воды» */
         .review-card {
             flex: 0 0 calc(25% - 11px);
             min-width: 220px;
@@ -632,7 +631,6 @@
             overflow: hidden;
         }
 
-        /* Премиальный шрифт с засечками для текста отзывов (не ИИшный стиль) */
         .review-text {
             font-family: 'Cormorant Garamond', Georgia, serif;
             color: #425256;
@@ -1102,7 +1100,7 @@
             </div>
         </div>
 
-        <!-- 1. Классика (Каждой карточке добавлен data-title для автоматической связи с базой) -->
+        <!-- 1. Классика -->
         <section id="classic" class="cake-section">
             <div class="section-heading">
                 <div><p class="section-kicker">Знакомые вкусы</p><h2 class="section-title">Классические начинки</h2></div>
@@ -1188,7 +1186,7 @@
             </div>
         </section>
 
-        <!-- 3. Бенто-торты (на мобилках фото вынесено вниз) -->
+        <!-- 3. Бенто-торты (с сохраненной картинкой и адаптацией ПК/мобилки) -->
         <section id="bento" class="bento-banner-section" aria-label="Бенто-торты">
             <div class="bento-banner-inner">
                 <div class="bento-content-wrap">
@@ -1246,7 +1244,7 @@
                 <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work3.gif" alt="Императорская подача" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Императорская подача</div><div class="card-desc">Элегантное оформление и фирменная упаковка.</div></div></div>
                 <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work4.gif" alt="Авторский декор" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Авторский декор</div><div class="card-desc">Уникальное оформление под стиль вашего праздника.</div></div></div>
                 <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work5.gif" alt="Праздничное настроение" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Праздничное настроение</div><div class="card-desc">Яркие акценты и утонченные детали.</div></div></div>
-                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work6.gif" alt="Императорская классика" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Императорская классика</div><div class="card-desc">Строгие линии, безупречное исполнение.</div></div></div>
+                <div class="card"><div class="card-img-wrap"><button class="like-btn" onclick="toggleLike(this)" title="В избранное">♡</button><img src="images/work6.gif" alt="Императорская классика" onclick="openModal(this)"></div><div class="card-content"><div class="card-title">Изысканная классика</div><div class="card-desc">Строгие линии, безупречное исполнение.</div></div></div>
             </div>
         </section>
 
@@ -1310,7 +1308,6 @@
         <img id="modalImg" src="" alt="Увеличенное фото">
     </div>
 
-    <!-- Модальное окно для формы заявки -->
     <div id="orderModal" class="modal" onclick="closeOrderModalOutside(event)">
         <div class="order-modal-content">
             <span class="modal-close" style="color: #264a52;" onclick="closeOrderModal()">&times;</span>
@@ -1416,7 +1413,7 @@
         </div>
     </div>
 
-    <!-- Полноценная юридическая Политика конфиденциальности -->
+    <!-- Политика конфиденциальности -->
     <div id="privacyModal" class="modal" onclick="closePrivacyModalOutside(event)">
         <div class="order-modal-content">
             <span class="modal-close" style="color: #264a52;" onclick="closePrivacyModal()">&times;</span>
@@ -1482,13 +1479,11 @@
                 if (error) throw error;
 
                 if (data && data.length > 0) {
-                    // Создаем карту товаров по их названию
                     const productMap = {};
                     data.forEach(item => {
                         productMap[item.title.trim().toLowerCase()] = item;
                     });
 
-                    // Проходим по всем карточкам на сайте
                     const cards = document.querySelectorAll('.cake-section .card');
                     cards.forEach(card => {
                         const titleEl = card.querySelector('.card-title');
@@ -1498,20 +1493,17 @@
                         const dbItem = productMap[titleKey];
 
                         if (dbItem) {
-                            // Если товар выключен админом (is_active === false)
                             if (dbItem.is_active === false) {
                                 card.classList.add('is-hidden');
                                 return;
                             }
 
-                            // Если товара нет в наличии (is_available === false)
                             if (dbItem.is_available === false) {
                                 card.classList.add('out-of-stock');
                             } else {
                                 card.classList.remove('out-of-stock');
                             }
 
-                            // Если в базе указана актуальная цена, обновляем ее прямо в карточке
                             if (dbItem.price) {
                                 let priceContainer = card.querySelector('.card-dynamic-price');
                                 if (!priceContainer) {
@@ -1555,7 +1547,6 @@
             }
         }
 
-        // Отрисовка компактной карточки с кнопкой разворачивания
         function appendReviewCard(rev, trackContainer) {
             const stars = '★'.repeat(rev.rating) + '☆'.repeat(5 - rev.rating);
             const dateFormatted = new Date(rev.created_at).toLocaleDateString('ru-RU');
