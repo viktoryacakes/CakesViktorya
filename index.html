@@ -1469,7 +1469,7 @@
             setupRealtimeReviews();
         });
 
-        // Синхронизируем статические карточки с данными из Supabase (цены, наличие, активность)
+        // Синхронизируем статические карточки с данными из Supabase (наличие и активность)
         async function syncProductsFromSupabase() {
             try {
                 const { data, error } = await supabaseClient
@@ -1502,17 +1502,6 @@
                                 card.classList.add('out-of-stock');
                             } else {
                                 card.classList.remove('out-of-stock');
-                            }
-
-                            if (dbItem.price) {
-                                let priceContainer = card.querySelector('.card-dynamic-price');
-                                if (!priceContainer) {
-                                    priceContainer = document.createElement('div');
-                                    priceContainer.className = 'card-dynamic-price';
-                                    priceContainer.style.cssText = 'margin-top: 6px; font-weight: 600; color: #496b78; font-size: 13px;';
-                                    card.querySelector('.card-content').appendChild(priceContainer);
-                                }
-                                priceContainer.textContent = `${dbItem.price} ${dbItem.price_unit || '₽/кг'}`;
                             }
                         }
                     });
